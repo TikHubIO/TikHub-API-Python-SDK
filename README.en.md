@@ -1,18 +1,26 @@
-# tkhub_pp([API.TikHub.io](https://api.tikhub.io/docs))
+<div align="center">
 
-[API.TikHub.io](https://api.tikhub.io/docs), is an asynchronous high-performance Douyin and TikTok data crawling tool. This Repo is a PyPi package based on this API, which is convenient for developers to call.
+# [tikhub_pp](https://pypi.org/project/tikhub)
+
+「[api.tikhub.io](https://api.tikhub.io/docs)", is an asynchronous high-performance Douyin and TikTok data crawling online tool. This repo is a package based on this API, which is convenient for developers to call.
+
+Pee:<https://pypi.org/project/tikhub>
+
+[English](./README.en.md)\|[Simplified Chinese](./README.md)
+
+</div>
 
 ## note
 
 > This project uses the following Emoji to indicate the development status in the development chart!
 
-| Emoji |                                                representative meaning                                               |
-| :---: | :-----------------------------------------------------------------------------------------------------------------: |
-|   🚀  |                         Rocket - The feature is written, tested, and deployed to production.                        |
-|   ✅   | Checkmark - The feature is written but has yet to be tested and will be deployed to production once the tests pass. |
-|   ❌   |                    Cross sign - The feature has not yet been written or has not been written yet.                   |
-|   🔜  |                      SOON BREAK - Feature proposed but not yet assigned a designated developer.                     |
-|   ⚠️  |                    Warning symbol - There is a problem with the function that needs to be fixed.                    |
+| Emoji |                                                 representative meaning                                                |
+| :---: | :-------------------------------------------------------------------------------------------------------------------: |
+|   🚀  |                          Rocket - The feature is written, tested, and deployed to production.                         |
+|   ✅   | Check mark - the feature is written, but has yet to be tested and will be deployed to production once the tests pass. |
+|   ❌   |                       Cross sign - Feature has not yet been written or has not been written yet.                      |
+|   🔜  |                                               SOON符 - 功能已提出但尚未分配指定开发人员。                                               |
+|   ⚠️  |                     Warning symbol - There is a problem with the function that needs to be fixed.                     |
 
 ## project progress
 
@@ -41,11 +49,11 @@
 |   🚀  |    `/douyin_profile_videos/`    |          Crawl user homepage video data          |    no known issues    |
 |   🚀  | `/douyin_profile_liked_videos/` | Crawl the user homepage has liked the video data |    no known issues    |
 
-> Production deployment of TikTok-related interfaces - API tags: TikTok
+> Production and deployment of TikTok-related interfaces - API tags: TikTok
 
 | state |        API endpoint path        |                     Function                     |      issue      |
 | :---: | :-----------------------------: | :----------------------------------------------: | :-------------: |
-|   🚀  |      `/tiktok_video_data/`      |             Crawl a single video data            | no known issues |
+|   🚀  |      `/tiktok_video_data/`      |             Crawl a single video data            |      无已知问题      |
 |   🚀  |    `/tiktok_video_comments/`    |         Crawl a single video comment data        | no known issues |
 |   🚀  |     `/tiktok_music_videos/`     |             Crawl the soundtrack data            | no known issues |
 |   🚀  |    `/tiktok_profile_videos/`    |          Crawl user homepage video data          | no known issues |
@@ -58,7 +66,14 @@
 
 ## Example of use
 
+> Check[demo.py](https://github.com/TikHubIO/TikHub_PyPi/blob/main/demo/demo.py)
+
 ```python
+import asyncio
+import time
+
+from tikhub.api import API
+
 async def async_test() -> None:
     # 异步测试/Async test
 
@@ -68,7 +83,7 @@ async def async_test() -> None:
 
     douyin_url = 'https://www.douyin.com/video/7153585499477757192'
 
-    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAA-Hu1YKTuhE3QkCHD5yU26k--RUZiaoMRtpfmeid-Z_o'
+    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAAaNJuvXC83kL5nhaZHubKdjsRJQovgz58wXzlLnJUsslG-Kb24TM1QJlf_2HMaUJk'
 
     print("Test start...\n")
     start_time = time.time()
@@ -121,6 +136,7 @@ async def async_test() -> None:
     # 获取用户主页的所有点赞视频数据/Get all liked video data on the user's homepage
     print("Running test : API.get_douyin_profile_liked_videos()")
     aweme_list = await api.get_douyin_profile_liked_videos(douyin_user_url, 20)
+    print(f'Get {len(aweme_list)} liked videos from profile')
 
     # 总耗时/Total time
     total_time = round(time.time() - start_time, 2)
