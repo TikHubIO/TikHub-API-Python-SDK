@@ -3,7 +3,7 @@
 # @Author: https://github.com/orgs/TikHubIO
 # @Time: 2022/12/15
 # @Update: 2022/12/19
-# @Version: 1.0.0
+# @Version: 1.0.1
 # @Description: Douyin/TikTok async data scraper, base on TikHub API.
 
 
@@ -324,7 +324,7 @@ async def async_test() -> None:
 
     douyin_url = 'https://www.douyin.com/video/7153585499477757192'
 
-    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAA-Hu1YKTuhE3QkCHD5yU26k--RUZiaoMRtpfmeid-Z_o'
+    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAAaNJuvXC83kL5nhaZHubKdjsRJQovgz58wXzlLnJUsslG-Kb24TM1QJlf_2HMaUJk'
 
     print("Test start...\n")
     start_time = time.time()
@@ -377,6 +377,7 @@ async def async_test() -> None:
     # 获取用户主页的所有点赞视频数据/Get all liked video data on the user's homepage
     print("Running test : API.get_douyin_profile_liked_videos()")
     aweme_list = await api.get_douyin_profile_liked_videos(douyin_user_url, 20)
+    print(f'Get {len(aweme_list)} liked videos from profile')
 
     # 总耗时/Total time
     total_time = round(time.time() - start_time, 2)

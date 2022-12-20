@@ -14,7 +14,7 @@ with open("README.md", "r", encoding='utf8') as fh:
 setuptools.setup(
     name='tikhub',
     author='TikHub.io',
-    version='1.0.0',
+    version='1.0.1',
     license='Apache V2.0 License',
     description='Douyin/TikTok async data scraper.',
     long_description=long_description,
