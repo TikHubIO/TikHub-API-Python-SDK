@@ -18,8 +18,8 @@ Pee:<https://pypi.org/project/tikhub>
 | :---: | :-------------------------------------------------------------------------------------------------------------------: |
 |   🚀  |                          Rocket - The feature is written, tested, and deployed to production.                         |
 |   ✅   | Check mark - the feature is written, but has yet to be tested and will be deployed to production once the tests pass. |
-|   ❌   |                       Cross sign - Feature has not yet been written or has not been written yet.                      |
-|   🔜  |                                               SOON符 - 功能已提出但尚未分配指定开发人员。                                               |
+|   ❌   |                     Cross sign - The feature has not yet been written or has not been written yet.                    |
+|   🔜  |                       SOON BREAK - Feature proposed but not yet assigned a designated developer.                      |
 |   ⚠️  |                     Warning symbol - There is a problem with the function that needs to be fixed.                     |
 
 ## project progress
@@ -49,11 +49,11 @@ Pee:<https://pypi.org/project/tikhub>
 |   🚀  |    `/douyin_profile_videos/`    |          Crawl user homepage video data          |    no known issues    |
 |   🚀  | `/douyin_profile_liked_videos/` | Crawl the user homepage has liked the video data |    no known issues    |
 
-> Production and deployment of TikTok-related interfaces - API tags: TikTok
+> Production deployment of TikTok-related interfaces - API tags: TikTok
 
 | state |        API endpoint path        |                     Function                     |      issue      |
 | :---: | :-----------------------------: | :----------------------------------------------: | :-------------: |
-|   🚀  |      `/tiktok_video_data/`      |             Crawl a single video data            |      无已知问题      |
+|   🚀  |      `/tiktok_video_data/`      |             Crawl a single video data            | no known issues |
 |   🚀  |    `/tiktok_video_comments/`    |         Crawl a single video comment data        | no known issues |
 |   🚀  |     `/tiktok_music_videos/`     |             Crawl the soundtrack data            | no known issues |
 |   🚀  |    `/tiktok_profile_videos/`    |          Crawl user homepage video data          | no known issues |
