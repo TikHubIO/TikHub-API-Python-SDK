@@ -1,7 +1,14 @@
-# TikHub_PyPi([API.TikHub.io](https://api.tikhub.io/docs))
+<div align="center">
 
-[API.TikHub.io](https://api.tikhub.io/docs)，是一个异步高性能的Douyin，TikTok数据爬取工具，此Repo为基于该API的PyPi包，方便各位开发者调用。
+# [TikHub_PyPi](https://pypi.org/project/tikhub)
 
+「[api.tikhub.io](https://api.tikhub.io/docs)」，是一个异步高性能的Douyin，TikTok数据爬取在线工具，此repo为基于该API的封装，方便各位开发者调用。
+
+PyPi：[https://pypi.org/project/tikhub](https://pypi.org/project/tikhub)
+
+[English](./README.en.md) | [简体中文](./README.md)
+
+</div>
 
 ## 注释
 
@@ -59,7 +66,14 @@
 
 ## 使用示例
 
+> 查看[demo.py](https://github.com/TikHubIO/TikHub_PyPi/blob/main/demo/demo.py)
+
 ```python
+import asyncio
+import time
+
+from tikhub.api import API
+
 async def async_test() -> None:
     # 异步测试/Async test
 
@@ -69,7 +83,7 @@ async def async_test() -> None:
 
     douyin_url = 'https://www.douyin.com/video/7153585499477757192'
 
-    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAA-Hu1YKTuhE3QkCHD5yU26k--RUZiaoMRtpfmeid-Z_o'
+    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAAaNJuvXC83kL5nhaZHubKdjsRJQovgz58wXzlLnJUsslG-Kb24TM1QJlf_2HMaUJk'
 
     print("Test start...\n")
     start_time = time.time()
@@ -122,6 +136,7 @@ async def async_test() -> None:
     # 获取用户主页的所有点赞视频数据/Get all liked video data on the user's homepage
     print("Running test : API.get_douyin_profile_liked_videos()")
     aweme_list = await api.get_douyin_profile_liked_videos(douyin_user_url, 20)
+    print(f'Get {len(aweme_list)} liked videos from profile')
 
     # 总耗时/Total time
     total_time = round(time.time() - start_time, 2)
@@ -136,3 +151,5 @@ if __name__ == '__main__':
     )
     asyncio.run(async_test())
 ```
+
+
