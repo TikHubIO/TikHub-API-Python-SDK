@@ -1,4 +1,4 @@
-# tikhub_pp([API.TikHub.io](https://api.tikhub.io/docs))
+# tkhub_pp([API.TikHub.io](https://api.tikhub.io/docs))
 
 [API.TikHub.io](https://api.tikhub.io/docs), is an asynchronous high-performance Douyin and TikTok data crawling tool. This Repo is a PyPi package based on this API, which is convenient for developers to call.
 
@@ -6,13 +6,13 @@
 
 > This project uses the following Emoji to indicate the development status in the development chart!
 
-| Emoji |                                                 representative meaning                                                |
-| :---: | :-------------------------------------------------------------------------------------------------------------------: |
-|   🚀  |                          Rocket - The feature is written, tested, and deployed to production.                         |
-|   ✅   | Check mark - the feature is written, but has yet to be tested and will be deployed to production once the tests pass. |
-|   ❌   |                     Cross sign - The feature has not yet been written or has not been written yet.                    |
-|   🔜  |              SOON BREAK - Feature has been proposed but has not yet been assigned a designated developer.             |
-|   ⚠️  |                     Warning symbol - There is a problem with the function that needs to be fixed.                     |
+| Emoji |                                                representative meaning                                               |
+| :---: | :-----------------------------------------------------------------------------------------------------------------: |
+|   🚀  |                         Rocket - The feature is written, tested, and deployed to production.                        |
+|   ✅   | Checkmark - The feature is written but has yet to be tested and will be deployed to production once the tests pass. |
+|   ❌   |                    Cross sign - The feature has not yet been written or has not been written yet.                   |
+|   🔜  |                      SOON BREAK - Feature proposed but not yet assigned a designated developer.                     |
+|   ⚠️  |                    Warning symbol - There is a problem with the function that needs to be fixed.                    |
 
 ## project progress
 
@@ -41,7 +41,7 @@
 |   🚀  |    `/douyin_profile_videos/`    |          Crawl user homepage video data          |    no known issues    |
 |   🚀  | `/douyin_profile_liked_videos/` | Crawl the user homepage has liked the video data |    no known issues    |
 
-> Production and deployment of TikTok-related interfaces - API tags: TikTok
+> Production deployment of TikTok-related interfaces - API tags: TikTok
 
 | state |        API endpoint path        |                     Function                     |      issue      |
 | :---: | :-----------------------------: | :----------------------------------------------: | :-------------: |
