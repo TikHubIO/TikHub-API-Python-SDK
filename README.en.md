@@ -1,3 +1,5 @@
+# To be updated - April 27, 2023
+
 <div align="center">
 <h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
 <a href="https://github.com/TikHubIO/TikHub_API_PyPi/blob/main/README.en.md">English</a> | <a href="https://github.com/TikHubIO/TikHub_API_PyPi/blob/main/README.md">简体中文</a>
@@ -38,7 +40,7 @@ proxy=None,
 <a href="https://api.tikhub.io/promotion/daily_check_in">https://api.tikhub.io/promotion/daily_check_in</a>
 <hr>
 
-## 使用示例
+## Example of use
 
 > Check[test.py](https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py)
 
