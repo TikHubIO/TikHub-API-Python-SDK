@@ -14,15 +14,15 @@ with open("README.md", "r", encoding='utf8') as fh:
 setuptools.setup(
     name='tikhub',
     author='TikHub.io',
-    version='1.0.2',
+    version='1.0.3',
     license='Apache V2.0 License',
-    description='Douyin/TikTok async data scraper.',
+    description='TikHub Unofficial 抖音/TikTok/小红书 RESTful API',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author_email='tikhub.io@proton.me',
     url='https://github.com/orgs/TikHubIO',
     packages=setuptools.find_packages(),
-    keywords='TikTok, Douyin, 抖音, Scraper, Crawler, API, Download, Video, No Watermark, Async',
+    keywords='TikTok, Douyin, 抖音, 小红书, Scraper, Crawler, API, Download, Video, No Watermark, Async',
     # 依赖包
     install_requires=[
         'aiohttp',

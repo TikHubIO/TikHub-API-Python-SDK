@@ -12,13 +12,13 @@
 <p>调用这些接口会使用你账户中的剩余请求次数！</p>
 
 ```python
-from tikhub.api import *
+from tikhub.__main__ import *
 
 # 初始化（Initialization)
 api = API(
-email='EMAIL@EXAMPLE.COM',
-password='PASSWORD',
-proxy=None,
+    email='EMAIL@EXAMPLE.COM',
+    password='PASSWORD',
+    proxy=None,
 )
 ```
 
@@ -51,7 +51,7 @@ pip install tikhub
 - Usage
 
 ```python
-from tikhub.api import *
+from tikhub.__main__ import *
 
 
 async def async_test() -> None:
