@@ -13,17 +13,6 @@
 <p>接口文档中带有🔒的接口需要在请求头中携带Token才可调用。</p>
 <p>调用这些接口会使用你账户中的剩余请求次数！</p>
 
-
-```python
-from tikhub import TikTokAPI, DouyinAPI
-
-# 初始化（Initialization)
-token = input('Please enter your TikTok token: ')
-tiktok_api = TikTokAPI(token)
-douyin_api = DouyinAPI(token)
-
-```
-
 <hr>
 <h4>购买</h4>
 <p>Website(🚧ing): <a href="https://tikhub.io">https://tikhub.io</a></p>
@@ -50,100 +39,43 @@ douyin_api = DouyinAPI(token)
 pip install tikhub
 ```
 
-- Usage
+- 第二步/second step: 初始化/Initialization
 
-```第二步/second step: 初始化/Initialization
+``` python
 from tikhub import TikTokAPI, DouyinAPI
+
 token = input('Please enter your TikTok token: ')
 tiktok_api = TikTokAPI(token)
 douyin_api = DouyinAPI(token)
 
+'''
 
+- 第三步/third step: 调用方法/call the function
 
-async def async_test() -> None:
-    # 异步测试/Async test
-
-    tiktok_url = 'https://www.tiktok.com/@evil0ctal/video/7156033831819037994'
-
-    tiktok_music_url = 'https://www.tiktok.com/music/original-sound-7128362040359488261'
-
-    douyin_url = 'https://www.douyin.com/video/7153585499477757192'
-
-    douyin_user_url = 'https://www.douyin.com/user/MS4wLjABAAAAaNJuvXC83kL5nhaZHubKdjsRJQovgz58wXzlLnJUsslG-Kb24TM1QJlf_2HMaUJk'
-
-    print("Test start...\n")
-    start_time = time.time()
-
-    # 获取TikHub请求头/Get TikHub request header
-    r = await api.user_login()
-    print("Running test : API.user_login()")
-    print(r)
-
-    # 获取TikHub用户信息/Get TikHub user information
-    print("Running test : API.get_user_info()")
-    r = await api.get_user_info()
-    print(r)
-
-    print("\nRunning ALL TikTok methods test...\n")
-
-    # 获取单个视频数据/Get single video data
-    print("Running test : API.get_tiktok_video_data()")
-    r = await api.get_tiktok_video_data(tiktok_url)
-    # print(r)
-
-    # 获取获取用户主页的所有视频数据/Get all video data on the user's homepage
-    print("Running test : API.get_tiktok_profile_videos()")
-    r = await api.get_tiktok_profile_videos(tiktok_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} videos from profile')
-
-    # 获取用户主页的所有点赞视频数据/Get all liked video data on the user's homepage
-    print("Running test : API.get_tiktok_profile_liked_videos()")
-    r = await api.get_tiktok_profile_liked_videos(tiktok_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} liked videos from profile')
-
-    # 获取TikTok视频的所有评论数据/Get all comment data of TikTok video
-    print("Running test : API.get_tiktok_video_comments()")
-    r = await api.get_tiktok_video_comments(tiktok_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} comments from video')
-
-    # 获取音乐页面上的所有(理论上能抓取到的)视频数据/Get all (theoretically) video data on the music page
-    print("Running test : API.get_tiktok_music_videos()")
-    r = await api.get_tiktok_music_videos(tiktok_music_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} videos from music')
-
-    print("\nRunning ALL Douyin methods test...\n")
-
-    # 获取单个视频数据/Get single video data
-    print("Running test : API.get_douyin_video_data()")
-    r = await api.get_douyin_video_data(douyin_url)
-
-    # 获取获取用户主页的所有视频数据/Get all video data on the user's homepage
-    print("Running test : API.get_douyin_profile_videos()")
-    r = await api.get_douyin_profile_videos(douyin_user_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} videos from profile')
-
-    # 获取用户主页的所有点赞视频数据/Get all liked video data on the user's homepage
-    print("Running test : API.get_douyin_profile_liked_videos()")
-    r = await api.get_douyin_profile_liked_videos(douyin_user_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} liked videos from profile')
-
-    # 获取抖音视频的所有评论数据/Get all comment data of Douyin video
-    print("Running test : API.get_douyin_video_comments()")
-    r = await api.get_douyin_video_comments(douyin_url, cursor=None, count=None, get_all=False)
-    print(f'Get {len(r)} comments from video')
-
-    # 总耗时/Total time
-    total_time = round(time.time() - start_time, 2)
-    print("\nTest completed, total time: {}s".format(total_time))
-
+''' python
+import asyncio
+from tikhub import TikTokAPI, DouyinAPI
 
 if __name__ == '__main__':
-    api = API(
-        email='EMAIL@EXAMPLE.COM',
-        password='PASSWORD',
-        proxy=None,
-    )
-    asyncio.run(async_test())
+    token = input('Please enter your TikTok token: ')
+
+    tiktok_api = TikTokAPI(token)
+    douyin_api = DouyinAPI(token)
+
+    tiktok_video_url = "https://www.tiktok.com/@evil0ctal/video/7201344014984006954"
+
+    r = None
+
+    # 读取用户信息/Read user information
+    r = asyncio.run(tiktok_api.get_user_info())
+    print(r)
+
+    tiktok_video_url = 'https://www.tiktok.com/@evil0ctal/video/7156033831819037994'
+    tiktok_music_url = 'https://www.tiktok.com/music/original-sound-7128362040359488261'
+
+    # 解析单一tiktok视频/Parse a single tiktok video
+    # r = asyncio.run(tiktok_api.get_tiktok_video_data(tiktok_video_url))
+    # print(r)
 ```
 
 
