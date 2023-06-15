@@ -41,7 +41,7 @@ pip install tikhub
 ``` python
 from tikhub import TikTokAPI, DouyinAPI
 
-token = input('Please enter your TikTok token: ')
+token = "请在此填写您的token/秘钥"
 tiktok_api = TikTokAPI(token)
 douyin_api = DouyinAPI(token)
 
@@ -51,10 +51,11 @@ douyin_api = DouyinAPI(token)
 
 ``` python
 import asyncio
+    
 from tikhub import TikTokAPI, DouyinAPI
 
 if __name__ == '__main__':
-    token = input('Please enter your TikTok token: ')
+    token ="请在此填写您的token/秘钥"
 
     tiktok_api = TikTokAPI(token)
     douyin_api = DouyinAPI(token)
