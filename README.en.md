@@ -48,15 +48,15 @@ token = input('Please enter your TikTok token: ')
 tiktok_api = TikTokAPI(token)
 douyin_api = DouyinAPI(token)
 
-'''
+```
 
-- 第三步/third step: 调用方法/call the function
+-   The third step/third step: call the method/call the function
 
 ''' python
 import asyncio
 from tikhub import TikTokAPI, DouyinAPI
 
-if __name__ == '__main__':
+if**name**== '**main**':
     token = input('Please enter your TikTok token: ')
 
     tiktok_api = TikTokAPI(token)
@@ -76,4 +76,9 @@ if __name__ == '__main__':
     # 解析单一tiktok视频/Parse a single tiktok video
     # r = asyncio.run(tiktok_api.get_tiktok_video_data(tiktok_video_url))
     # print(r)
+
+```
+
+
+
 ```
