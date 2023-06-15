@@ -48,7 +48,7 @@ token = input('Please enter your TikTok token: ')
 tiktok_api = TikTokAPI(token)
 douyin_api = DouyinAPI(token)
 
-'''
+```
 
 - 第三步/third step: 调用方法/call the function
 
