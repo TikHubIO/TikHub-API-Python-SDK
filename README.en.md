@@ -1,4 +1,4 @@
-# Update - June 15, 2023
+# 更新 - 2023年6月15日
 
 <div align="center">
 <h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
@@ -16,8 +16,8 @@
 <hr>
 <h4>购买</h4>
 <p>Website(🚧ing): <a href="dash.tikhub.io">dash.tikhub.io</a></p>
-<p>API Website(🚧ing): <a href="api.tikhub.io">api.tikhub.io</a></p>
-<p>Discord(💳buy): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
+<p>API Website: <a href="api.tikhub.io">api.tikhub.io</a></p>
+<p>Discord(💳support): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
 <p>Github: <a href="https://github.com/TikHubIO">https://github.com/TikHubIO</a></p>
 <p>Email: <a href="mailto:tikhub.io@proton.me">tikhub.io@proton.me</a></p>
 <p>WeChat/微信: Evil-Bot</p>
