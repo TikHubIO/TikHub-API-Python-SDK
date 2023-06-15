@@ -1,4 +1,4 @@
-# To be updated - April 27, 2023
+# 更新 - 2023年6月15日
 
 <div align="center">
 <h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
@@ -14,14 +14,13 @@
 <p>调用这些接口会使用你账户中的剩余请求次数！</p>
 
 ```python
-from tikhub.__main__ import *
+from tikhub import TikTokAPI, DouyinAPI
 
 # 初始化（Initialization)
-api = API(
-    email='EMAIL@EXAMPLE.COM',
-    password='PASSWORD',
-    proxy=None,
-)
+token = input('Please enter your TikTok token: ')
+tiktok_api = TikTokAPI(token)
+douyin_api = DouyinAPI(token)
+
 ```
 
 <hr>
@@ -44,7 +43,7 @@ api = API(
 
 > Check[test.py](https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py)
 
--   Install
+-   The first step/first step: installation/Install
 
 ```bash
 pip install tikhub
@@ -52,8 +51,12 @@ pip install tikhub
 
 -   Usage
 
-```python
-from tikhub.__main__ import *
+```第二步/second step: 初始化/Initialization
+from tikhub import TikTokAPI, DouyinAPI
+token = input('Please enter your TikTok token: ')
+tiktok_api = TikTokAPI(token)
+douyin_api = DouyinAPI(token)
+
 
 
 async def async_test() -> None:
