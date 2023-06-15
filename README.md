@@ -28,7 +28,7 @@
 
 ## 使用示例
 
-> 查看[test.py]([https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py))
+> 查看[test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py)
 
 - 第一步/first step: 安装/Install
 
