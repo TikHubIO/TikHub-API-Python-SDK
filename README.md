@@ -30,13 +30,13 @@
 
 > 查看[test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py)
 
-- 第一步/first step: 安装/Install
+- 第一步: 安装
 
 ```bash
 pip install tikhub
 ```
 
-- 第二步/second step: 初始化/Initialization
+- 第二步: 初始化
 
 ``` python
 from tikhub import TikTokAPI, DouyinAPI
@@ -47,7 +47,7 @@ douyin_api = DouyinAPI(token)
 
 ```
 
-- 第三步/third step: 调用方法/call the function
+- 第三步: 调用方法
 
 ``` python
 import asyncio
