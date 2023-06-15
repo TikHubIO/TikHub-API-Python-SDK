@@ -1,4 +1,4 @@
-# Update - June 15, 2023
+# 更新 - 2023年6月15日
 
 <div align="center">
 <h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
@@ -28,7 +28,7 @@
 
 ## Example of use
 
-> Check[test.py]([https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py))
+> Check[test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py)
 
 -   The first step/first step: installation/Install
 
@@ -36,7 +36,7 @@
 pip install tikhub
 ```
 
--   第二步/second step: 初始化/Initialization
+-   The second step/second step: initialization/Initialization
 
 ```python
 from tikhub import TikTokAPI, DouyinAPI
@@ -47,7 +47,7 @@ douyin_api = DouyinAPI(token)
 
 ```
 
--   第三步/third step: 调用方法/call the function
+-   The third step/third step: call the method/call the function
 
 ```python
 import asyncio
