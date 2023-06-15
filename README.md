@@ -15,23 +15,20 @@
 
 <hr>
 <h4>购买</h4>
-<p>Website(🚧ing): <a href="https://tikhub.io">https://tikhub.io</a></p>
-<p>Discord(💳buy): <a href="https://discord.gg/KnWCrgCERq">https://discord.gg/KnWCrgCERq</a></p>
+<p>Website(🚧ing): <a href="https://tikhub.io">dash.tikhub.io</a></p>
+<p>Discord(💳buy): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
 <p>Github: <a href="https://github.com/TikHubIO">https://github.com/TikHubIO</a></p>
 <p>Email: <a href="mailto:tikhub.io@proton.me">tikhub.io@proton.me</a></p>
 <p>WeChat/微信: Evil-Bot</p>
 <hr>
 <h4>公告</h4>
 <p>TikHub的API将使用<strong>免费加付费</strong>的形式运行。</p>
-<p>登录后，通过点击以下链接可以免费试用7天，包含2000次API请求，只限新用户。</p>
-<a href="https://api.tikhub.io/promotion/claim?promotion_id=1">https://api.tikhub.io/promotion/claim?promotion_id=1</a>
-<p>登录后，通过点击以下链接进行签到可以随机获得50-100次API请求，每24小时可签到一次。</p>
-<a href="https://api.tikhub.io/promotion/daily_check_in">https://api.tikhub.io/promotion/daily_check_in</a>
+<p>登录后，通过签到可以随机获得50-100次API请求，每24小时可签到一次。</p
 <hr>
 
 ## 使用示例
 
-> 查看[test.py](https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py)
+> 查看[test.py]([https://github.com/TikHubIO/TikHub_PyPi/blob/main/test/test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py))
 
 - 第一步/first step: 安装/Install
 
@@ -52,7 +49,7 @@ douyin_api = DouyinAPI(token)
 
 - 第三步/third step: 调用方法/call the function
 
-''' python
+``` python
 import asyncio
 from tikhub import TikTokAPI, DouyinAPI
 
