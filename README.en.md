@@ -6,7 +6,7 @@
 </div>
 <h4>简介</h4>
 <p><a href="https://tikhub.io">TikHub</a>是抖音与TikTok非官方的RESTful API平台。</p>
-<p>我们提供的API只能获取公开数据，即任何人都可以通过浏览器及APP等访问抖音或TikTok以获取它们。</p>
+<p>我们提供的API只能获取公开数据，即任何人都可以通过浏览器及APP等访问抖音,TikTok,小红书以获取它们。</p>
 <p>如果您有任何建议或者需求，请联系我们，更多的功能正在开发中，敬请期待！</p>
 <hr>
 <h4>鉴权</h4>
@@ -20,7 +20,7 @@
 <p>Discord(💳support): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
 <p>Github: <a href="https://github.com/TikHubIO">https://github.com/TikHubIO</a></p>
 <p>Email: <a href="mailto:tikhub.io@proton.me">tikhub.io@proton.me</a></p>
-<p>WeChat/微信: Evil-Bot</p>
+<p>WeChat/微信: Lqiu1003912_</p>
 <hr>
 <h4>公告</h4>
 <p>TikHub的API将使用<strong>免费加付费</strong>的形式运行。</p>
