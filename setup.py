@@ -13,7 +13,7 @@ with open("README.md", "r", encoding='utf8') as fh:
 
 setup(
     name="tikhub",
-    version="1.0.4",
+    version="1.0.5",
     author="TikHub.io",
     author_email="tikhub.io@proton.me",
     description="A Python SDK for TikHub RESTful API",
@@ -28,7 +28,7 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        "httpx>=0.27.1",
+        "httpx>=0.27.0",
         "rich~=13.7.1",
     ],
 )
