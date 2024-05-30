@@ -6,36 +6,29 @@
 # 2.Upload to PyPi
 # twine upload dist/*
 
-import setuptools
+from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding='utf8') as fh:
     long_description = fh.read()
 
-setuptools.setup(
-    name='tikhub',
-    author='TikHub.io',
-    version='1.0.3',
-    license='Apache V2.0 License',
-    description='TikHub Unofficial 抖音/TikTok/小红书 RESTful API',
+setup(
+    name="tikhub",
+    version="1.0.4",
+    author="TikHub.io",
+    author_email="tikhub.io@proton.me",
+    description="A Python SDK for TikHub RESTful API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author_email='tikhub.io@proton.me',
-    url='https://github.com/orgs/TikHubIO',
-    packages=setuptools.find_packages(),
-    keywords='TikTok, Douyin, 抖音, 小红书, Scraper, Crawler, API, Download, Video, No Watermark, Async',
-    # 依赖包
-    install_requires=[
-        'aiohttp',
-        "tenacity",
-    ],
+    url="https://github.com/TikHubIO/TikHub-API-SDK-Python",
+    packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3 :: Only",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    install_requires=[
+        "httpx>=0.27.1",
+        "rich~=13.7.1",
+    ],
 )

@@ -2,7 +2,7 @@
 
 <div align="center">
 <h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
-<a href="https://github.com/TikHubIO/TikHub_API_PyPi/blob/main/README.en.md">English</a> | <a href="https://github.com/TikHubIO/TikHub_API_PyPi/blob/main/README.md">简体中文</a>
+<a href="https://github.com/TikHubIO/TikHub-API-Python-SDK/blob/main/README.en.md">English</a> | <a href="https://github.com/TikHubIO/TikHub-API-Python-SDK/blob/main/README.md">简体中文</a>
 </div>
 <h4>简介</h4>
 <p><a href="https://tikhub.io">TikHub</a>是抖音与TikTok非官方的RESTful API平台。</p>
@@ -15,16 +15,15 @@
 
 <hr>
 <h4>购买</h4>
-<p>Website(🚧ing): <a href="dash.tikhub.io">dash.tikhub.io</a></p>
-<p>API Website: <a href="api.tikhub.io">api.tikhub.io</a></p>
-<p>Discord(💳support): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
+<p>Website(🚧ing): <a href="https://tikhub.io">tikhub.io</a></p>
+<p>API Document: <a href="https://api.tikhub.io">api.tikhub.io</a></p>
+<p>Discord(Support): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
 <p>Github: <a href="https://github.com/TikHubIO">https://github.com/TikHubIO</a></p>
 <p>Email: <a href="mailto:tikhub.io@proton.me">tikhub.io@proton.me</a></p>
-<p>WeChat/微信: Lqiu1003912_</p>
 <hr>
 <h4>公告</h4>
 <p>TikHub的API将使用<strong>免费加付费</strong>的形式运行。</p>
-<p>登录后，通过签到可以随机获得50-100次API请求，每24小时可签到一次。</p
+<p>登录后，通过签到可以随机获得50-100次API请求，每24小时可签到一次。</p>
 <hr>
 
 ## 使用示例
