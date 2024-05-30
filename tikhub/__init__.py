@@ -1,4 +1,4 @@
 # __init__.py
-from .client import Client
+from tikhub.client import Client
 
 __all__ = ["Client"]
