@@ -1,9 +1,8 @@
-# sdk.py
-from tikhub.client.api_client import APIClient
+# http_client
+from tikhub.http_client.api_client import APIClient
 
 # TikHub
 from tikhub.api.v1.endpoints.tikhub.tikhub_user import TikHubUser
-
 
 # Douyin
 from tikhub.api.v1.endpoints.douyin.web.douyin_web import DouyinWeb
@@ -24,7 +23,15 @@ from tikhub.api.v1.endpoints.weibo.web.weibo_web import WeiboWeb
 
 
 class Client:
-    def __init__(self, base_url: str = 'https://beta.tikhub.io', api_key: str = None):
+    def __init__(self,
+                 base_url: str = 'https://beta.tikhub.io',
+                 api_key: str = None,
+                 proxies: dict = None,
+                 max_retries: int = 3,
+                 max_connections: int = 50,
+                 timeout: int = 10,
+                 max_tasks: int = 50
+                 ):
         # Base URL
         self.base_url = base_url
 
@@ -37,11 +44,11 @@ class Client:
         self.client = APIClient(
             base_url=self.base_url,
             client_headers={"Authorization": f"Bearer {self.api_key}"},
-            proxies=None,
-            max_retries=3,
-            max_connections=50,
-            timeout=10,
-            max_tasks=50,
+            proxies=proxies,
+            max_retries=max_retries,
+            max_connections=max_connections,
+            timeout=timeout,
+            max_tasks=max_tasks
         )
 
         # TikHub

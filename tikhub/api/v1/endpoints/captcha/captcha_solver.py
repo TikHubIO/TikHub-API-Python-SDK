@@ -1,5 +1,5 @@
 # 导入API SDK Client
-from tikhub.client.api_client import APIClient
+from tikhub.http_client.api_client import APIClient
 
 @router.get("/test", response_model=ResponseModel, summary="测试接口")
 async def test(request: Request):

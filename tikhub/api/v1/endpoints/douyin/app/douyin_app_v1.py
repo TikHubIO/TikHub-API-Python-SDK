@@ -1,6 +1,6 @@
 # 导入API SDK Client类
 
-from tikhub.client.api_client import APIClient
+from tikhub.http_client.api_client import APIClient
 
 
 class DouyinAppV1:

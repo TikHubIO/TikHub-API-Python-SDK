@@ -1,9 +1,9 @@
 # 导入API SDK Client类
 
-from tikhub.client.api_client import APIClient
+from tikhub.http_client.api_client import APIClient
 
 # 标记已废弃的方法
-from tikhub.client.deprecated import deprecated
+from tikhub.http_client.deprecated import deprecated
 
 
 class DouyinAppV2:

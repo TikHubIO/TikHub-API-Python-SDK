@@ -1,5 +1,5 @@
 import asyncio
-from tikhub.sdk import Client
+from tikhub import Client
 
 
 async def main():

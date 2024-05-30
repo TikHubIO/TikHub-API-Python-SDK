@@ -1,7 +1,7 @@
 # 导入API SDK Client类
 import json
 
-from tikhub.client.api_client import APIClient
+from tikhub.http_client.api_client import APIClient
 
 
 class InstagramWeb:

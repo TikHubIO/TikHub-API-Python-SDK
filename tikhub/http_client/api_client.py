@@ -4,7 +4,7 @@ from typing import Union, List, Any
 import httpx
 from httpx import Response
 
-from tikhub.client.api_exceptions import (
+from tikhub.http_client.api_exceptions import (
     APIError,
     APIConnectionError,
     APIResponseError,
@@ -15,12 +15,12 @@ from tikhub.client.api_exceptions import (
     APIRateLimitError,
     APIRetryExhaustedError,
 )
-from tikhub.client.api_logger import logger
+from tikhub.http_client.api_logger import logger
 
 
 class APIClient:
     """
-    基础API客户端 (Base API client)
+    基础API客户端 (Base API http_client)
     """
 
     def __init__(
@@ -60,7 +60,7 @@ class APIClient:
         # 超时等待时间 / Timeout waiting time
         self._timeout = timeout
         self.timeout = httpx.Timeout(timeout)
-        # 异步客户端 / Asynchronous client
+        # 异步客户端 / Asynchronous http_client
         self.aclient = httpx.AsyncClient(
             headers=self.client_headers,
             proxies=self.proxies,
