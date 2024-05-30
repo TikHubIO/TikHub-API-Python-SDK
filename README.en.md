@@ -36,7 +36,7 @@
 pip install tikhub
 ```
 
--   第二步: 初始化
+-   Step 2: Initialization
 
 ```python
 from tikhub import TikTokAPI, DouyinAPI
