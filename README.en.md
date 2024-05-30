@@ -47,7 +47,7 @@ douyin_api = DouyinAPI(token)
 
 ```
 
--   第三步: 调用方法
+-   Step 3: Call the method
 
 ```python
 import asyncio
