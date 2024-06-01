@@ -106,6 +106,18 @@ class TikTokWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}")
         return data
 
+    # Tag详情 | Tag detail
+    async def fetch_tag_detail(self, tag_name: str):
+        endpoint = "/api/v1/tiktok/web/fetch_tag_detail"
+        data = await self.client.fetch_get_json(f"{endpoint}?tag_name={tag_name}")
+        return data
+
+    # Tag作品列表 | Tag post list
+    async def fetch_tag_post(self, challengeID: str, cursor: int, count: int):
+        endpoint = "/api/v1/tiktok/web/fetch_tag_post"
+        data = await self.client.fetch_get_json(f"{endpoint}?challengeID={challengeID}&cursor={cursor}&count={count}")
+        return data
+
     # 生成真实msToken | Generate real msToken
     async def fetch_real_msToken(self):
         endpoint = "/api/v1/tiktok/web/generate_real_msToken"

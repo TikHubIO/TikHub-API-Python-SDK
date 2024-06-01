@@ -1,79 +1,42 @@
-# 更新 - 2023年6月15日
-
 <div align="center">
-<h1><a href="https://pypi.org/project/tikhub">TikHub_API</a></h1>
+<h1><a href="https://pypi.org/project/tikhub">TikHub-API-Python-SDK</a></h1>
 <a href="https://github.com/TikHubIO/TikHub-API-Python-SDK/blob/main/README.en.md">English</a> | <a href="https://github.com/TikHubIO/TikHub-API-Python-SDK/blob/main/README.md">简体中文</a>
 </div>
-<h4>简介</h4>
-<p><a href="https://tikhub.io">TikHub</a>是抖音与TikTok非官方的RESTful API平台。</p>
-<p>我们提供的API只能获取公开数据，即任何人都可以通过浏览器及APP等访问抖音,TikTok,小红书以获取它们。</p>
-<p>如果您有任何建议或者需求，请联系我们，更多的功能正在开发中，敬请期待！</p>
-<hr>
-<h4>鉴权</h4>
-<p>接口文档中带有🔒的接口需要在请求头中携带Token才可调用。</p>
-<p>调用这些接口会使用你账户中的剩余请求次数！</p>
 
-<hr>
-<h4>购买</h4>
-<p>Website(🚧ing): <a href="https://tikhub.io">tikhub.io</a></p>
-<p>API Document: <a href="https://api.tikhub.io">api.tikhub.io</a></p>
-<p>Discord(Support): <a href="https://discord.gg/kk23BGeYrJ">https://discord.gg/kk23BGeYrJ</a></p>
-<p>Github: <a href="https://github.com/TikHubIO">https://github.com/TikHubIO</a></p>
-<p>Email: <a href="mailto:tikhub.io@proton.me">tikhub.io@proton.me</a></p>
-<hr>
-<h4>公告</h4>
-<p>TikHub的API将使用<strong>免费加付费</strong>的形式运行。</p>
-<p>登录后，通过签到可以随机获得50-100次API请求，每24小时可签到一次。</p>
-<hr>
+#### 简介
 
-## 使用示例
+[TikHub](https://tikhub.io/)是一个All in one的RESTful API平台。
 
-> 查看[test.py](https://github.com/TikHubIO/Douyin-TikTok-API-Python-SDK/blob/main/test/test.py)
+我们提供的API只能获取公开数据，即任何人都可以通过浏览器及APP等访问抖音,TikTok,小红书以获取它们。
 
-- 第一步: 安装
+如果您有任何建议或者需求，请联系我们，更多的功能正在开发中，敬请期待！
 
-```bash
-pip install tikhub
-```
+---
 
-- 第二步: 初始化
+#### 鉴权
 
-``` python
-from tikhub import TikTokAPI, DouyinAPI
+接口文档中带有🔒的接口需要在请求头中携带Token才可调用。
 
-token = "请在此填写您的token/秘钥"
-tiktok_api = TikTokAPI(token)
-douyin_api = DouyinAPI(token)
+调用这些接口会使用你账户中的剩余请求次数！
 
-```
+---
 
-- 第三步: 调用方法
+#### 购买
 
-``` python
-import asyncio
-    
-from tikhub import TikTokAPI, DouyinAPI
+Website(🚧ing): [tikhub.io](https://tikhub.io/)
 
-if __name__ == '__main__':
-    token ="请在此填写您的token/秘钥"
+API Document: [api.tikhub.io](https://api.tikhub.io/)
 
-    tiktok_api = TikTokAPI(token)
-    douyin_api = DouyinAPI(token)
+Discord(Support): [https://discord.gg/kk23BGeYrJ](https://discord.gg/kk23BGeYrJ)
 
-    tiktok_video_url = "https://www.tiktok.com/@evil0ctal/video/7201344014984006954"
+Github: [https://github.com/TikHubIO](https://github.com/TikHubIO)
 
-    r = None
+Email: [tikhub.io@proton.me](mailto:tikhub.io@proton.me)
 
-    # 读取用户信息/Read user information
-    r = asyncio.run(tiktok_api.get_user_info())
-    print(r)
+---
 
-    tiktok_video_url = 'https://www.tiktok.com/@evil0ctal/video/7156033831819037994'
-    tiktok_music_url = 'https://www.tiktok.com/music/original-sound-7128362040359488261'
+#### 公告
 
-    # 解析单一tiktok视频/Parse a single tiktok video
-    # r = asyncio.run(tiktok_api.get_tiktok_video_data(tiktok_video_url))
-    # print(r)
-```
+TikHub的API将使用**免费加付费**的形式运行。
 
-
+登录后，通过签到可以随机获得50-100次API请求，每24小时可签到一次。
