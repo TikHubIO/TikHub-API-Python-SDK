@@ -18,6 +18,12 @@ class DouyinAppV2:
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
         return data
 
+    # 根据分享链接获取作品数据 | Get video data by sharing url
+    async def fetch_one_video_by_share_url(self, share_url: str):
+        endpoint = "/api/v1/douyin/app/v2/fetch_one_video_by_share_url"
+        data = await self.client.fetch_get_json(f"{endpoint}?share_url={share_url}")
+        return data
+
     # 获取指定用户的信息 | Get information of specified user
     async def handler_user_profile(self, sec_user_id: str):
         endpoint = f"/api/v1/douyin/app/v2/handler_user_profile"

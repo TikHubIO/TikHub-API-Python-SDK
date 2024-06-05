@@ -16,10 +16,22 @@ class TikTokAppV3:
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
         return data
 
+    # 根据分享链接获取作品数据 | Get video data by sharing url
+    async def fetch_one_video_by_share_url(self, share_url: str):
+        endpoint = "/api/v1/tiktok/app/v3/fetch_one_video_by_share_url"
+        data = await self.client.fetch_get_json(f"{endpoint}?share_url={share_url}")
+        return data
+
     # 获取指定用户的信息 | Get information of specified user
     async def handler_user_profile(self, sec_user_id: str):
         endpoint = "/api/v1/tiktok/app/v3/handler_user_profile"
         data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}")
+        return data
+
+    # 获取用户转发的作品数据 | Get user repost video data
+    async def fetch_user_repost_videos(self, user_id: int, offset: int, count: int):
+        endpoint = "/api/v1/tiktok/app/v3/fetch_user_repost_videos"
+        data = await self.client.fetch_get_json(f"{endpoint}?user_id={user_id}&offset={offset}&count={count}")
         return data
 
     # 获取用户主页作品数据 | Get user homepage video data
