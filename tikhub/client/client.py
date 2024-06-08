@@ -21,6 +21,9 @@ from tikhub.api.v1.endpoints.instagram.web.instagram_web import InstagramWeb
 # Weibo
 from tikhub.api.v1.endpoints.weibo.web.weibo_web import WeiboWeb
 
+# Captcha Solver
+from tikhub.api.v1.endpoints.captcha.captcha_solver import CaptchaSolver
+
 
 class Client:
     def __init__(self,
@@ -70,3 +73,6 @@ class Client:
 
         # Weibo
         self.WeiboWeb = WeiboWeb(self.client)
+
+        # Captcha Solver
+        self.CaptchaSolver = CaptchaSolver(self.client)

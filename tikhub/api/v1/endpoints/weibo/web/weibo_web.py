@@ -3,12 +3,12 @@ import json
 
 from tikhub.http_client.api_client import APIClient
 
+
 class WeiboWeb:
 
     # 初始化 | Initialize
     def __init__(self, client: APIClient):
         self.client = client
-
 
     # 获取单个作品数据 | Get single video data
     async def fetch_post_detail(self, id: str):
@@ -28,8 +28,10 @@ class WeiboWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?uid={uid}&page={page}&feature={feature}")
         return data
 
+
 if __name__ == "__main__":
     import asyncio
+
 
     async def main():
         client = APIClient(base_url="http://127.0.0.1:8000", client_headers={
@@ -48,5 +50,6 @@ if __name__ == "__main__":
         # 获取微博用户文章数据 | Get Weibo user article data
         data = await weibo_web.fetch_user_posts("7277477906", 1, 0)
         print(data)
+
 
     asyncio.run(main())
