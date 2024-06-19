@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to win-win results.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 * * *
 
@@ -31,7 +31,7 @@ The endpoints with the 🔒 icon in the interface document need to carry the API
 
 > Generate API Token
 
-获取API Token的步骤也很简单，你只需要登录到我们的用户后台 [Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
+The steps to obtain API Token are also very simple, you only need to log in to our user backend[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
 
 > Used on the API documentation web page
 
@@ -39,7 +39,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -49,7 +49,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -139,7 +139,7 @@ video_data = await client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595
 print(video_data)
 ```
 
--   我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
+-   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
 
 ```python
 # 使用asyncio.run防止异步传染到其他代码 | Use asyncio.run to prevent asynchronous infection to other code
