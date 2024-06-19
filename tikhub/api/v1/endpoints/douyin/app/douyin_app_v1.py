@@ -11,7 +11,7 @@ class DouyinAppV1:
 
     # 获取单个作品数据 | Get single video data
     async def fetch_one_video(self, aweme_id: str):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_one_video?aweme_id={aweme_id}"
+        endpoint = "/api/v1/douyin/app/v1/fetch_one_video"
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
         return data
 
@@ -23,33 +23,33 @@ class DouyinAppV1:
 
     # 获取指定用户的信息 | Get information of specified user
     async def handler_user_profile(self, sec_user_id: str):
-        endpoint = f"/api/v1/douyin/app/v1/handler_user_profile?sec_user_id={sec_user_id}"
+        endpoint = f"/api/v1/douyin/app/v1/handler_user_profile"
         data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}")
         return data
 
     # 获取用户主页作品数据 | Get user homepage video data
     async def fetch_user_post_videos(self, sec_user_id: str, max_cursor: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_user_post_videos?sec_user_id={sec_user_id}&max_cursor={max_cursor}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_user_post_videos"
         data = await self.client.fetch_get_json(
             f"{endpoint}?sec_user_id={sec_user_id}&max_cursor={max_cursor}&count={count}")
         return data
 
     # 获取用户喜欢作品数据 | Get user like video data
     async def fetch_user_like_videos(self, sec_user_id: str, max_cursor: int, counts: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_user_like_videos?sec_user_id={sec_user_id}&max_cursor={max_cursor}&counts={counts}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_user_like_videos"
         data = await self.client.fetch_get_json(
             f"{endpoint}?sec_user_id={sec_user_id}&max_cursor={max_cursor}&counts={counts}")
         return data
 
     # 获取单个视频评论数据 | Get single video comments data
     async def fetch_video_comments(self, aweme_id: str, cursor: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_video_comments?aweme_id={aweme_id}&cursor={cursor}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_video_comments"
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}&cursor={cursor}&count={count}")
         return data
 
     # 获取指定视频的评论回复数据 | Get comment replies data of specified video
     async def fetch_video_comments_reply(self, item_id: str, comment_id: str, cursor: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_video_comment_replies?item_id={item_id}&comment_id={comment_id}&cursor={cursor}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_video_comment_replies"
         data = await self.client.fetch_get_json(
             f"{endpoint}?item_id={item_id}&comment_id={comment_id}&cursor={cursor}&count={count}")
         return data
@@ -57,57 +57,57 @@ class DouyinAppV1:
     # 获取指定关键词的综合搜索结果 | Get comprehensive search results of specified keywords
     async def fetch_general_search_result(self, keyword: str, offset: int, count: int, sort_type: int,
                                           publish_time: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_general_search_result?keyword={keyword}&offset={offset}&count={count}&sort_type={sort_type}&publish_time={publish_time}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_general_search_result"
         data = await self.client.fetch_get_json(
             f"{endpoint}?keyword={keyword}&offset={offset}&count={count}&sort_type={sort_type}&publish_time={publish_time}")
         return data
 
     # 获取指定关键词的视频搜索结果 | Get video search results of specified keywords
     async def fetch_video_search_result(self, keyword: str, offset: int, count: int, sort_type: int, publish_time: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_video_search_result?keyword={keyword}&offset={offset}&count={count}&sort_type={sort_type}&publish_time={publish_time}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_video_search_result"
         data = await self.client.fetch_get_json(
             f"{endpoint}?keyword={keyword}&offset={offset}&count={count}&sort_type={sort_type}&publish_time={publish_time}")
         return data
 
     # 获取指定关键词的用户搜索结果 | Get user search results of specified keywords
     async def fetch_user_search_result(self, keyword: str, offset: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_user_search_result?keyword={keyword}&offset={offset}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_user_search_result"
         data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&offset={offset}&count={count}")
         return data
 
     # 获取指定关键词的音乐搜索结果 | Get music search results of specified keywords
     async def fetch_music_search_result(self, keyword: str, offset: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_music_search_result?keyword={keyword}&offset={offset}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_music_search_result"
         data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&offset={offset}&count={count}")
         return data
 
     # 获取指定关键词的话题搜索结果 | Get hashtag search results of specified keywords
     async def fetch_hashtag_search_result(self, keyword: str, offset: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_search_result?keyword={keyword}&offset={offset}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_search_result"
         data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&offset={offset}&count={count}")
         return data
 
     # 获取指定音乐的详情数据 | Get details of specified music
     async def fetch_music_detail(self, music_id: str):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_music_detail?music_id={music_id}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_music_detail"
         data = await self.client.fetch_get_json(f"{endpoint}?music_id={music_id}")
         return data
 
     # 获取指定音乐的视频列表数据 | Get video list of specified music
     async def fetch_music_video_list(self, music_id: str, cursor: int, count: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_music_video_list?music_id={music_id}&cursor={cursor}&count={count}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_music_video_list"
         data = await self.client.fetch_get_json(f"{endpoint}?music_id={music_id}&cursor={cursor}&count={count}")
         return data
 
     # 获取指定话题的详情数据 | Get details of specified hashtag
     async def fetch_hashtag_detail(self, ch_id: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_detail?ch_id={ch_id}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_detail"
         data = await self.client.fetch_get_json(f"{endpoint}?ch_id={ch_id}")
         return data
 
     # 获取指定话题的作品数据 | Get video list of specified hashtag
     async def fetch_hashtag_post_list(self, ch_id: int, cursor: int, count: int, sort_type: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_video_list?ch_id={ch_id}&cursor={cursor}&count={count}&sort_type={sort_type}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_hashtag_video_list"
         data = await self.client.fetch_get_json(
             f"{endpoint}?ch_id={ch_id}&cursor={cursor}&count={count}&sort_type={sort_type}")
         return data
@@ -138,7 +138,7 @@ class DouyinAppV1:
 
     # 获取抖音品牌热榜具体分类数据 | Get Douyin brand hot search list detail data
     async def fetch_hot_brand_search(self, category_id: int):
-        endpoint = f"/api/v1/douyin/app/v1/fetch_brand_hot_search_list_detail?category_id={category_id}"
+        endpoint = f"/api/v1/douyin/app/v1/fetch_brand_hot_search_list_detail"
         data = await self.client.fetch_get_json(f"{endpoint}?category_id={category_id}")
         return data
 
