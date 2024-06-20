@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)"Is a**开箱即用的集成工具以及服务的平台**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to win-win results.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 * * *
 
@@ -17,7 +17,7 @@ All APIs are written based on the OPenAPI specification, which means you can use
 
 <https://api.tikhub.io/openapi.json>
 
-当然，我们已经默认使用了Swagger UI来展示我们的API文档，你可以在网页上打开下面的链接，然后在网页上进行API Token的认证，随后点击任意端点然后点击`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
+Of course, we have used Swagger UI by default to display our API documents. You can open the following link on the web page, then authenticate the API Token on the web page, then click on any endpoint and click`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
 
 <https://api.tikhub.io>
 
@@ -31,13 +31,13 @@ The endpoints with the 🔒 icon in the interface document need to carry the API
 
 > Generate API Token
 
-The steps to obtain API Token are also very simple. You only need to log in to our user backend.[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
+The steps to obtain API Token are also very simple, you only need to log in to our user backend[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
 
 > Used on the API documentation web page
 
 After you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
 
-> Used in HTTP requests
+> 在HTTP请求中使用
 
 If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
 
@@ -107,7 +107,7 @@ all_endpoints_info = await client.TikHubUser.get_all_endpoints_info()
 print(all_endpoints_info)
 ```
 
--   Client中的可用属性
+-   Available properties in Client
 
 ```python
 # TikHub
@@ -145,17 +145,25 @@ print(video_data)
 -   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
 
 ```python
-import asyncio
-
 # 获取抖音单一视频数据 | Get a single video data from Douyin
 def fetch_one_video(aweme_id: str):
-    # 使用asyncio.run防止异步传染到其他代码
-    # Use asyncio.run to prevent asynchronous infection to other code
-    return asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+    # 创建一个异步事件循环
+    # Create an asynchronous event loop
+    loop = asyncio.get_event_loop()
 
-
-video_data = fetch_one_video(aweme_id="7372484719365098803")
-print(video_data)
+    # 使用异步事件循环运行客户端的fetch_one_video方法，防止异步传染到其他代码。
+    # Run the client's fetch_one_video method with the asynchronous event loop, preventing asynchronous infection to other code.
+    try:
+        __video_data = loop.run_until_complete(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+        return __video_data
+    except Exception as e:
+        # 如果出现异常，返回异常信息
+        # If an exception occurs, return the exception information
+        return str(e)
+    finally:
+        # 关闭异步事件循环
+        # Close the asynchronous event
+        loop.close()
 ```
 
 -   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code, and the parameters accepted by each method have been added.`type hints`。
