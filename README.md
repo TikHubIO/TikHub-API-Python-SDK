@@ -145,17 +145,25 @@ print(video_data)
 - 我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
 
 ```python
-import asyncio
-
 # 获取抖音单一视频数据 | Get a single video data from Douyin
 def fetch_one_video(aweme_id: str):
-    # 使用asyncio.run防止异步传染到其他代码
-    # Use asyncio.run to prevent asynchronous infection to other code
-    return asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+    # 创建一个异步事件循环
+    # Create an asynchronous event loop
+    loop = asyncio.get_event_loop()
 
-
-video_data = fetch_one_video(aweme_id="7372484719365098803")
-print(video_data)
+    # 使用异步事件循环运行客户端的fetch_one_video方法，防止异步传染到其他代码。
+    # Run the client's fetch_one_video method with the asynchronous event loop, preventing asynchronous infection to other code.
+    try:
+        __video_data = loop.run_until_complete(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+        return __video_data
+    except Exception as e:
+        # 如果出现异常，返回异常信息
+        # If an exception occurs, return the exception information
+        return str(e)
+    finally:
+        # 关闭异步事件循环
+        # Close the asynchronous event
+        loop.close()
 ```
 
 - 由于章节有限，在此处就不列出完整的方法了，你可以通过查看源代码的形式查看每一个属性内实现的方法，并且每个方法接受的参数都已经加上了`type hints`。
