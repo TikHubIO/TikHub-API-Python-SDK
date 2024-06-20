@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)"Is a**开箱即用的集成工具以及服务的平台**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 * * *
 
@@ -17,7 +17,7 @@ All APIs are written based on the OPenAPI specification, which means you can use
 
 <https://api.tikhub.io/openapi.json>
 
-Of course, we have used Swagger UI by default to display our API documents. You can open the following link on the web page, then authenticate the API Token on the web page, then click on any endpoint and click`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
+当然，我们已经默认使用了Swagger UI来展示我们的API文档，你可以在网页上打开下面的链接，然后在网页上进行API Token的认证，随后点击任意端点然后点击`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
 
 <https://api.tikhub.io>
 
@@ -71,12 +71,12 @@ from tikhub import Client
 
 ```python
 client = Client(base_url="https://api.tikhub.io", 
-                    api_key="YOUR_API_TOKEN",
-                    proxies=None,
-                    max_retries=3,
-                    max_connections=50,
-                    timeout=10,
-                    max_tasks=50)
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=10,
+                max_tasks=50)
 ```
 
 -   Request user data example
@@ -107,7 +107,7 @@ all_endpoints_info = await client.TikHubUser.get_all_endpoints_info()
 print(all_endpoints_info)
 ```
 
--   Available properties in Client
+-   Client中的可用属性
 
 ```python
 # TikHub
@@ -129,6 +129,9 @@ self.InstagramWeb = InstagramWeb(self.client)
 
 # Weibo
 self.WeiboWeb = WeiboWeb(self.client)
+
+# Captcha Solver
+self.CaptchaSolver = CaptchaSolver(self.client)
 ```
 
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
@@ -142,8 +145,16 @@ print(video_data)
 -   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
 
 ```python
-# 使用asyncio.run防止异步传染到其他代码 | Use asyncio.run to prevent asynchronous infection to other code
-video_data = asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379"))
+import asyncio
+
+# 获取抖音单一视频数据 | Get a single video data from Douyin
+def fetch_one_video(aweme_id: str):
+    # 使用asyncio.run防止异步传染到其他代码
+    # Use asyncio.run to prevent asynchronous infection to other code
+    return asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+
+
+video_data = fetch_one_video(aweme_id="7372484719365098803")
 print(video_data)
 ```
 
