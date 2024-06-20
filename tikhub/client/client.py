@@ -27,12 +27,12 @@ from tikhub.api.v1.endpoints.captcha.captcha_solver import CaptchaSolver
 
 class Client:
     def __init__(self,
-                 base_url: str = 'https://beta.tikhub.io',
+                 base_url: str = 'https://api.tikhub.io',
                  api_key: str = None,
                  proxies: dict = None,
                  max_retries: int = 3,
                  max_connections: int = 50,
-                 timeout: int = 10,
+                 timeout: int = 60,
                  max_tasks: int = 50
                  ):
         # Base URL

@@ -71,12 +71,12 @@ from tikhub import Client
 
 ```python
 client = Client(base_url="https://api.tikhub.io", 
-                    api_key="YOUR_API_TOKEN",
-                    proxies=None,
-                    max_retries=3,
-                    max_connections=50,
-                    timeout=10,
-                    max_tasks=50)
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=10,
+                max_tasks=50)
 ```
 
 - 请求用户数据示例
@@ -129,6 +129,9 @@ self.InstagramWeb = InstagramWeb(self.client)
 
 # Weibo
 self.WeiboWeb = WeiboWeb(self.client)
+
+# Captcha Solver
+self.CaptchaSolver = CaptchaSolver(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
@@ -142,8 +145,16 @@ print(video_data)
 - 我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
 
 ```python
-# 使用asyncio.run防止异步传染到其他代码 | Use asyncio.run to prevent asynchronous infection to other code
-video_data = asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379"))
+import asyncio
+
+# 获取抖音单一视频数据 | Get a single video data from Douyin
+def fetch_one_video(aweme_id: str):
+    # 使用asyncio.run防止异步传染到其他代码
+    # Use asyncio.run to prevent asynchronous infection to other code
+    return asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id=aweme_id))
+
+
+video_data = fetch_one_video(aweme_id="7372484719365098803")
 print(video_data)
 ```
 
