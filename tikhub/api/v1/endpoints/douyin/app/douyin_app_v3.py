@@ -24,6 +24,12 @@ class DouyinAppV3:
         data = await self.client.fetch_get_json(f"{endpoint}?share_url={share_url}")
         return data
 
+    # 根据视频ID获取作品的统计数据 | Get the statistical data of the work according to the video ID
+    async def fetch_video_statistics(self, aweme_ids: str):
+        endpoint = "/api/v1/douyin/app/v3/fetch_video_statistics"
+        data = await self.client.fetch_get_json(f"{endpoint}?aweme_ids={aweme_ids}")
+        return data
+
     # 获取指定用户的信息
     async def handler_user_profile(self, sec_user_id: str):
         endpoint = f"/api/v1/douyin/app/v3/handler_user_profile"
