@@ -24,6 +24,9 @@ from tikhub.api.v1.endpoints.weibo.web.weibo_web import WeiboWeb
 # Captcha Solver
 from tikhub.api.v1.endpoints.captcha.captcha_solver import CaptchaSolver
 
+# Xigua Video APP V2
+from tikhub.api.v1.endpoints.xigua.app.xigua_app_v2 import XiguaAppV2
+
 
 class Client:
     def __init__(self,
@@ -76,3 +79,6 @@ class Client:
 
         # Captcha Solver
         self.CaptchaSolver = CaptchaSolver(self.client)
+
+        # Xigua Video APP V2
+        self.XiguaAppV2 = XiguaAppV2(self.client)

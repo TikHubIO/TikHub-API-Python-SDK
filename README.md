@@ -110,28 +110,31 @@ print(all_endpoints_info)
 - Client中的可用属性
 
 ```python
-# TikHub
+# TikHub User | TikHub用户接口
 self.TikHubUser = TikHubUser(self.client)
 
-# Douyin
+# Douyin | 抖音
 self.DouyinWeb = DouyinWeb(self.client)
 self.DouyinAppV1 = DouyinAppV1(self.client)
 self.DouyinAppV2 = DouyinAppV2(self.client)
 self.DouyinAppV3 = DouyinAppV3(self.client)
 
-# TikTok
+# TikTok | TikTok
 self.TikTokWeb = TikTokWeb(self.client)
 self.TikTokAppV2 = TikTokAppV2(self.client)
 self.TikTokAppV3 = TikTokAppV3(self.client)
 
-# Instagram
+# Instagram | Instagram
 self.InstagramWeb = InstagramWeb(self.client)
 
-# Weibo
+# Weibo | 微博
 self.WeiboWeb = WeiboWeb(self.client)
 
-# Captcha Solver
+# Captcha Solver | 验证码解决器
 self.CaptchaSolver = CaptchaSolver(self.client)
+
+# Xigua Video APP V2 | 西瓜视频APP V2
+self.XiguaAppV2 = XiguaAppV2(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
