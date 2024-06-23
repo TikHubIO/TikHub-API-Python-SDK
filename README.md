@@ -75,7 +75,7 @@ client = Client(base_url="https://api.tikhub.io",
                 proxies=None,
                 max_retries=3,
                 max_connections=50,
-                timeout=10,
+                timeout=60,
                 max_tasks=50)
 ```
 
@@ -135,6 +135,12 @@ self.CaptchaSolver = CaptchaSolver(self.client)
 
 # Xigua Video APP V2 | 西瓜视频APP V2
 self.XiguaAppV2 = XiguaAppV2(self.client)
+
+# XiaoHongShu Web | 小红书网页端
+self.XiaohongshuWeb = XiaohongshuWeb(self.client)
+
+# KuaiShou Web | 快手网页端
+self.KuaishouWeb = KuaishouWeb(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
@@ -148,6 +154,21 @@ print(video_data)
 - 我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
 
 ```python
+# 导入异步io库 | Import asyncio
+import asyncio
+
+# 导入tikhub | Import tikhub
+from tikhub import Client
+
+# 初始化Client | Initialize Client
+client = Client(base_url="https://api.tikhub.io", 
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=60,
+                max_tasks=50)
+
 # 获取抖音单一视频数据 | Get a single video data from Douyin
 def fetch_one_video(aweme_id: str):
     # 创建一个异步事件循环
