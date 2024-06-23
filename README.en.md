@@ -39,7 +39,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API Token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -49,7 +49,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -110,28 +110,31 @@ print(all_endpoints_info)
 -   Available properties in Client
 
 ```python
-# TikHub
+# TikHub User | TikHub用户接口
 self.TikHubUser = TikHubUser(self.client)
 
-# Douyin
+# Douyin | 抖音
 self.DouyinWeb = DouyinWeb(self.client)
 self.DouyinAppV1 = DouyinAppV1(self.client)
 self.DouyinAppV2 = DouyinAppV2(self.client)
 self.DouyinAppV3 = DouyinAppV3(self.client)
 
-# TikTok
+# TikTok | TikTok
 self.TikTokWeb = TikTokWeb(self.client)
 self.TikTokAppV2 = TikTokAppV2(self.client)
 self.TikTokAppV3 = TikTokAppV3(self.client)
 
-# Instagram
+# Instagram | Instagram
 self.InstagramWeb = InstagramWeb(self.client)
 
-# Weibo
+# Weibo | 微博
 self.WeiboWeb = WeiboWeb(self.client)
 
-# Captcha Solver
+# Captcha Solver | 验证码解决器
 self.CaptchaSolver = CaptchaSolver(self.client)
+
+# Xigua Video APP V2 | 西瓜视频APP V2
+self.XiguaAppV2 = XiguaAppV2(self.client)
 ```
 
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
