@@ -7,9 +7,32 @@
 
 🎉「[TikHub.io](https://tikhub.io/)」是一个**开箱即用的集成工具以及服务的平台**，我们的目标是帮助用户快速开展业务，并且支持功能定制。我们的愿景是组建一个社区创业项目，独木难成林，合作能共赢，**每一个社区成员都有机会将他们编写的功能或接口接入我们的平台，并且从中获得收益**。我们已经积累了大量的注册用户以及社区用户，并且为了实现这一愿景，我们正在积极筹划和落实合作策略，以确保生态的持续健康发展，欢迎各位加入我们的[Discord](https://discord.gg/aMEAS8Xsvz)社区。
 
+#### 备注
+
+* TikHub API目前提供以下服务，并且还在不断更新中：
+  * [抖音网页版数据接口](https://api.tikhub.io/#/Douyin-Web-API)
+  * [抖音App V1数据接口](https://api.tikhub.io/#/Douyin-App-V1-API)
+  * [抖音App V2数据接口](https://api.tikhub.io/#/Douyin-App-V2-API)
+  * [抖音App V3数据接口](https://api.tikhub.io/#/Douyin-App-V3-API)
+  * [TikTok网页版数据接口](https://api.tikhub.io/#/TikTok-Web-API)
+  * [TikTok App V2数据接口](https://api.tikhub.io/#/TikTok-App-V2-API)
+  * [TikTok App V3数据接口](https://api.tikhub.io/#/TikTok-App-V3-API)
+  * [西瓜视频App V2数据接口](https://api.tikhub.io/#/Xigua-App-V2-API)
+  * [小红书网页版数据接口](https://api.tikhub.io/#/Xiaohongshu-Web-API)
+  * [快手网页版数据接口](https://api.tikhub.io/#/Kuaishou-Web-API)
+  * [微博网页版数据接口](https://api.tikhub.io/#/Weibo-Web-API)
+  * [Instagram Web以及APP数据接口](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
+  * [验证码绕过接口](https://api.tikhub.io/#/Captcha-Solver)
+  * [临时邮箱接口](https://api.tikhub.io/#/Temp-Mail-API)
+* 请将任何问题或错误报告给[Discord服务器](https://discord.gg/aMEAS8Xsvz)。
 ---
 
 #### **快速开始**
+
+> 参考资料
+
+- **Swagger UI Docs**: [Swagger UI](https://api.tikhub.io)
+- **Documentation/文档**: [API Documentation](https://docs.tikhub.io/)
 
 [TikHub.io](https://tikhub.io/)的大多数API都是RESTFUL的，这意味着你只需要使用基本的HTTP请求即可完成调用。
 
