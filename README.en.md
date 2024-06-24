@@ -31,7 +31,7 @@ The endpoints with the 🔒 icon in the interface document need to carry the API
 
 > Generate API Token
 
-The steps to obtain API Token are also very simple, you only need to log in to our user backend[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
+The steps to obtain API Token are also very simple. You only need to log in to our user backend.[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
 
 > Used on the API documentation web page
 
@@ -75,7 +75,7 @@ client = Client(base_url="https://api.tikhub.io",
                 proxies=None,
                 max_retries=3,
                 max_connections=50,
-                timeout=10,
+                timeout=60,
                 max_tasks=50)
 ```
 
@@ -135,6 +135,12 @@ self.CaptchaSolver = CaptchaSolver(self.client)
 
 # Xigua Video APP V2 | 西瓜视频APP V2
 self.XiguaAppV2 = XiguaAppV2(self.client)
+
+# XiaoHongShu Web | 小红书网页端
+self.XiaohongshuWeb = XiaohongshuWeb(self.client)
+
+# KuaiShou Web | 快手网页端
+self.KuaishouWeb = KuaishouWeb(self.client)
 ```
 
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
@@ -148,6 +154,21 @@ print(video_data)
 -   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
 
 ```python
+# 导入异步io库 | Import asyncio
+import asyncio
+
+# 导入tikhub | Import tikhub
+from tikhub import Client
+
+# 初始化Client | Initialize Client
+client = Client(base_url="https://api.tikhub.io", 
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=60,
+                max_tasks=50)
+
 # 获取抖音单一视频数据 | Get a single video data from Douyin
 def fetch_one_video(aweme_id: str):
     # 创建一个异步事件循环
