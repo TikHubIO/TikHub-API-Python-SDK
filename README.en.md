@@ -7,9 +7,33 @@
 
 🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
+#### Remark
+
+-   TikHub API currently provides the following services and is constantly being updated:
+    -   [Douyin web version data interface](https://api.tikhub.io/#/Douyin-Web-API)
+    -   [Douyin App V1 data interface](https://api.tikhub.io/#/Douyin-App-V1-API)
+    -   [Douyin App V2 data interface](https://api.tikhub.io/#/Douyin-App-V2-API)
+    -   [Douyin App V3 data interface](https://api.tikhub.io/#/Douyin-App-V3-API)
+    -   [TikTok web version data interface](https://api.tikhub.io/#/TikTok-Web-API)
+    -   [TikTok App V2数据接口](https://api.tikhub.io/#/TikTok-App-V2-API)
+    -   [TikTok App V3 data interface](https://api.tikhub.io/#/TikTok-App-V3-API)
+    -   [Xigua Video App V2 data interface](https://api.tikhub.io/#/Xigua-App-V2-API)
+    -   [Xiaohongshu web version data interface](https://api.tikhub.io/#/Xiaohongshu-Web-API)
+    -   [Kuaishou web version data interface](https://api.tikhub.io/#/Kuaishou-Web-API)
+    -   [Weibo web version data interface](https://api.tikhub.io/#/Weibo-Web-API)
+    -   [Instagram Web and APP data interface](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
+    -   [Verification code bypass interface](https://api.tikhub.io/#/Captcha-Solver)
+    -   [Temporary mailbox interface](https://api.tikhub.io/#/Temp-Mail-API)
+-   Please report any issues or bugs to[Discord server](https://discord.gg/aMEAS8Xsvz)。
+
 * * *
 
 #### **quick start**
+
+> References
+
+-   **Swagger UI Docs**:[Swagger UI](https://api.tikhub.io)
+-   **Documentation/documentation**:[API Documentation](https://docs.tikhub.io/)
 
 [TikHub.io](https://tikhub.io/)Most of the APIs are RESTFUL, which means you only need to use basic HTTP requests to complete the call.
 
@@ -39,7 +63,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API Token in the request header.`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
