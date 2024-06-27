@@ -15,6 +15,24 @@ class KuaishouWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?photo_id={photo_id}")
         return data
 
+    # 快手单一视频查询接口V2 (Kuaishou Single Video Query API V2)
+    async def fetch_one_video_v2(self, photo_id: str, isLongVideo: bool = False):
+        endpoint = "/api/v1/kuaishou/web/fetch_one_video_v2"
+        data = await self.client.fetch_get_json(f"{endpoint}?photo_id={photo_id}&isLongVideo={isLongVideo}")
+        return data
+
+    # 根据链接获取单个作品数据 (Fetch Single Video By URL)
+    async def fetch_one_video_by_url(self, url: str):
+        endpoint = "/api/v1/kuaishou/web/fetch_one_video_by_url"
+        data = await self.client.fetch_get_json(f"{endpoint}?url={url}")
+        return data
+
+    # 根据链接获取单个作品数据V2 (Fetch Single Video By URL V2)
+    async def fetch_one_video_by_url_v2(self, url: str):
+        endpoint = "/api/v1/kuaishou/web/fetch_one_video_by_url_v2"
+        data = await self.client.fetch_get_json(f"{endpoint}?url={url}")
+        return data
+
     # 获取单个作品评论数据 (Fetch Single Video Comment Data)
     async def fetch_one_video_comment(self, photo_id: str, pcursor: str = None):
         endpoint = "/api/v1/kuaishou/web/fetch_one_video_comment"

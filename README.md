@@ -213,4 +213,22 @@ def fetch_one_video(aweme_id: str):
         loop.close()
 ```
 
-- 由于章节有限，在此处就不列出完整的方法了，你可以通过查看源代码的形式查看每一个属性内实现的方法，并且每个方法接受的参数都已经加上了`type hints`。
+- 由于章节有限，在此处就不列出完整的方法了，你可以通过查看源代码的形式查看每一个属性内实现的方法，每一个方法的命名都是根据端点的`uri`来命名的，例如`/api/v1/douyin/app/v1/fetch_one_video`的方法名就是`fetch_one_video`，你可以根据API文档中的端点来查找对应的方法。
+- 并且每个方法接受的参数都已经加上了`type hints`，你可以通过查看方法的参数来了解该方法需要传入的参数类型，这样可以更好的帮助你调用方法。
+- 文档中可以自动帮你生成不同编程语言的代码，具体请查看[API Documentation](https://docs.tikhub.io/)。
+- 目前可以自动生成代码的编程语言有：
+   - Shell
+   - JavaScript
+   - Java
+   - Swift
+   - Go
+   - PHP
+   - Python
+   - HTTP
+   - C
+   - C#
+   - Objective-C
+   - Ruby
+   - OCaml
+   - Dart
+   - R
