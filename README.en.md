@@ -15,7 +15,7 @@
     -   [Douyin App V2 data interface](https://api.tikhub.io/#/Douyin-App-V2-API)
     -   [Douyin App V3 data interface](https://api.tikhub.io/#/Douyin-App-V3-API)
     -   [TikTok web version data interface](https://api.tikhub.io/#/TikTok-Web-API)
-    -   [TikTok App V2数据接口](https://api.tikhub.io/#/TikTok-App-V2-API)
+    -   [TikTok App V2 data interface](https://api.tikhub.io/#/TikTok-App-V2-API)
     -   [TikTok App V3 data interface](https://api.tikhub.io/#/TikTok-App-V3-API)
     -   [Xigua Video App V2 data interface](https://api.tikhub.io/#/Xigua-App-V2-API)
     -   [Xiaohongshu web version data interface](https://api.tikhub.io/#/Xiaohongshu-Web-API)
@@ -55,15 +55,15 @@ The endpoints with the 🔒 icon in the interface document need to carry the API
 
 > Generate API Token
 
-The steps to obtain API Token are also very simple. You only need to log in to our user backend.[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
+The steps to obtain API Token are also very simple, you only need to log in to our user backend[Stay tuned](https://tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
 
 > Used on the API documentation web page
 
-After you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
+When you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -73,7 +73,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -214,4 +214,22 @@ def fetch_one_video(aweme_id: str):
         loop.close()
 ```
 
--   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code, and the parameters accepted by each method have been added.`type hints`。
+-   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code. Each method is named according to the endpoint.`uri`to name, for example`/api/v1/douyin/app/v1/fetch_one_video`The method name is`fetch_one_video`, you can find the corresponding method according to the endpoint in the API document.
+-   And the parameters accepted by each method have been added`type hints`, you can understand the parameter types that the method needs to pass in by looking at the parameters of the method, which can better help you call the method.
+-   The document can automatically help you generate codes in different programming languages. Please check for details.[API Documentation](https://docs.tikhub.io/)。
+-   Currently, the programming languages ​​that can automatically generate code are:
+    -   Shell
+    -   JavaScript
+    -   Java
+    -   Swift
+    -   Go
+    -   PHP
+    -   Python
+    -   HTTP
+    -   C
+    -   C#
+    -   Objective-C
+    -   Ruby
+    -   OCaml
+    -   Dart
+    -   R
