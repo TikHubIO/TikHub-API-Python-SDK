@@ -127,17 +127,23 @@ class TikTokAppV3:
         return data
 
     # 获取指定用户的粉丝列表数据 | Get follower list of specified user
-    async def fetch_user_follower_list(self, sec_user_id: str, count: int, max_time: int):
+    async def fetch_user_follower_list(self, sec_user_id: str, count: int = 20, min_time: int = 0, page_token: str = ""):
         endpoint = "/api/v1/tiktok/app/v3/fetch_user_follower_list"
         data = await self.client.fetch_get_json(
-            f"{endpoint}?sec_user_id={sec_user_id}&count={count}&max_time={max_time}")
+            f"{endpoint}?sec_user_id={sec_user_id}&count={count}&min_time={min_time}&page_token={page_token}")
         return data
 
     # 获取指定用户的关注列表数据 | Get following list of specified user
-    async def fetch_user_following_list(self, sec_user_id: str, count: int, max_time: int):
+    async def fetch_user_following_list(self, sec_user_id: str, count: int = 20, min_time: int = 0, page_token: str = ""):
         endpoint = "/api/v1/tiktok/app/v3/fetch_user_following_list"
         data = await self.client.fetch_get_json(
-            f"{endpoint}?sec_user_id={sec_user_id}&count={count}&max_time={max_time}")
+            f"{endpoint}?sec_user_id={sec_user_id}&count={count}&min_time={min_time}&page_token={page_token}")
+        return data
+
+    # 获取指定直播间的数据 | Get data of specified live room
+    async def fetch_live_room_info(self, room_id: str):
+        endpoint = "/api/v1/tiktok/app/v3/fetch_live_room_info"
+        data = await self.client.fetch_get_json(f"{endpoint}?room_id={room_id}")
         return data
 
     # TikTok直播间排行榜 | Get live room ranking list
