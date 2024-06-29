@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to win-win results.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 #### Remark
 
@@ -37,7 +37,7 @@
 
 [TikHub.io](https://tikhub.io/)Most of the APIs are RESTFUL, which means you only need to use basic HTTP requests to complete the call.
 
-All APIs are written based on the OPenAPI specification, which means you can use our`openapi.json`Automatically generate any form of API documentation:
+All APIs are written based on the OPenAPI specification, which means you can use our`openapi.json`自动生成任何形式的API文档：
 
 <https://api.tikhub.io/openapi.json>
 
@@ -63,7 +63,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API Token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -73,7 +73,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -165,6 +165,9 @@ self.XiaohongshuWeb = XiaohongshuWeb(self.client)
 
 # KuaiShou Web | 快手网页端
 self.KuaishouWeb = KuaishouWeb(self.client)
+
+# YouTube Web | YouTube网页端
+self.YouTubeWeb = YouTubeWeb(self.client)
 ```
 
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
