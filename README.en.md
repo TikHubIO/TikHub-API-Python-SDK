@@ -16,12 +16,13 @@
     -   [Douyin App V3 data interface](https://api.tikhub.io/#/Douyin-App-V3-API)
     -   [TikTok web version data interface](https://api.tikhub.io/#/TikTok-Web-API)
     -   [TikTok App V2 data interface](https://api.tikhub.io/#/TikTok-App-V2-API)
-    -   [TikTok App V3 data interface](https://api.tikhub.io/#/TikTok-App-V3-API)
+    -   [TikTok App V3数据接口](https://api.tikhub.io/#/TikTok-App-V3-API)
     -   [Xigua Video App V2 data interface](https://api.tikhub.io/#/Xigua-App-V2-API)
     -   [Xiaohongshu web version data interface](https://api.tikhub.io/#/Xiaohongshu-Web-API)
     -   [Kuaishou web version data interface](https://api.tikhub.io/#/Kuaishou-Web-API)
     -   [Weibo web version data interface](https://api.tikhub.io/#/Weibo-Web-API)
     -   [Instagram Web and APP data interface](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
+    -   [YouTube web data interface](https://api.tikhub.io/#/YouTube-Web-API)
     -   [Verification code bypass interface](https://api.tikhub.io/#/Captcha-Solver)
     -   [Temporary mailbox interface](https://api.tikhub.io/#/Temp-Mail-API)
 -   Please report any issues or bugs to[Discord server](https://discord.gg/aMEAS8Xsvz)。
@@ -37,7 +38,7 @@
 
 [TikHub.io](https://tikhub.io/)Most of the APIs are RESTFUL, which means you only need to use basic HTTP requests to complete the call.
 
-All APIs are written based on the OPenAPI specification, which means you can use our`openapi.json`自动生成任何形式的API文档：
+All APIs are written based on the OPenAPI specification, which means you can use our`openapi.json`Automatically generate any form of API documentation:
 
 <https://api.tikhub.io/openapi.json>
 
@@ -63,7 +64,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API Token in the request header.`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
