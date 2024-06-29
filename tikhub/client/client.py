@@ -33,6 +33,9 @@ from tikhub.api.v1.endpoints.xiaohongshu.web.xiaohongshu_web import XiaohongshuW
 # KuaiShou Web
 from tikhub.api.v1.endpoints.kuaishou.web.kuaishou_web import KuaishouWeb
 
+# YouTube Web
+from tikhub.api.v1.endpoints.youtube.web.youtube_web import YouTubeWeb
+
 
 class Client:
     def __init__(self,
@@ -94,3 +97,6 @@ class Client:
 
         # KuaiShou Web
         self.KuaishouWeb = KuaishouWeb(self.client)
+
+        # YouTube Web
+        self.YouTubeWeb = YouTubeWeb(self.client)

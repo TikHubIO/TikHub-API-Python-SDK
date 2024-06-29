@@ -164,6 +164,9 @@ self.XiaohongshuWeb = XiaohongshuWeb(self.client)
 
 # KuaiShou Web | 快手网页端
 self.KuaishouWeb = KuaishouWeb(self.client)
+
+# YouTube Web | YouTube网页端
+self.YouTubeWeb = YouTubeWeb(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
