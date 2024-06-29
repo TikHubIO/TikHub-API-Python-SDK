@@ -22,6 +22,7 @@
   * [快手网页版数据接口](https://api.tikhub.io/#/Kuaishou-Web-API)
   * [微博网页版数据接口](https://api.tikhub.io/#/Weibo-Web-API)
   * [Instagram Web以及APP数据接口](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
+  * [YouTube Web数据接口](https://api.tikhub.io/#/YouTube-Web-API)
   * [验证码绕过接口](https://api.tikhub.io/#/Captcha-Solver)
   * [临时邮箱接口](https://api.tikhub.io/#/Temp-Mail-API)
 * 请将任何问题或错误报告给[Discord服务器](https://discord.gg/aMEAS8Xsvz)。
