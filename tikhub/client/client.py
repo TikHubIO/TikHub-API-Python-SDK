@@ -61,7 +61,10 @@ class Client:
         # API Client
         self.client = APIClient(
             base_url=self.base_url,
-            client_headers={"Authorization": f"Bearer {self.api_key}"},
+            client_headers={
+                "User-Agent": "TikHub-API-SDK-Python/1.11.6",
+                "Authorization": f"Bearer {self.api_key}"
+            },
             proxies=proxies,
             max_retries=max_retries,
             max_connections=max_connections,
