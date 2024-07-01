@@ -149,6 +149,30 @@ class InstagramWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}")
         return data
 
+    # 根据用户名获取用户的Reels数据V2 | Get user reels by username V2
+    async def fetch_user_reels_by_username_v2(self, username: str, pagination_token: str = None):
+        endpoint = "/api/v1/instagram/web_app/fetch_user_reels_by_username_v2"
+        data = await self.client.fetch_get_json(f"{endpoint}?username={username}&pagination_token={pagination_token}")
+        return data
+
+    # 根据用户名获取用户的Stories数据 | Get user stories by username
+    async def fetch_user_stories_by_username(self, username: str):
+        endpoint = "/api/v1/instagram/web_app/fetch_user_stories_by_username"
+        data = await self.client.fetch_get_json(f"{endpoint}?username={username}")
+        return data
+
+    # 根据用户名获取用户的highlights数据 | Get user highlights by username
+    async def fetch_user_highlights_by_username(self, username: str):
+        endpoint = "/api/v1/instagram/web_app/fetch_user_highlights_by_username"
+        data = await self.client.fetch_get_json(f"{endpoint}?username={username}")
+        return data
+
+    # 根据用户名获取用户的tv_posts数据 | Get user tv_posts by username
+    async def fetch_user_tv_posts_by_username(self, username: str, pagination_token: str = None):
+        endpoint = "/api/v1/instagram/web_app/fetch_user_tv_posts_by_username"
+        data = await self.client.fetch_get_json(f"{endpoint}?username={username}&pagination_token={pagination_token}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio

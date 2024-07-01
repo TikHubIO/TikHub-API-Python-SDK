@@ -36,6 +36,9 @@ from tikhub.api.v1.endpoints.kuaishou.web.kuaishou_web import KuaishouWeb
 # YouTube Web
 from tikhub.api.v1.endpoints.youtube.web.youtube_web import YouTubeWeb
 
+# Net Ease Cloud Music
+from tikhub.api.v1.endpoints.net_ease_cloud_music.app.net_ease_cloud_music_app_v1 import NetEaseCloudMusicAppV1
+
 
 class Client:
     def __init__(self,
@@ -100,3 +103,6 @@ class Client:
 
         # YouTube Web
         self.YouTubeWeb = YouTubeWeb(self.client)
+
+        # Net Ease Cloud Music
+        self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)

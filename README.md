@@ -23,6 +23,7 @@
   * [微博网页版数据接口](https://api.tikhub.io/#/Weibo-Web-API)
   * [Instagram Web以及APP数据接口](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
   * [YouTube Web数据接口](https://api.tikhub.io/#/YouTube-Web-API)
+  * [网易云音乐App数据接口](https://api.tikhub.io/#/NetEase-Cloud-Music-API)
   * [验证码绕过接口](https://api.tikhub.io/#/Captcha-Solver)
   * [临时邮箱接口](https://api.tikhub.io/#/Temp-Mail-API)
 * 请将任何问题或错误报告给[Discord服务器](https://discord.gg/aMEAS8Xsvz)。
@@ -168,6 +169,9 @@ self.KuaishouWeb = KuaishouWeb(self.client)
 
 # YouTube Web | YouTube网页端
 self.YouTubeWeb = YouTubeWeb(self.client)
+
+# 网易云音乐APP | NetEase Cloud Music APP
+self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
