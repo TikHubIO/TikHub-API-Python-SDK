@@ -167,6 +167,12 @@ class InstagramWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?username={username}")
         return data
 
+    # 根据highlights ID获取highlights数据 | Get highlights data by highlights ID
+    async def fetch_highlights_by_highlights_id(self, highlight_id: str):
+        endpoint = "/api/v1/instagram/web_app/fetch_highlights_by_highlight_id"
+        data = await self.client.fetch_get_json(f"{endpoint}?highlight_id={highlight_id}")
+        return data
+
     # 根据用户名获取用户的tv_posts数据 | Get user tv_posts by username
     async def fetch_user_tv_posts_by_username(self, username: str, pagination_token: str = None):
         endpoint = "/api/v1/instagram/web_app/fetch_user_tv_posts_by_username"
