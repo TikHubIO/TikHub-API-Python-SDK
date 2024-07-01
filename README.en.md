@@ -16,13 +16,14 @@
     -   [Douyin App V3 data interface](https://api.tikhub.io/#/Douyin-App-V3-API)
     -   [TikTok web version data interface](https://api.tikhub.io/#/TikTok-Web-API)
     -   [TikTok App V2 data interface](https://api.tikhub.io/#/TikTok-App-V2-API)
-    -   [TikTok App V3数据接口](https://api.tikhub.io/#/TikTok-App-V3-API)
+    -   [TikTok App V3 data interface](https://api.tikhub.io/#/TikTok-App-V3-API)
     -   [Xigua Video App V2 data interface](https://api.tikhub.io/#/Xigua-App-V2-API)
     -   [Xiaohongshu web version data interface](https://api.tikhub.io/#/Xiaohongshu-Web-API)
     -   [Kuaishou web version data interface](https://api.tikhub.io/#/Kuaishou-Web-API)
     -   [Weibo web version data interface](https://api.tikhub.io/#/Weibo-Web-API)
     -   [Instagram Web and APP data interface](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
     -   [YouTube web data interface](https://api.tikhub.io/#/YouTube-Web-API)
+    -   [NetEase Cloud Music App Data Interface](https://api.tikhub.io/#/NetEase-Cloud-Music-API)
     -   [Verification code bypass interface](https://api.tikhub.io/#/Captcha-Solver)
     -   [Temporary mailbox interface](https://api.tikhub.io/#/Temp-Mail-API)
 -   Please report any issues or bugs to[Discord server](https://discord.gg/aMEAS8Xsvz)。
@@ -60,7 +61,7 @@ The steps to obtain API Token are also very simple, you only need to log in to o
 
 > Used on the API documentation web page
 
-After you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
+When you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
 
 > Used in HTTP requests
 
@@ -74,7 +75,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -169,6 +170,9 @@ self.KuaishouWeb = KuaishouWeb(self.client)
 
 # YouTube Web | YouTube网页端
 self.YouTubeWeb = YouTubeWeb(self.client)
+
+# 网易云音乐APP | NetEase Cloud Music APP
+self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
 ```
 
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
