@@ -51,7 +51,7 @@ Of course, we have used Swagger UI by default to display our API documents. You 
 
 #### **Authentication**
 
-> Introduction
+> 简介
 
 The endpoints with the 🔒 icon in the interface document need to carry the API Token in the request header before they can be called. Calling these interfaces will use the remaining free quota or account balance in your account. At the same time, each endpoint will also be based on the email of the API Token owner. The address limits the request rate. Each endpoint has independent RPS (Requests per second). In most cases, users can request the same endpoint 5 times per second.
 
@@ -61,11 +61,11 @@ The steps to obtain API Token are also very simple, you only need to log in to o
 
 > Used on the API documentation web page
 
-When you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
+After you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
