@@ -172,6 +172,9 @@ self.YouTubeWeb = YouTubeWeb(self.client)
 
 # 网易云音乐APP | NetEase Cloud Music APP
 self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
+
+# Hybrid Parsing
+self.HybridParsing = HybridParsing(self.client)
 ```
 
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
