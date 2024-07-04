@@ -88,7 +88,6 @@ class InstagramWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?username={username}")
         return data
 
-
     # 根据关键词搜索用户 | Search users by query
     async def fetch_search_users_by_keyword(self, keyword: str):
         endpoint = "/api/v1/instagram/web_app/fetch_search_users_by_keyword"
@@ -179,6 +178,25 @@ class InstagramWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?username={username}&pagination_token={pagination_token}")
         return data
 
+    # 根据URL获取帖子评论数据 | Get post comments by URL
+    async def fetch_post_comments_by_url(self, url: str, pagination_token: str = None):
+        endpoint = "/api/v1/instagram/web_app/fetch_post_comments_by_url"
+        data = await self.client.fetch_get_json(f"{endpoint}?url={url}&pagination_token={pagination_token}")
+        return data
+
+    # 根据评论ID获取评论回复数据 | Get comment replies by comment ID
+    async def fetch_comment_replies_by_comment_id(self, url: str, comment_id: str, pagination_token: str = None):
+        endpoint = "/api/v1/instagram/web_app/fetch_comment_replies_by_comment_id"
+        data = await self.client.fetch_get_json(
+            f"{endpoint}?url={url}&comment_id={comment_id}&pagination_token={pagination_token}")
+        return data
+
+    # 根据URL获取帖子点赞数据 | Get post likes by URL
+    async def fetch_post_likes_by_url(self, url: str):
+        endpoint = "/api/v1/instagram/web_app/fetch_post_likes_by_url"
+        data = await self.client.fetch_get_json(f"{endpoint}?url={url}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio
@@ -196,5 +214,3 @@ if __name__ == "__main__":
 
 
     asyncio.run(main())
-
-

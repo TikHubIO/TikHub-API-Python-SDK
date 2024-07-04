@@ -1,3 +1,6 @@
+# import SDK Version
+from tikhub import version
+
 # http_client
 from tikhub.http_client.api_client import APIClient
 
@@ -39,6 +42,9 @@ from tikhub.api.v1.endpoints.youtube.web.youtube_web import YouTubeWeb
 # Net Ease Cloud Music
 from tikhub.api.v1.endpoints.net_ease_cloud_music.app.net_ease_cloud_music_app_v1 import NetEaseCloudMusicAppV1
 
+# Hybrid Parsing
+from tikhub.api.v1.endpoints.hybrid_parsing.hybrid_parsing import HybridParsing
+
 
 class Client:
     def __init__(self,
@@ -62,7 +68,7 @@ class Client:
         self.client = APIClient(
             base_url=self.base_url,
             client_headers={
-                "User-Agent": "TikHub-API-SDK-Python/1.11.6",
+                "User-Agent": f"TikHub-API-SDK-Python/{version}",
                 "Authorization": f"Bearer {self.api_key}"
             },
             proxies=proxies,
@@ -109,3 +115,6 @@ class Client:
 
         # Net Ease Cloud Music
         self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
+
+        # Hybrid Parsing
+        self.HybridParsing = HybridParsing(self.client)

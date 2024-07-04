@@ -7,13 +7,14 @@
 # twine upload dist/*
 
 from setuptools import setup, find_packages
+from tikhub import version
 
 with open("README.md", "r", encoding='utf8') as fh:
     long_description = fh.read()
 
 setup(
     name="tikhub",
-    version="1.11.6",
+    version=version,
     author="TikHub.io",
     author_email="tikhub.io@proton.me",
     description="A Python SDK for TikHub RESTful API",

@@ -1,4 +1,5 @@
 # 导入API SDK Client类
+from typing import List
 
 from tikhub.http_client.api_client import APIClient
 
@@ -16,6 +17,12 @@ class DouyinAppV3:
     async def fetch_one_video(self, aweme_id: str):
         endpoint = f"/api/v1/douyin/app/v3/fetch_one_video"
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
+        return data
+
+    # 批量获取视频信息 (Batch Get Video Information)
+    async def fetch_multi_video(self, aweme_ids: List[str]):
+        endpoint = f"/api/v1/douyin/app/v3/fetch_multi_video"
+        data = await self.client.fetch_post_json(endpoint, params={"aweme_ids": aweme_ids})
         return data
 
     # 根据分享链接获取作品数据 | Get video data by sharing url
