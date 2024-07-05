@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)"Is a**开箱即用的集成工具以及服务的平台**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to win-win results.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)"Is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 #### Remark
 
@@ -24,6 +24,7 @@
     -   [Instagram Web and APP data interface](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
     -   [YouTube web data interface](https://api.tikhub.io/#/YouTube-Web-API)
     -   [NetEase Cloud Music App Data Interface](https://api.tikhub.io/#/NetEase-Cloud-Music-API)
+    -   [Twitter web data interface](https://api.tikhub.io/#/Twitter-Web-API)
     -   [Verification code bypass interface](https://api.tikhub.io/#/Captcha-Solver)
     -   [Temporary mailbox interface](https://api.tikhub.io/#/Temp-Mail-API)
 -   Please report any issues or bugs to[Discord server](https://discord.gg/aMEAS8Xsvz)。
@@ -87,7 +88,7 @@ Please do not share your API Token, as this may cause you property damage and ot
 pip install tikhub
 ```
 
--   Import SDK
+-   导入SDK
 
 ```python
 from tikhub import Client
@@ -174,6 +175,9 @@ self.YouTubeWeb = YouTubeWeb(self.client)
 # 网易云音乐APP | NetEase Cloud Music APP
 self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
 
+# Twitter Web | Twitter网页端
+self.TwitterWeb = TwitterWeb(self.client)
+
 # Hybrid Parsing
 self.HybridParsing = HybridParsing(self.client)
 ```
@@ -181,9 +185,25 @@ self.HybridParsing = HybridParsing(self.client)
 -   use`DouyinAppV1`of`fetch_one_video`The method calls the interface to obtain single video data.
 
 ```python
-# 获取单个作品数据 | Get single video data
-video_data = await client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379")
-print(video_data)
+# 导入异步io库 | Import asyncio
+import asyncio
+
+# 导入tikhub | Import tikhub
+from tikhub import Client
+
+# 初始化Client | Initialize Client
+client = Client(base_url="https://api.tikhub.io", 
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=60,
+                max_tasks=50)
+
+if __name__ == "__main__":
+    # 获取单个作品数据 | Get single video data
+    video_data = asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379"))
+    print(video_data)
 ```
 
 -   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
@@ -223,6 +243,11 @@ def fetch_one_video(aweme_id: str):
         # 关闭异步事件循环
         # Close the asynchronous event
         loop.close()
+
+# 调用fetch_one_video方法 | Call the fetch_one_video method
+if __name__ == "__main__":
+    video_data = fetch_one_video(aweme_id="7345492945006595379")
+    print(video_data)
 ```
 
 -   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code. Each method is named according to the endpoint.`uri`to name, for example`/api/v1/douyin/app/v1/fetch_one_video`The method name is`fetch_one_video`, you can find the corresponding method according to the endpoint in the API document.
