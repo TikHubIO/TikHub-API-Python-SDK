@@ -24,6 +24,7 @@
   * [Instagram Web以及APP数据接口](https://api.tikhub.io/#/Instagram-Web-And-APP-API)
   * [YouTube Web数据接口](https://api.tikhub.io/#/YouTube-Web-API)
   * [网易云音乐App数据接口](https://api.tikhub.io/#/NetEase-Cloud-Music-API)
+  * [Twitter Web数据接口](https://api.tikhub.io/#/Twitter-Web-API)
   * [验证码绕过接口](https://api.tikhub.io/#/Captcha-Solver)
   * [临时邮箱接口](https://api.tikhub.io/#/Temp-Mail-API)
 * 请将任何问题或错误报告给[Discord服务器](https://discord.gg/aMEAS8Xsvz)。
@@ -173,6 +174,9 @@ self.YouTubeWeb = YouTubeWeb(self.client)
 # 网易云音乐APP | NetEase Cloud Music APP
 self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
 
+# Twitter Web | Twitter网页端
+self.TwitterWeb = TwitterWeb(self.client)
+
 # Hybrid Parsing
 self.HybridParsing = HybridParsing(self.client)
 ```
@@ -180,9 +184,25 @@ self.HybridParsing = HybridParsing(self.client)
 - 使用`DouyinAppV1`的`fetch_one_video`方法调用接口获取单一视频数据。
 
 ```python
-# 获取单个作品数据 | Get single video data
-video_data = await client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379")
-print(video_data)
+# 导入异步io库 | Import asyncio
+import asyncio
+
+# 导入tikhub | Import tikhub
+from tikhub import Client
+
+# 初始化Client | Initialize Client
+client = Client(base_url="https://api.tikhub.io", 
+                api_key="YOUR_API_TOKEN",
+                proxies=None,
+                max_retries=3,
+                max_connections=50,
+                timeout=60,
+                max_tasks=50)
+
+if __name__ == "__main__":
+    # 获取单个作品数据 | Get single video data
+    video_data = asyncio.run(client.DouyinAppV1.fetch_one_video(aweme_id="7345492945006595379"))
+    print(video_data)
 ```
 
 - 我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
@@ -222,6 +242,11 @@ def fetch_one_video(aweme_id: str):
         # 关闭异步事件循环
         # Close the asynchronous event
         loop.close()
+
+# 调用fetch_one_video方法 | Call the fetch_one_video method
+if __name__ == "__main__":
+    video_data = fetch_one_video(aweme_id="7345492945006595379")
+    print(video_data)
 ```
 
 - 由于章节有限，在此处就不列出完整的方法了，你可以通过查看源代码的形式查看每一个属性内实现的方法，每一个方法的命名都是根据端点的`uri`来命名的，例如`/api/v1/douyin/app/v1/fetch_one_video`的方法名就是`fetch_one_video`，你可以根据API文档中的端点来查找对应的方法。

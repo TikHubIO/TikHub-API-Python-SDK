@@ -45,6 +45,9 @@ from tikhub.api.v1.endpoints.net_ease_cloud_music.app.net_ease_cloud_music_app_v
 # Hybrid Parsing
 from tikhub.api.v1.endpoints.hybrid_parsing.hybrid_parsing import HybridParsing
 
+# Twitter Web
+from tikhub.api.v1.endpoints.twitter.web.twitter_web import TwitterWeb
+
 
 class Client:
     def __init__(self,
@@ -115,6 +118,9 @@ class Client:
 
         # Net Ease Cloud Music
         self.NetEaseCloudMusicAppV1 = NetEaseCloudMusicAppV1(self.client)
+
+        # Twitter Web
+        self.TwitterWeb = TwitterWeb(self.client)
 
         # Hybrid Parsing
         self.HybridParsing = HybridParsing(self.client)
