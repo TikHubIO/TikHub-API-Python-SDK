@@ -57,7 +57,7 @@
 
 > 生成API Token
 
-获取API Token的步骤也很简单，你只需要登录到我们的用户后台 [TikHub User](https://tikhub.io/users/api_keys)，然后点击左侧的`API Keys`就可以生成你自己的API Token，同时，你可以自定义API Token的权限（`Scopes`），也可以设置API Token的过期日期（`Expire Date`），还可以手动暂时关闭API Token（`Status`）。
+获取API Token的步骤也很简单，你只需要登录到我们的用户后台 [TikHub User](https://beta-web.tikhub.io/users/api_keys)，然后点击左侧的`API Keys`就可以生成你自己的API Token，同时，你可以自定义API Token的权限（`Scopes`），也可以设置API Token的过期日期（`Expire Date`），还可以手动暂时关闭API Token（`Status`）。
 
 > 在API文档网页上使用
 
