@@ -67,11 +67,15 @@ class Client:
         if not self.api_key:
             raise RuntimeError("API Key is required to use the SDK. | 需要API Key才能使用SDK。")
 
+        # Version
+        self.version = str(version)
+
         # API Client
         self.client = APIClient(
             base_url=self.base_url,
             client_headers={
-                "User-Agent": f"TikHub-API-SDK-Python/{version}",
+                "User-Agent": f"TikHub-API-SDK-Python/{self.version}",
+                "X-SDK-Version": f"{self.version}",
                 "Authorization": f"Bearer {self.api_key}"
             },
             proxies=proxies,
@@ -124,3 +128,9 @@ class Client:
 
         # Hybrid Parsing
         self.HybridParsing = HybridParsing(self.client)
+
+
+if __name__ == '__main__':
+    # Example
+    api_key = "YOUR_API_KEY"
+    client = Client(api_key=api_key)

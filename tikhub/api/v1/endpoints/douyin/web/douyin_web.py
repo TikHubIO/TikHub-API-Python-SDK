@@ -1,6 +1,8 @@
 # 导入API SDK Client类
 import json
 
+import websockets
+
 from tikhub.http_client.api_client import APIClient
 
 
@@ -415,6 +417,80 @@ class DouyinWeb:
         endpoint = "/api/v1/douyin/web/get_all_webcast_id"
         # 将列表转换为json格式 | Convert the list to json format
         data = await self.client.fetch_post_json(f"{endpoint}", data=json.dumps(url))
+        return data
+
+    # 提取直播间弹幕 - HTTP | Extract webcast danmaku - HTTP
+    async def douyin_live_room(self, live_room_url: str, danmaku_type: str):
+        """
+        提取直播间弹幕 - HTTP | Extract webcast danmaku - HTTP
+        :param live_room_url: 直播间链接 | Room link
+        :param danmaku_type: 弹幕类型 | Danmaku type
+        :return: 弹幕数据 | Danmaku data
+        """
+        endpoint = "/api/v1/douyin/web/douyin_live_room"
+        data = await self.client.fetch_get_json(f"{endpoint}?live_room_url={live_room_url}&danmaku_type={danmaku_type}")
+        return data
+
+    # 提取直播间弹幕 - WebSocket | Extract webcast danmaku - WebSocket
+    async def douyin_live_room_ws(self, live_room_url: str, danmaku_type: str):
+        """
+        提取直播间弹幕 - WebSocket | Extract webcast danmaku - WebSocket
+        :param live_room_url: 直播间链接 | Room link
+        :param danmaku_type: 弹幕类型 | Danmaku type
+        :return: 弹幕数据 | Danmaku data
+        """
+        endpoint = await self.douyin_live_room(live_room_url, danmaku_type)
+        # $.data.ws_url
+        wss_url = endpoint["data"]["ws_url"]
+        # 连接 WebSocket
+        try:
+            async with websockets.connect(wss_url, ping_interval=10, ping_timeout=5) as websocket:
+                # 持续接收消息
+                while True:
+                    response = await websocket.recv()
+                    print(f"Received from server: {response}")
+
+                    # 你可以在这里处理接收到的消息 | You can process the received message here
+
+        except Exception as e:
+            print(f"Failed to connect: {e}")
+
+    # 首页Feed (Home Feed)
+    async def fetch_home_feed(self, count: int = 10, refresh_index = 0):
+        """
+        首页Feed (Home Feed)
+        :param count: 数量 | Number
+        :param refresh_index: 刷新索引 | Refresh index
+        :return: Feed数据 | Feed data
+        """
+        endpoint = "/api/v1/douyin/web/fetch_home_feed"
+        data = await self.client.fetch_get_json(f"{endpoint}?count={count}&refresh_index={refresh_index}")
+        return data
+
+    # 用户粉丝列表 (User Fans List)
+    async def fetch_user_fans_list(self, sec_user_id: str, max_time: str = '0', count: int = 20):
+        """
+        用户粉丝列表 (User Fans List)
+        :param sec_user_id: 用户sec_user_id | User sec_user_id
+        :param max_time: 最大时间 | Maximum time
+        :param count: 数量 | Number
+        :return: 粉丝列表 | Fans list
+        """
+        endpoint = "/api/v1/douyin/web/fetch_user_fans_list"
+        data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
+        return data
+
+    # 用户关注列表 (User Following List)
+    async def fetch_user_following_list(self, sec_user_id: str, max_time: str = '0', count: int = 20):
+        """
+        用户关注列表 (User Following List)
+        :param sec_user_id: 用户sec_user_id | User sec_user_id
+        :param max_time: 最大时间 | Maximum time
+        :param count: 数量 | Number
+        :return: 关注列表 | Following list
+        """
+        endpoint = "/api/v1/douyin/web/fetch_user_following_list"
+        data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
         return data
 
 

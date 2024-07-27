@@ -1,6 +1,8 @@
 # 导入API SDK Client类
 import json
 
+import websockets
+
 from tikhub.http_client.api_client import APIClient
 
 
@@ -171,6 +173,42 @@ class TikTokWeb:
         endpoint = "/api/v1/tiktok/web/get_all_unique_id"
         data = await self.client.fetch_post_json(endpoint, data={"url": url})
         return data
+
+    # 根据直播间链接提取直播间ID | Extract live room ID based on live room link
+    async def get_live_room_id(self, live_room_url: str):
+        endpoint = "/api/v1/tiktok/web/get_live_room_id"
+        data = await self.client.fetch_get_json(f"{endpoint}?live_room_url={live_room_url}")
+        return data
+
+    # 提取直播间弹幕 - HTTP | Extract live room barrage - HTTP
+    async def tiktok_live_room(self, live_room_url: str, danmaku_type: str):
+        endpoint = "/api/v1/tiktok/web/tiktok_live_room"
+        data = await self.client.fetch_get_json(f"{endpoint}?live_room_url={live_room_url}&danmaku_type={danmaku_type}")
+        return data
+
+    # 提取直播间弹幕 - WebSocket | Extract live room barrage - WebSocket
+    async def tiktok_live_room_ws(self, live_room_url: str, danmaku_type: str):
+        """
+        提取直播间弹幕 - WebSocket | Extract webcast danmaku - WebSocket
+        :param live_room_url: 直播间链接 | Room link
+        :param danmaku_type: 弹幕类型 | Danmaku type
+        :return: 弹幕数据 | Danmaku data
+        """
+        endpoint = await self.tiktok_live_room(live_room_url, danmaku_type)
+        # $.data.ws_url
+        wss_url = endpoint["data"]["ws_url"]
+        # 连接 WebSocket
+        try:
+            async with websockets.connect(wss_url, ping_interval=10, ping_timeout=5) as websocket:
+                # 持续接收消息
+                while True:
+                    response = await websocket.recv()
+                    print(f"Received from server: {response}")
+
+                    # 你可以在这里处理接收到的消息 | You can process the received message here
+
+        except Exception as e:
+            print(f"Failed to connect: {e}")
 
 
 if __name__ == "__main__":

@@ -181,6 +181,18 @@ class DouyinAppV3:
         data = await self.client.fetch_get_json(f"{endpoint}?object_id={object_id}")
         return data
 
+    # 用户粉丝列表 (User Fans List)
+    async def fetch_user_fans_list(self, sec_user_id: str, max_time: str = '0', count: int = 20):
+        endpoint = f"/api/v1/douyin/app/v3/fetch_user_fans_list"
+        data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
+        return data
+
+    # 用户关注列表 (User Following List)
+    async def fetch_user_following_list(self, sec_user_id: str, max_time: str = '0', count: int = 20):
+        endpoint = f"/api/v1/douyin/app/v3/fetch_user_following_list"
+        data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio

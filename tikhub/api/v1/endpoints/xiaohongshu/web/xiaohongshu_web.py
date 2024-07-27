@@ -31,3 +31,21 @@ class XiaohongshuWeb:
         endpoint = "/api/v1/xiaohongshu/web/get_user_notes"
         data = await self.client.fetch_get_json(f"{endpoint}?user_id={user_id}&lastCursor={lastCursor}")
         return data
+
+    # 获取笔记评论
+    async def get_note_comments(self, note_id: str, lastCursor: str = None):
+        endpoint = "/api/v1/xiaohongshu/web/get_note_comments"
+        data = await self.client.fetch_get_json(f"{endpoint}?note_id={note_id}&lastCursor={lastCursor}")
+        return data
+
+    # 获取笔记评论回复
+    async def get_note_comment_replies(self, note_id: str, comment_id: str, lastCursor: str = None):
+        endpoint = "/api/v1/xiaohongshu/web/get_note_comment_replies"
+        data = await self.client.fetch_get_json(f"{endpoint}?note_id={note_id}&comment_id={comment_id}&lastCursor={lastCursor}")
+        return data
+
+    # 搜索用户
+    async def search_users(self, keyword: str, page: int = 1):
+        endpoint = "/api/v1/xiaohongshu/web/search_users"
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&page={page}")
+        return data

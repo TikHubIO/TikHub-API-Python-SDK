@@ -20,7 +20,7 @@ setup(
     description="A Python SDK for TikHub RESTful API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/TikHubIO/TikHub-API-SDK-Python",
+    url="https://github.com/TikHubIO/TikHub-API-Python-SDK",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -31,5 +31,6 @@ setup(
     install_requires=[
         "httpx>=0.27.0",
         "rich~=13.7.1",
+        "websockets~=12.0",
     ],
 )
