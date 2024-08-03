@@ -210,6 +210,18 @@ class TikTokWeb:
         except Exception as e:
             print(f"Failed to connect: {e}")
 
+    # 直播间开播状态检测 | Live room broadcast status detection
+    async def fetch_check_live_alive(self, room_id: str):
+        endpoint = "/api/v1/tiktok/web/fetch_check_live_alive"
+        data = await self.client.fetch_get_json(f"{endpoint}?room_id={room_id}")
+        return data
+
+    # 通过直播链接获取直播间信息（离线直播间也可以获取） | Get live room information through live link (offline live room can also be obtained)
+    async def fetch_tiktok_live_data(self, live_room_url: str):
+        endpoint = "/api/v1/tiktok/web/fetch_tiktok_live_data"
+        data = await self.client.fetch_get_json(f"{endpoint}?live_room_url={live_room_url}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio
