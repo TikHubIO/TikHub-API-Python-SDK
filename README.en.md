@@ -26,7 +26,7 @@
     -   [NetEase Cloud Music App Data Interface](https://api.tikhub.io/#/NetEase-Cloud-Music-API)
     -   [Twitter web data interface](https://api.tikhub.io/#/Twitter-Web-API)
     -   [Verification code bypass interface](https://api.tikhub.io/#/Captcha-Solver)
-    -   [临时邮箱接口](https://api.tikhub.io/#/Temp-Mail-API)
+    -   [Temporary mailbox interface](https://api.tikhub.io/#/Temp-Mail-API)
 -   Please report any issues or bugs to[Discord server](https://discord.gg/aMEAS8Xsvz)。
 
 * * *
@@ -76,7 +76,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
