@@ -129,38 +129,35 @@ class Client:
         # Hybrid Parsing
         self.HybridParsing = HybridParsing(self.client)
 
-
-"""
-[中文]
-
-这些代码用于实现异步上下文管理器，使得类的实例可以与 async with 语句一起使用，从而在进入和退出时自动处理资源的初始化和清理。
-
-例如：
-async with Client(api_key=api_key) as client:
-    pass
+    """
+    [中文]
     
-这样在退出时会自动调用 __aexit__ 方法，关闭 client。
-
-[English]
-
-This code is used to implement an asynchronous context manager, 
-which allows instances of a class to be used with the async with statement, 
-automatically handling the initialization and cleanup of resources when entering and exiting.
-
-For example:
-async with Client(api_key=api_key) as client:
-    pass
+    这些代码用于实现异步上下文管理器，使得类的实例可以与 async with 语句一起使用，从而在进入和退出时自动处理资源的初始化和清理。
     
-This way, the __aexit__ method is automatically called when exiting, closing the client.
-"""
+    例如：
+    async with Client(api_key=api_key) as client:
+        pass
+        
+    这样在退出时会自动调用 __aexit__ 方法，关闭 client。
+    
+    [English]
+    
+    This code is used to implement an asynchronous context manager, 
+    which allows instances of a class to be used with the async with statement, 
+    automatically handling the initialization and cleanup of resources when entering and exiting.
+    
+    For example:
+    async with Client(api_key=api_key) as client:
+        pass
+        
+    This way, the __aexit__ method is automatically called when exiting, closing the client.
+    """
 
+    async def __aenter__(self):
+        return self
 
-async def __aenter__(self):
-    return self
-
-
-async def __aexit__(self, exc_type, exc_val, exc_tb):
-    await self.client.close()
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.client.close()
 
 
 if __name__ == '__main__':

@@ -1,2 +1,2 @@
 # tikhub/version.py
-version = "1.12.3"
+version = "1.12.4"
