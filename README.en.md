@@ -44,7 +44,7 @@ All APIs are written based on the OPenAPI specification, which means you can use
 
 <https://api.tikhub.io/openapi.json>
 
-Of course, we have used Swagger UI by default to display our API documents. You can open the following link on the web page, then authenticate the API Token on the web page, then click on any endpoint and click`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
+当然，我们已经默认使用了Swagger UI来展示我们的API文档，你可以在网页上打开下面的链接，然后在网页上进行API Token的认证，随后点击任意端点然后点击`Try it out`You can test the endpoints you need. Most endpoints already carry default values ​​or demo values, which will better help you understand the required parameters of the call:
 
 <https://api.tikhub.io>
 
@@ -66,7 +66,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`的字段，下面我将给出一个JSON作为header的示范：
 
 {
 
@@ -250,7 +250,7 @@ if __name__ == "__main__":
     print(video_data)
 ```
 
--   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code. Each method is named according to the endpoint.`uri`to name, for example`/api/v1/douyin/app/v1/fetch_one_video`The method name is`fetch_one_video`, you can find the corresponding method according to the endpoint in the API document.
+-   Due to the limited chapters, the complete methods are not listed here. You can view the methods implemented in each attribute by viewing the source code. Each method is named according to the endpoint.`uri`来命名的，例如`/api/v1/douyin/app/v1/fetch_one_video`The method name is`fetch_one_video`, you can find the corresponding method according to the endpoint in the API document.
 -   And the parameters accepted by each method have been added`type hints`, you can understand the parameter types that the method needs to pass in by looking at the parameters of the method, which can better help you call the method.
 -   The document can automatically help you generate codes in different programming languages. Please check for details.[API Documentation](https://docs.tikhub.io/)。
 -   Currently, the programming languages ​​that can automatically generate code are:
