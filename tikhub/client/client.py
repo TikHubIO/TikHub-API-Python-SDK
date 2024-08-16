@@ -57,7 +57,8 @@ class Client:
                  max_retries: int = 3,
                  max_connections: int = 50,
                  timeout: int = 60,
-                 max_tasks: int = 50
+                 max_tasks: int = 50,
+                 custom_user_agent: str = None,
                  ):
         # Base URL
         self.base_url = base_url
@@ -74,7 +75,7 @@ class Client:
         self.client = APIClient(
             base_url=self.base_url,
             client_headers={
-                "User-Agent": f"TikHub-API-SDK-Python/{self.version}",
+                "User-Agent": f"TikHub-API-SDK-Python/{self.version}" if not custom_user_agent else custom_user_agent,
                 "X-SDK-Version": f"{self.version}",
                 "Authorization": f"Bearer {self.api_key}"
             },
