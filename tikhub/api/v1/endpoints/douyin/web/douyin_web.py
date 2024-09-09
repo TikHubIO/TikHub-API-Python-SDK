@@ -23,6 +23,31 @@ class DouyinWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
         return data
 
+    # 获取单个作品数据V2 | Get single video data V2
+    async def fetch_one_video_v2(self, aweme_id: str):
+        """
+        获取单个作品数据 | Get single video data
+        :param aweme_id: 作品id | Video id
+        :return: 作品数据 | Video data
+        """
+        endpoint = "/api/v1/douyin/web/fetch_one_video_v2"
+        data = await self.client.fetch_get_json(f"{endpoint}?aweme_id={aweme_id}")
+        return data
+
+    # 获取相关作品推荐数据 | Get related video recommendation data
+    async def fetch_related_posts(self, aweme_id: str, refresh_index: int = 1, count: int = 20):
+        """
+        获取相关作品推荐数据 | Get related video recommendation data
+        :param aweme_id: 作品id | Video id
+        :param refresh_index: 刷新索引 | Refresh index
+        :param count: 数量 | Number
+        :return: 相关作品推荐数据 | Related video recommendation data
+        """
+        endpoint = "/api/v1/douyin/web/fetch_related_posts"
+        data = await self.client.fetch_get_json(
+            f"{endpoint}?aweme_id={aweme_id}&refresh_index={refresh_index}&count={count}")
+        return data
+
     # 获取单个作品视频弹幕数据 | Get single video danmaku data
     async def fetch_one_video_danmaku(self, item_id: str, duration: int, end_time: int, start_time: int):
         """

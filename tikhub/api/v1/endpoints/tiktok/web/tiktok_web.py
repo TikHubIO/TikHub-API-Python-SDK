@@ -222,6 +222,12 @@ class TikTokWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?live_room_url={live_room_url}")
         return data
 
+    # 获取直播间首页推荐列表 | Get live room home page recommendation list
+    async def fetch_live_recommend(self, related_live_tag: str):
+        endpoint = "/api/v1/tiktok/web/fetch_live_recommend"
+        data = await self.client.fetch_get_json(f"{endpoint}?related_live_tag={related_live_tag}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio

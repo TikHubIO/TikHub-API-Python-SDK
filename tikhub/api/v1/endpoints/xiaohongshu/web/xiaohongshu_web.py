@@ -14,6 +14,12 @@ class XiaohongshuWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?note_id={note_id}")
         return data
 
+    # 获取笔记信息 V2
+    async def get_note_info_v2(self, note_id: str):
+        endpoint = "/api/v1/xiaohongshu/web/get_note_info_v2"
+        data = await self.client.fetch_get_json(f"{endpoint}?note_id={note_id}")
+        return data
+
     # 获取用户信息
     async def get_user_info(self, user_id: str):
         endpoint = "/api/v1/xiaohongshu/web/get_user_info"
