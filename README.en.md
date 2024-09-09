@@ -5,11 +5,11 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)” is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)” is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**每一个社区成员都有机会将他们编写的功能或接口接入我们的平台，并且从中获得收益**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 #### Remark
 
--   TikHub API currently provides the following services and is constantly being updated:
+-   TikHub API目前提供以下服务，并且还在不断更新中：
     -   [Douyin web version data interface](https://api.tikhub.io/#/Douyin-Web-API)
     -   [Douyin App V1 data interface](https://api.tikhub.io/#/Douyin-App-V1-API)
     -   [Douyin App V2 data interface](https://api.tikhub.io/#/Douyin-App-V2-API)
