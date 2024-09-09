@@ -58,15 +58,15 @@ The endpoints with the 🔒 icon in the interface document need to carry the API
 
 > Generate API Token
 
-The steps to obtain API Token are also very simple. You only need to log in to our user backend.[Stay tuned](https://beta-web.tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
+The steps to obtain API Token are also very simple, you only need to log in to our user backend[Stay tuned](https://beta-web.tikhub.io/users/api_keys), then click on the left`API Keys`You can generate your own API Token, and at the same time, you can customize the permissions of the API Token (`Scopes`), you can also set the expiration date of the API Token (`Expire Date`), you can also manually temporarily close the API Token (`Status`）。
 
 > Used on the API documentation web page
 
-When you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
+After you complete the above steps, you can copy your API Token, then return to our Swagger UI web page and click the green on the right side of the page`Authorize`, and then at the bottom of the pop-up window`Value`Paste the API Token in the input box to complete the authentication.
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -76,7 +76,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-Please do not share your API Token, as this may cause you property damage and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
@@ -206,7 +206,7 @@ if __name__ == "__main__":
     print(video_data)
 ```
 
--   我们已经使用HTTPX的对大多数端点进行了异步封装，如果你的代码是同步执行的，你可以使用下面的代码防止异步传染。
+-   We have used HTTPX to asynchronously encapsulate most endpoints. If your code is executed synchronously, you can use the following code to prevent asynchronous infection.
 
 ```python
 # 导入异步io库 | Import asyncio
