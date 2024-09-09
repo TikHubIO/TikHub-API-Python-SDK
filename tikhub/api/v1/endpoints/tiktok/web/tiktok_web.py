@@ -79,9 +79,9 @@ class TikTokWeb:
         return data
 
     # 获取综合搜索列表 | Get general search list
-    async def fetch_general_search(self, keyword: str, count: int, offset: int):
+    async def fetch_general_search(self, keyword: str, count: int, offset: int, search_id: str = None, cookie: str = None):
         endpoint = "/api/v1/tiktok/web/fetch_general_search"
-        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}")
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}&search_id={search_id}&cookie={cookie}")
         return data
 
     # 搜索关键字推荐 | Search keyword suggest
@@ -91,21 +91,21 @@ class TikTokWeb:
         return data
 
     # 搜索用户 | Search user
-    async def fetch_search_user(self, keyword: str, cursor: int):
+    async def fetch_search_user(self, keyword: str, cursor: int, search_id: str = None, cookie: str = None):
         endpoint = "/api/v1/tiktok/web/fetch_search_user"
-        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&cursor={cursor}")
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&cursor={cursor}&search_id={search_id}&cookie={cookie}")
         return data
 
     # 搜索视频 | Search video
-    async def fetch_search_video(self, keyword: str, count: int, offset: int):
+    async def fetch_search_video(self, keyword: str, count: int, offset: int, search_id: str = None, cookie: str = None):
         endpoint = "/api/v1/tiktok/web/fetch_search_video"
-        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}")
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}&search_id={search_id}&cookie={cookie}")
         return data
 
     # 搜索直播 | Search live
-    async def fetch_search_live(self, keyword: str, count: int, offset: int):
+    async def fetch_search_live(self, keyword: str, count: int, offset: int, search_id: str = None, cookie: str = None):
         endpoint = "/api/v1/tiktok/web/fetch_search_live"
-        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}")
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&count={count}&offset={offset}&search_id={search_id}&cookie={cookie}")
         return data
 
     # Tag详情 | Tag detail
