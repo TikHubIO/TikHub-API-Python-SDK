@@ -5,7 +5,7 @@
 
 #### **Introduction**
 
-🎉「[TikHub.io](https://tikhub.io/)” is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to win-win results.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
+🎉「[TikHub.io](https://tikhub.io/)” is a**A platform for out-of-the-box integration tools and services**, our goal is to help users quickly start business and support function customization. Our vision is to form a community entrepreneurship project. A single tree cannot grow into a forest, but cooperation can lead to a win-win situation.**Every community member has the opportunity to integrate the functions or interfaces they write into our platform and benefit from them**. We have accumulated a large number of registered users and community users, and in order to realize this vision, we are actively planning and implementing cooperation strategies to ensure the sustainable and healthy development of the ecosystem. Welcome everyone to join us[Discord](https://discord.gg/aMEAS8Xsvz)Community.
 
 #### Remark
 
@@ -66,7 +66,7 @@ After you complete the above steps, you can copy your API Token, then return to 
 
 > Used in HTTP requests
 
-If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry a called`Authorization`Field, below I will give an example of JSON as header:
+If you want to carry the API Token in the HTTP request, please read the format below carefully, and you need to carry an API token in the request header.`Authorization`Field, below I will give an example of JSON as header:
 
 {
 
@@ -76,7 +76,7 @@ If you want to carry the API Token in the HTTP request, please read the format b
 
 > Remark
 
-请不要分享你的API Token，这可能会造成你的财产损失等一些列问题，我们强烈建议为你的每一个项目都使用不同的API Token，同时不要忘记在创建API Token时勾选对应的`Scopes`, otherwise you will encounter insufficient permissions when requesting.
+Please do not share your API Token, as this may cause you to lose property and other problems. We strongly recommend using a different API Token for each of your projects, and don’t forget to check the corresponding box when creating the API Token.`Scopes`, otherwise you will encounter insufficient permissions when requesting.
 
 * * *
 
