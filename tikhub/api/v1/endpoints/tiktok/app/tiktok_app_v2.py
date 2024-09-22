@@ -146,6 +146,12 @@ class TikTokAppV2:
         data = await self.client.fetch_get_json(f"{endpoint}?room_id={room_id}")
         return data
 
+    # 视频主页Feed (Home Feed) | Get video home feed
+    async def fetch_home_feed(self):
+        endpoint = "/api/v1/tiktok/app/v2/fetch_home_feed"
+        data = await self.client.fetch_get_json(endpoint)
+        return data
+
 
 if __name__ == "__main__":
     import asyncio
