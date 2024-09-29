@@ -193,6 +193,12 @@ class DouyinAppV3:
         data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
         return data
 
+    # 抖音APP注册设备 (Douyin App Register Device)
+    async def register_device(self, proxy: str = ''):
+        endpoint = f"/api/v1/douyin/app/v3/register_device"
+        data = await self.client.fetch_post_json(f"{endpoint}?proxy={proxy}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio

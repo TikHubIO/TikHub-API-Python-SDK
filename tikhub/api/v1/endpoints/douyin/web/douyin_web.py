@@ -518,6 +518,20 @@ class DouyinWeb:
         data = await self.client.fetch_get_json(f"{endpoint}?sec_user_id={sec_user_id}&max_time={max_time}&count={count}")
         return data
 
+    # 搜索话题 (Search Challenge)
+    async def fetch_search_challenge(self, keyword: str, cursor: int = 0, count: int = 30, cookie: str = ''):
+        """
+        搜索话题 (Search Challenge)
+        :param keyword: 关键词 | Keyword
+        :param cursor: 游标 | Cursor
+        :param count: 数量 | Number
+        :param cookie: 用户网页版抖音Cookie | Your web version of Douyin Cookie
+        :return: 话题数据 | Challenge data
+        """
+        endpoint = "/api/v1/douyin/web/fetch_search_challenge"
+        data = await self.client.fetch_get_json(f"{endpoint}?keyword={keyword}&cursor={cursor}&count={count}&cookie={cookie}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio

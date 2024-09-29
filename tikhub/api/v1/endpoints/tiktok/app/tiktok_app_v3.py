@@ -262,6 +262,12 @@ class TikTokAppV3:
         data = await self.client.fetch_get_json(endpoint)
         return data
 
+    # TikTok APP注册设备信息 | Register device information
+    async def register_device_info(self, proxy: str = ''):
+        endpoint = "/api/v1/tiktok/app/v3/register_device_info"
+        data = await self.client.fetch_get_json(f"{endpoint}?proxy={proxy}")
+        return data
+
 
 if __name__ == "__main__":
     import asyncio
