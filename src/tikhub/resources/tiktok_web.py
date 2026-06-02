@@ -5,7 +5,7 @@
 OpenAPI tag: ``TikTok-Web-API``
 SDK attribute: ``client.tiktok_web`` / ``async_client.tiktok_web``
 
-Endpoints: 59
+Endpoints: 60
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncTiktokWeb", "TiktokWeb"]
 
 
 class TiktokWeb(SyncResource):
-    """Sync ``TikTok-Web-API`` resource (59 endpoints)."""
+    """Sync ``TikTok-Web-API`` resource (60 endpoints)."""
 
     def fetch_post_detail(
         self,
@@ -762,7 +762,8 @@ class TiktokWeb(SyncResource):
         self,
         *,
         room_id: str,
-        user_unique_id: str,
+        user_unique_id: str | None = None,
+        resp_content_type: str | None = None,
     ) -> Any:
         """TikTok直播间弹幕参数获取/tiktok live room danmaku parameters
 
@@ -771,8 +772,23 @@ class TiktokWeb(SyncResource):
         params = _drop_none({
             "room_id": room_id,
             "user_unique_id": user_unique_id,
+            "resp_content_type": resp_content_type,
         })
         return self._client._request("GET", "/api/v1/tiktok/web/fetch_live_im_fetch", params=params)
+
+    def generate_wss_xb_signature(
+        self,
+        *,
+        user_agent: str | None = None,
+    ) -> Any:
+        """生成TikTok WSS X-Bogus签名/Generate TikTok WSS X-Bogus signature
+
+        ``GET /api/v1/tiktok/web/generate_wss_xb_signature``
+        """
+        params = _drop_none({
+            "user_agent": user_agent,
+        })
+        return self._client._request("GET", "/api/v1/tiktok/web/generate_wss_xb_signature", params=params)
 
     def get_live_room_id(
         self,
@@ -991,7 +1007,7 @@ class TiktokWeb(SyncResource):
 
 
 class AsyncTiktokWeb(AsyncResource):
-    """Async ``TikTok-Web-API`` resource (59 endpoints)."""
+    """Async ``TikTok-Web-API`` resource (60 endpoints)."""
 
     async def fetch_post_detail(
         self,
@@ -1729,7 +1745,8 @@ class AsyncTiktokWeb(AsyncResource):
         self,
         *,
         room_id: str,
-        user_unique_id: str,
+        user_unique_id: str | None = None,
+        resp_content_type: str | None = None,
     ) -> Any:
         """TikTok直播间弹幕参数获取/tiktok live room danmaku parameters
 
@@ -1738,8 +1755,23 @@ class AsyncTiktokWeb(AsyncResource):
         params = _drop_none({
             "room_id": room_id,
             "user_unique_id": user_unique_id,
+            "resp_content_type": resp_content_type,
         })
         return await self._client._request("GET", "/api/v1/tiktok/web/fetch_live_im_fetch", params=params)
+
+    async def generate_wss_xb_signature(
+        self,
+        *,
+        user_agent: str | None = None,
+    ) -> Any:
+        """生成TikTok WSS X-Bogus签名/Generate TikTok WSS X-Bogus signature
+
+        ``GET /api/v1/tiktok/web/generate_wss_xb_signature``
+        """
+        params = _drop_none({
+            "user_agent": user_agent,
+        })
+        return await self._client._request("GET", "/api/v1/tiktok/web/generate_wss_xb_signature", params=params)
 
     async def get_live_room_id(
         self,

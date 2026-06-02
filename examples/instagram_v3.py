@@ -103,7 +103,7 @@ async def main():
 
         # GET /api/v1/instagram/v3/get_post_info
         # 获取帖子详情/Get post info (media_id or URL)
-        result = await client.instagram_v3.get_post_info(media_id='3850699893338385742')
+        result = await client.instagram_v3.get_post_info(media_id='3850699893338385742', url='https://www.instagram.com/p/DUajw4YkorV/')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/instagram/v3/get_post_info_by_code

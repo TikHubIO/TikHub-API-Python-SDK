@@ -1,7 +1,7 @@
 """Example: Douyin-App-V3-API
 
 SDK attribute: ``client.douyin_app_v3``
-Endpoints: 47
+Endpoints: 46
 
 Usage::
 
@@ -58,12 +58,12 @@ async def main():
 
         # GET /api/v1/douyin/app/v3/fetch_video_high_quality_play_url
         # 获取视频的最高画质播放链接/Get the highest quality play URL of the video
-        result = await client.douyin_app_v3.fetch_video_high_quality_play_url(aweme_id='7512756548356492544', share_url='https://www.douyin.com/video/7512756548356492544')
+        result = await client.douyin_app_v3.fetch_video_high_quality_play_url(aweme_id='7512756548356492544', share_url='https://www.douyin.com/video/7512756548356492544', region='CN')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # POST /api/v1/douyin/app/v3/fetch_multi_video_high_quality_play_url
         # 批量获取视频的最高画质播放链接/Batch get the highest quality play URL of videos
-        result = await client.douyin_app_v3.fetch_multi_video_high_quality_play_url(aweme_ids='7512756548356492544,7448118827402972455,7126745726494821640')
+        result = await client.douyin_app_v3.fetch_multi_video_high_quality_play_url(aweme_ids='7512756548356492544,7448118827402972455,7126745726494821640', region='CN')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/douyin/app/v3/fetch_video_statistics
@@ -149,11 +149,6 @@ async def main():
         # GET /api/v1/douyin/app/v3/fetch_video_search_result
         # 获取指定关键词的视频搜索结果（弃用，替代接口见下方文档说明）/Get video search results of specified keywords (deprecated, see the d
         result = await client.douyin_app_v3.fetch_video_search_result(keyword='中华娘', offset=0, count=20, sort_type='0', publish_time='0', filter_duration='0')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/app/v3/fetch_video_search_result_v2
-        # 获取指定关键词的视频搜索结果 V2 （弃用，替代接口见下方文档说明）/Get video search results of specified keywords V2 (deprecated, se
-        result = await client.douyin_app_v3.fetch_video_search_result_v2(keyword='中华娘', sort_type='_0', publish_time='_0', filter_duration='_0', page=1, search_id='')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/douyin/app/v3/fetch_user_search_result

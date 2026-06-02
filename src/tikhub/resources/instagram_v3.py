@@ -329,7 +329,8 @@ class InstagramV3(SyncResource):
     def get_post_info(
         self,
         *,
-        media_id: str,
+        media_id: Any | None = None,
+        url: Any | None = None,
     ) -> Any:
         """获取帖子详情/Get post info (media_id or URL)
 
@@ -337,6 +338,7 @@ class InstagramV3(SyncResource):
         """
         params = _drop_none({
             "media_id": media_id,
+            "url": url,
         })
         return self._client._request("GET", "/api/v1/instagram/v3/get_post_info", params=params)
 
@@ -891,7 +893,8 @@ class AsyncInstagramV3(AsyncResource):
     async def get_post_info(
         self,
         *,
-        media_id: str,
+        media_id: Any | None = None,
+        url: Any | None = None,
     ) -> Any:
         """获取帖子详情/Get post info (media_id or URL)
 
@@ -899,6 +902,7 @@ class AsyncInstagramV3(AsyncResource):
         """
         params = _drop_none({
             "media_id": media_id,
+            "url": url,
         })
         return await self._client._request("GET", "/api/v1/instagram/v3/get_post_info", params=params)
 

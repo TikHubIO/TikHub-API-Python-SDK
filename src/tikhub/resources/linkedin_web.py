@@ -5,7 +5,7 @@
 OpenAPI tag: ``LinkedIn-Web-API``
 SDK attribute: ``client.linkedin_web`` / ``async_client.linkedin_web``
 
-Endpoints: 25
+Endpoints: 42
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncLinkedinWeb", "LinkedinWeb"]
 
 
 class LinkedinWeb(SyncResource):
-    """Sync ``LinkedIn-Web-API`` resource (25 endpoints)."""
+    """Sync ``LinkedIn-Web-API`` resource (42 endpoints)."""
 
     def get_user_profile(
         self,
@@ -508,9 +508,295 @@ class LinkedinWeb(SyncResource):
         })
         return self._client._request("GET", "/api/v1/linkedin/web/search_people", params=params)
 
+    def get_user_reactions(
+        self,
+        *,
+        urn: str,
+        page: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """获取用户点赞反应/Get user reactions
+
+        ``GET /api/v1/linkedin/web/get_user_reactions``
+        """
+        params = _drop_none({
+            "urn": urn,
+            "page": page,
+            "pagination_token": pagination_token,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_user_reactions", params=params)
+
+    def get_user_volunteers(
+        self,
+        *,
+        urn: str,
+        page: Any | None = None,
+    ) -> Any:
+        """获取用户志愿者经历/Get user volunteers
+
+        ``GET /api/v1/linkedin/web/get_user_volunteers``
+        """
+        params = _drop_none({
+            "urn": urn,
+            "page": page,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_user_volunteers", params=params)
+
+    def get_company_affiliated_pages(
+        self,
+        *,
+        company_id: str,
+    ) -> Any:
+        """获取公司关联页面/Get company affiliated pages
+
+        ``GET /api/v1/linkedin/web/get_company_affiliated_pages``
+        """
+        params = _drop_none({
+            "company_id": company_id,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_company_affiliated_pages", params=params)
+
+    def get_company_associated_member_insights(
+        self,
+        *,
+        company_id: str,
+    ) -> Any:
+        """获取公司关联成员洞察/Get company associated member insights
+
+        ``GET /api/v1/linkedin/web/get_company_associated_member_insights``
+        """
+        params = _drop_none({
+            "company_id": company_id,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_company_associated_member_insights", params=params)
+
+    def get_post_detail(
+        self,
+        *,
+        post_id: str,
+    ) -> Any:
+        """获取帖子详情/Get post detail
+
+        ``GET /api/v1/linkedin/web/get_post_detail``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_post_detail", params=params)
+
+    def get_post_comments(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        sort_order: Any | None = None,
+        post_type: Any | None = None,
+    ) -> Any:
+        """获取帖子评论/Get post comments
+
+        ``GET /api/v1/linkedin/web/get_post_comments``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "sort_order": sort_order,
+            "post_type": post_type,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_post_comments", params=params)
+
+    def get_post_reactions(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        type: Any | None = None,
+    ) -> Any:
+        """获取帖子点赞反应/Get post reactions
+
+        ``GET /api/v1/linkedin/web/get_post_reactions``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "type": type,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_post_reactions", params=params)
+
+    def get_post_reposts(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """获取帖子转发/Get post reposts
+
+        ``GET /api/v1/linkedin/web/get_post_reposts``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "pagination_token": pagination_token,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_post_reposts", params=params)
+
+    def get_comments_replies(
+        self,
+        *,
+        post_id: str,
+        comment_id: str,
+        previous_replies_token: str,
+    ) -> Any:
+        """获取评论回复/Get comment replies
+
+        ``GET /api/v1/linkedin/web/get_comments_replies``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "comment_id": comment_id,
+            "previous_replies_token": previous_replies_token,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_comments_replies", params=params)
+
+    def search_posts(
+        self,
+        *,
+        keyword: str,
+        page: Any | None = None,
+        date_posted: Any | None = None,
+        sort_by: Any | None = None,
+        from_member: Any | None = None,
+        from_company: Any | None = None,
+        content_type: Any | None = None,
+    ) -> Any:
+        """搜索帖子/Search posts
+
+        ``GET /api/v1/linkedin/web/search_posts``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "page": page,
+            "date_posted": date_posted,
+            "sort_by": sort_by,
+            "from_member": from_member,
+            "from_company": from_company,
+            "content_type": content_type,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/search_posts", params=params)
+
+    def search_location(
+        self,
+        *,
+        keyword: str,
+    ) -> Any:
+        """搜索地理位置/Search location
+
+        ``GET /api/v1/linkedin/web/search_location``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/search_location", params=params)
+
+    def search_schools(
+        self,
+        *,
+        keyword: str,
+        page: Any | None = None,
+    ) -> Any:
+        """搜索学校/Search schools
+
+        ``GET /api/v1/linkedin/web/search_schools``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "page": page,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/search_schools", params=params)
+
+    def search_suggestion_industry(
+        self,
+        *,
+        keyword: str,
+    ) -> Any:
+        """搜索行业建议/Search industry suggestions
+
+        ``GET /api/v1/linkedin/web/search_suggestion_industry``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/search_suggestion_industry", params=params)
+
+    def get_group_info(
+        self,
+        *,
+        group_id: str,
+    ) -> Any:
+        """获取群组信息/Get group info
+
+        ``GET /api/v1/linkedin/web/get_group_info``
+        """
+        params = _drop_none({
+            "group_id": group_id,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_group_info", params=params)
+
+    def get_group_posts(
+        self,
+        *,
+        group_id: str,
+        page: Any | None = None,
+    ) -> Any:
+        """获取群组帖子/Get group posts
+
+        ``GET /api/v1/linkedin/web/get_group_posts``
+        """
+        params = _drop_none({
+            "group_id": group_id,
+            "page": page,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_group_posts", params=params)
+
+    def search_ads(
+        self,
+        *,
+        keyword: Any | None = None,
+        advertiser_name: Any | None = None,
+        country: Any | None = None,
+        date: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """搜索广告/Search ads (Ad Library)
+
+        ``GET /api/v1/linkedin/web/search_ads``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "advertiser_name": advertiser_name,
+            "country": country,
+            "date": date,
+            "pagination_token": pagination_token,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/search_ads", params=params)
+
+    def get_ad_detail(
+        self,
+        *,
+        ad_id: str,
+    ) -> Any:
+        """获取广告详情/Get ad detail
+
+        ``GET /api/v1/linkedin/web/get_ad_detail``
+        """
+        params = _drop_none({
+            "ad_id": ad_id,
+        })
+        return self._client._request("GET", "/api/v1/linkedin/web/get_ad_detail", params=params)
+
 
 class AsyncLinkedinWeb(AsyncResource):
-    """Async ``LinkedIn-Web-API`` resource (25 endpoints)."""
+    """Async ``LinkedIn-Web-API`` resource (42 endpoints)."""
 
     async def get_user_profile(
         self,
@@ -993,3 +1279,289 @@ class AsyncLinkedinWeb(AsyncResource):
             "service_category": service_category,
         })
         return await self._client._request("GET", "/api/v1/linkedin/web/search_people", params=params)
+
+    async def get_user_reactions(
+        self,
+        *,
+        urn: str,
+        page: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """获取用户点赞反应/Get user reactions
+
+        ``GET /api/v1/linkedin/web/get_user_reactions``
+        """
+        params = _drop_none({
+            "urn": urn,
+            "page": page,
+            "pagination_token": pagination_token,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_user_reactions", params=params)
+
+    async def get_user_volunteers(
+        self,
+        *,
+        urn: str,
+        page: Any | None = None,
+    ) -> Any:
+        """获取用户志愿者经历/Get user volunteers
+
+        ``GET /api/v1/linkedin/web/get_user_volunteers``
+        """
+        params = _drop_none({
+            "urn": urn,
+            "page": page,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_user_volunteers", params=params)
+
+    async def get_company_affiliated_pages(
+        self,
+        *,
+        company_id: str,
+    ) -> Any:
+        """获取公司关联页面/Get company affiliated pages
+
+        ``GET /api/v1/linkedin/web/get_company_affiliated_pages``
+        """
+        params = _drop_none({
+            "company_id": company_id,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_company_affiliated_pages", params=params)
+
+    async def get_company_associated_member_insights(
+        self,
+        *,
+        company_id: str,
+    ) -> Any:
+        """获取公司关联成员洞察/Get company associated member insights
+
+        ``GET /api/v1/linkedin/web/get_company_associated_member_insights``
+        """
+        params = _drop_none({
+            "company_id": company_id,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_company_associated_member_insights", params=params)
+
+    async def get_post_detail(
+        self,
+        *,
+        post_id: str,
+    ) -> Any:
+        """获取帖子详情/Get post detail
+
+        ``GET /api/v1/linkedin/web/get_post_detail``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_post_detail", params=params)
+
+    async def get_post_comments(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        sort_order: Any | None = None,
+        post_type: Any | None = None,
+    ) -> Any:
+        """获取帖子评论/Get post comments
+
+        ``GET /api/v1/linkedin/web/get_post_comments``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "sort_order": sort_order,
+            "post_type": post_type,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_post_comments", params=params)
+
+    async def get_post_reactions(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        type: Any | None = None,
+    ) -> Any:
+        """获取帖子点赞反应/Get post reactions
+
+        ``GET /api/v1/linkedin/web/get_post_reactions``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "type": type,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_post_reactions", params=params)
+
+    async def get_post_reposts(
+        self,
+        *,
+        post_id: str,
+        page: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """获取帖子转发/Get post reposts
+
+        ``GET /api/v1/linkedin/web/get_post_reposts``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "page": page,
+            "pagination_token": pagination_token,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_post_reposts", params=params)
+
+    async def get_comments_replies(
+        self,
+        *,
+        post_id: str,
+        comment_id: str,
+        previous_replies_token: str,
+    ) -> Any:
+        """获取评论回复/Get comment replies
+
+        ``GET /api/v1/linkedin/web/get_comments_replies``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "comment_id": comment_id,
+            "previous_replies_token": previous_replies_token,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_comments_replies", params=params)
+
+    async def search_posts(
+        self,
+        *,
+        keyword: str,
+        page: Any | None = None,
+        date_posted: Any | None = None,
+        sort_by: Any | None = None,
+        from_member: Any | None = None,
+        from_company: Any | None = None,
+        content_type: Any | None = None,
+    ) -> Any:
+        """搜索帖子/Search posts
+
+        ``GET /api/v1/linkedin/web/search_posts``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "page": page,
+            "date_posted": date_posted,
+            "sort_by": sort_by,
+            "from_member": from_member,
+            "from_company": from_company,
+            "content_type": content_type,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/search_posts", params=params)
+
+    async def search_location(
+        self,
+        *,
+        keyword: str,
+    ) -> Any:
+        """搜索地理位置/Search location
+
+        ``GET /api/v1/linkedin/web/search_location``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/search_location", params=params)
+
+    async def search_schools(
+        self,
+        *,
+        keyword: str,
+        page: Any | None = None,
+    ) -> Any:
+        """搜索学校/Search schools
+
+        ``GET /api/v1/linkedin/web/search_schools``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "page": page,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/search_schools", params=params)
+
+    async def search_suggestion_industry(
+        self,
+        *,
+        keyword: str,
+    ) -> Any:
+        """搜索行业建议/Search industry suggestions
+
+        ``GET /api/v1/linkedin/web/search_suggestion_industry``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/search_suggestion_industry", params=params)
+
+    async def get_group_info(
+        self,
+        *,
+        group_id: str,
+    ) -> Any:
+        """获取群组信息/Get group info
+
+        ``GET /api/v1/linkedin/web/get_group_info``
+        """
+        params = _drop_none({
+            "group_id": group_id,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_group_info", params=params)
+
+    async def get_group_posts(
+        self,
+        *,
+        group_id: str,
+        page: Any | None = None,
+    ) -> Any:
+        """获取群组帖子/Get group posts
+
+        ``GET /api/v1/linkedin/web/get_group_posts``
+        """
+        params = _drop_none({
+            "group_id": group_id,
+            "page": page,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_group_posts", params=params)
+
+    async def search_ads(
+        self,
+        *,
+        keyword: Any | None = None,
+        advertiser_name: Any | None = None,
+        country: Any | None = None,
+        date: Any | None = None,
+        pagination_token: Any | None = None,
+    ) -> Any:
+        """搜索广告/Search ads (Ad Library)
+
+        ``GET /api/v1/linkedin/web/search_ads``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "advertiser_name": advertiser_name,
+            "country": country,
+            "date": date,
+            "pagination_token": pagination_token,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/search_ads", params=params)
+
+    async def get_ad_detail(
+        self,
+        *,
+        ad_id: str,
+    ) -> Any:
+        """获取广告详情/Get ad detail
+
+        ``GET /api/v1/linkedin/web/get_ad_detail``
+        """
+        params = _drop_none({
+            "ad_id": ad_id,
+        })
+        return await self._client._request("GET", "/api/v1/linkedin/web/get_ad_detail", params=params)

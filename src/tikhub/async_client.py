@@ -18,6 +18,7 @@ from tikhub.resources.douyin_app_v3 import AsyncDouyinAppV3
 from tikhub.resources.douyin_billboard import AsyncDouyinBillboard
 from tikhub.resources.douyin_creator import AsyncDouyinCreator
 from tikhub.resources.douyin_creator_v2 import AsyncDouyinCreatorV2
+from tikhub.resources.douyin_index import AsyncDouyinIndex
 from tikhub.resources.douyin_search import AsyncDouyinSearch
 from tikhub.resources.douyin_web import AsyncDouyinWeb
 from tikhub.resources.douyin_xingtu import AsyncDouyinXingtu
@@ -32,6 +33,7 @@ from tikhub.resources.kuaishou_app import AsyncKuaishouApp
 from tikhub.resources.kuaishou_web import AsyncKuaishouWeb
 from tikhub.resources.lemon8_app import AsyncLemon8App
 from tikhub.resources.linkedin_web import AsyncLinkedinWeb
+from tikhub.resources.linkedin_web_v2 import AsyncLinkedinWebV2
 from tikhub.resources.pipixia_app import AsyncPipixiaApp
 from tikhub.resources.reddit_app import AsyncRedditApp
 from tikhub.resources.sora2 import AsyncSora2
@@ -116,6 +118,7 @@ class AsyncTikHub(AsyncBaseClient):
         self.douyin_billboard: AsyncDouyinBillboard = AsyncDouyinBillboard(self)
         self.douyin_creator: AsyncDouyinCreator = AsyncDouyinCreator(self)
         self.douyin_creator_v2: AsyncDouyinCreatorV2 = AsyncDouyinCreatorV2(self)
+        self.douyin_index: AsyncDouyinIndex = AsyncDouyinIndex(self)
         self.douyin_search: AsyncDouyinSearch = AsyncDouyinSearch(self)
         self.douyin_web: AsyncDouyinWeb = AsyncDouyinWeb(self)
         self.douyin_xingtu: AsyncDouyinXingtu = AsyncDouyinXingtu(self)
@@ -130,6 +133,7 @@ class AsyncTikHub(AsyncBaseClient):
         self.kuaishou_web: AsyncKuaishouWeb = AsyncKuaishouWeb(self)
         self.lemon8_app: AsyncLemon8App = AsyncLemon8App(self)
         self.linkedin_web: AsyncLinkedinWeb = AsyncLinkedinWeb(self)
+        self.linkedin_web_v2: AsyncLinkedinWebV2 = AsyncLinkedinWebV2(self)
         self.pipixia_app: AsyncPipixiaApp = AsyncPipixiaApp(self)
         self.reddit_app: AsyncRedditApp = AsyncRedditApp(self)
         self.sora2: AsyncSora2 = AsyncSora2(self)

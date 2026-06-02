@@ -5,7 +5,7 @@
 OpenAPI tag: ``Reddit-APP-API``
 SDK attribute: ``client.reddit_app`` / ``async_client.reddit_app``
 
-Endpoints: 24
+Endpoints: 28
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncRedditApp", "RedditApp"]
 
 
 class RedditApp(SyncResource):
-    """Sync ``Reddit-APP-API`` resource (24 endpoints)."""
+    """Sync ``Reddit-APP-API`` resource (28 endpoints)."""
 
     def fetch_home_feed(
         self,
@@ -105,6 +105,46 @@ class RedditApp(SyncResource):
             "need_format": need_format,
         })
         return self._client._request("GET", "/api/v1/reddit/app/fetch_news_feed", params=params)
+
+    def fetch_explore_feed(
+        self,
+        *,
+        sort: str | None = None,
+        time: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取Reddit APP发现页(社区分类+推荐社区)/Fetch Reddit APP Explore Feed
+
+        ``GET /api/v1/reddit/app/fetch_explore_feed``
+        """
+        params = _drop_none({
+            "sort": sort,
+            "time": time,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/reddit/app/fetch_explore_feed", params=params)
+
+    def fetch_topic_feed(
+        self,
+        *,
+        topic_id: str,
+        scheme_name: str | None = None,
+        sort: str | None = None,
+        time: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """按分类获取Reddit APP feed/Fetch Reddit APP Topic Feed
+
+        ``GET /api/v1/reddit/app/fetch_topic_feed``
+        """
+        params = _drop_none({
+            "topic_id": topic_id,
+            "scheme_name": scheme_name,
+            "sort": sort,
+            "time": time,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/reddit/app/fetch_topic_feed", params=params)
 
     def fetch_post_details(
         self,
@@ -352,6 +392,38 @@ class RedditApp(SyncResource):
         })
         return self._client._request("GET", "/api/v1/reddit/app/fetch_trending_searches", params=params)
 
+    def fetch_generated_posts(
+        self,
+        *,
+        post_ids: str,
+        need_format: bool | None = None,
+    ) -> Any:
+        """批量获取Reddit Answers卡片精简帖子信息/Fetch Reddit Answers Generated Posts
+
+        ``GET /api/v1/reddit/app/fetch_generated_posts``
+        """
+        params = _drop_none({
+            "post_ids": post_ids,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/reddit/app/fetch_generated_posts", params=params)
+
+    def fetch_generated_comments(
+        self,
+        *,
+        comment_ids: str,
+        need_format: bool | None = None,
+    ) -> Any:
+        """批量获取Reddit Answers卡片精简评论信息/Fetch Reddit Answers Generated Comments
+
+        ``GET /api/v1/reddit/app/fetch_generated_comments``
+        """
+        params = _drop_none({
+            "comment_ids": comment_ids,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/reddit/app/fetch_generated_comments", params=params)
+
     def fetch_user_profile(
         self,
         *,
@@ -482,7 +554,7 @@ class RedditApp(SyncResource):
 
 
 class AsyncRedditApp(AsyncResource):
-    """Async ``Reddit-APP-API`` resource (24 endpoints)."""
+    """Async ``Reddit-APP-API`` resource (28 endpoints)."""
 
     async def fetch_home_feed(
         self,
@@ -563,6 +635,46 @@ class AsyncRedditApp(AsyncResource):
             "need_format": need_format,
         })
         return await self._client._request("GET", "/api/v1/reddit/app/fetch_news_feed", params=params)
+
+    async def fetch_explore_feed(
+        self,
+        *,
+        sort: str | None = None,
+        time: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取Reddit APP发现页(社区分类+推荐社区)/Fetch Reddit APP Explore Feed
+
+        ``GET /api/v1/reddit/app/fetch_explore_feed``
+        """
+        params = _drop_none({
+            "sort": sort,
+            "time": time,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/reddit/app/fetch_explore_feed", params=params)
+
+    async def fetch_topic_feed(
+        self,
+        *,
+        topic_id: str,
+        scheme_name: str | None = None,
+        sort: str | None = None,
+        time: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """按分类获取Reddit APP feed/Fetch Reddit APP Topic Feed
+
+        ``GET /api/v1/reddit/app/fetch_topic_feed``
+        """
+        params = _drop_none({
+            "topic_id": topic_id,
+            "scheme_name": scheme_name,
+            "sort": sort,
+            "time": time,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/reddit/app/fetch_topic_feed", params=params)
 
     async def fetch_post_details(
         self,
@@ -809,6 +921,38 @@ class AsyncRedditApp(AsyncResource):
             "need_format": need_format,
         })
         return await self._client._request("GET", "/api/v1/reddit/app/fetch_trending_searches", params=params)
+
+    async def fetch_generated_posts(
+        self,
+        *,
+        post_ids: str,
+        need_format: bool | None = None,
+    ) -> Any:
+        """批量获取Reddit Answers卡片精简帖子信息/Fetch Reddit Answers Generated Posts
+
+        ``GET /api/v1/reddit/app/fetch_generated_posts``
+        """
+        params = _drop_none({
+            "post_ids": post_ids,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/reddit/app/fetch_generated_posts", params=params)
+
+    async def fetch_generated_comments(
+        self,
+        *,
+        comment_ids: str,
+        need_format: bool | None = None,
+    ) -> Any:
+        """批量获取Reddit Answers卡片精简评论信息/Fetch Reddit Answers Generated Comments
+
+        ``GET /api/v1/reddit/app/fetch_generated_comments``
+        """
+        params = _drop_none({
+            "comment_ids": comment_ids,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/reddit/app/fetch_generated_comments", params=params)
 
     async def fetch_user_profile(
         self,

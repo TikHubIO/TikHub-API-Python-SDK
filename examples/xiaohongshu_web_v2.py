@@ -1,7 +1,7 @@
 """Example: Xiaohongshu-Web-V2-API
 
 SDK attribute: ``client.xiaohongshu_web_v2``
-Endpoints: 18
+Endpoints: 7
 
 Usage::
 
@@ -22,53 +22,18 @@ async def main():
     async with AsyncTikHub(api_key=API_KEY) as client:
 
         # GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes
-        # 获取单一笔记和推荐笔记 V1 (已弃用)/Fetch one note and feed notes V1 (deprecated)
-        result = await client.xiaohongshu_web_v2.fetch_feed_notes(note_id='66c9cc31000000001f03a4bc')
+        # 获取图文笔记详情 V1/Get image note detail V1
+        result = await client.xiaohongshu_web_v2.fetch_feed_notes(note_id='66c9cc31000000001f03a4bc', share_text='http://xhslink.com/o/8GqargIxrko')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v2
-        # 获取单一笔记和推荐笔记 V2/Fetch one note and feed notes V2(v2稳定, 推荐使用此接口)
-        result = await client.xiaohongshu_web_v2.fetch_feed_notes_v2(note_id='66c9cc31000000001f03a4bc')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v3
-        # 获取单一笔记和推荐笔记 V3/Fetch one note and feed notes V3(通过短链获取笔记详情)
-        result = await client.xiaohongshu_web_v2.fetch_feed_notes_v3(short_url='http://xhslink.com/a/tyoREa3ciaAeb')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v4
-        # 获取单一笔记和推荐笔记 V4 (互动量有延迟)/Fetch one note and feed notes V4 (interaction volume has a delay)
-        result = await client.xiaohongshu_web_v2.fetch_feed_notes_v4(note_id='66c9cc31000000001f03a4bc')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v5
-        # 获取单一笔记和推荐笔记 V5 (互动量有缺失)/Fetch one note and feed notes V5 (interaction volume has a missing)
-        result = await client.xiaohongshu_web_v2.fetch_feed_notes_v5(note_id='66c9cc31000000001f03a4bc')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_note_image
-        # 获取小红书笔记图片/Fetch Xiaohongshu note image
-        result = await client.xiaohongshu_web_v2.fetch_note_image(note_id='66c9cc31000000001f03a4bc')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_search_notes
-        # 获取搜索笔记/Fetch search notes
-        result = await client.xiaohongshu_web_v2.fetch_search_notes(keywords='口红', page=1, sort_type='general', note_type='0')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_search_users
-        # 获取搜索用户/Fetch search users
-        result = await client.xiaohongshu_web_v2.fetch_search_users(keywords='口红', page=1)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_home_notes
-        # 获取Web用户主页笔记/Fetch web user profile notes
-        result = await client.xiaohongshu_web_v2.fetch_home_notes(user_id='5e3a8ee700000000010070c6', cursor='')
+        # 获取图文笔记详情 V2/Get image note detail V2
+        result = await client.xiaohongshu_web_v2.fetch_feed_notes_v2(note_id='66c9cc31000000001f03a4bc', share_text='http://xhslink.com/o/8GqargIxrko')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v2/fetch_home_notes_app
-        # 获取App用户主页笔记/Fetch App user home notes
-        result = await client.xiaohongshu_web_v2.fetch_home_notes_app(user_id='5e3a8ee700000000010070c6', cursor='')
+        # 获取用户笔记/Fetch user notes
+        result = await client.xiaohongshu_web_v2.fetch_home_notes_app(user_id='63f63efb000000001001dd4f', cursor='')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v2/fetch_note_comments
@@ -81,29 +46,9 @@ async def main():
         result = await client.xiaohongshu_web_v2.fetch_sub_comments(note_id='673c894c0000000007033f92', comment_id='673ecdfc000000001503bf8b', cursor='')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
-        # GET /api/v1/xiaohongshu/web_v2/fetch_user_info
-        # 获取用户信息/Fetch user info
-        result = await client.xiaohongshu_web_v2.fetch_user_info(user_id='5e3a8ee700000000010070c6')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
         # GET /api/v1/xiaohongshu/web_v2/fetch_user_info_app
         # 获取App用户信息/Fetch App user info
         result = await client.xiaohongshu_web_v2.fetch_user_info_app(user_id='5e3a8ee700000000010070c6')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_follower_list
-        # 获取用户粉丝列表/Fetch follower list
-        result = await client.xiaohongshu_web_v2.fetch_follower_list(user_id='604a28420000000001005211', cursor='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_following_list
-        # 获取用户关注列表/Fetch following list
-        result = await client.xiaohongshu_web_v2.fetch_following_list(user_id='604a28420000000001005211', cursor='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web_v2/fetch_product_list
-        # 获取小红书商品列表/Fetch Xiaohongshu product list
-        result = await client.xiaohongshu_web_v2.fetch_product_list(user_id='627e35aa00000000210275ae', page='1')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v2/fetch_hot_list

@@ -1,7 +1,7 @@
 """Example: TikTok-Web-API
 
 SDK attribute: ``client.tiktok_web``
-Endpoints: 59
+Endpoints: 60
 
 Usage::
 
@@ -243,7 +243,12 @@ async def main():
 
         # GET /api/v1/tiktok/web/fetch_live_im_fetch
         # TikTok直播间弹幕参数获取/tiktok live room danmaku parameters
-        result = await client.tiktok_web.fetch_live_im_fetch(room_id='7382517534467115826', user_unique_id='7382524529011246630')
+        result = await client.tiktok_web.fetch_live_im_fetch(room_id='7382517534467115826', user_unique_id='7382524529011246630', resp_content_type='protobuf')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/tiktok/web/generate_wss_xb_signature
+        # 生成TikTok WSS X-Bogus签名/Generate TikTok WSS X-Bogus signature
+        result = await client.tiktok_web.generate_wss_xb_signature(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/tiktok/web/get_live_room_id

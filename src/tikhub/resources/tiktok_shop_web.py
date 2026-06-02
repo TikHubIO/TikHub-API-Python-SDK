@@ -5,7 +5,7 @@
 OpenAPI tag: ``TikTok-Shop-Web-API``
 SDK attribute: ``client.tiktok_shop_web`` / ``async_client.tiktok_shop_web``
 
-Endpoints: 15
+Endpoints: 13
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncTiktokShopWeb", "TiktokShopWeb"]
 
 
 class TiktokShopWeb(SyncResource):
-    """Sync ``TikTok-Shop-Web-API`` resource (15 endpoints)."""
+    """Sync ``TikTok-Shop-Web-API`` resource (13 endpoints)."""
 
     def fetch_product_detail(
         self,
@@ -77,28 +77,6 @@ class TiktokShopWeb(SyncResource):
             "region": region,
         })
         return self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_product_detail_v3", params=params)
-
-    def fetch_product_reviews_v1(
-        self,
-        *,
-        product_id: str,
-        sort_type: int | None = None,
-        filter_id: str | None = None,
-        offset: int | None = None,
-    ) -> Any:
-        """获取商品评论V1/Get product reviews V1
-
-        ``GET /api/v1/tiktok/shop/web/fetch_product_reviews_v1``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "product_id": product_id,
-            "sort_type": sort_type,
-            "filter_id": filter_id,
-            "offset": offset,
-        })
-        return self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_product_reviews_v1", params=params)
 
     def fetch_product_reviews_v2(
         self,
@@ -236,30 +214,6 @@ class TiktokShopWeb(SyncResource):
         })
         return self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_search_products_list_v2", params=params)
 
-    def fetch_search_products_list_v3(
-        self,
-        *,
-        keyword: str,
-        offset: int | None = None,
-        region: str | None = None,
-        sort_by: str | None = None,
-        filters_data: str | None = None,
-    ) -> Any:
-        """搜索商品列表V3/Search products list V3
-
-        ``GET /api/v1/tiktok/shop/web/fetch_search_products_list_v3``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "keyword": keyword,
-            "offset": offset,
-            "region": region,
-            "sort_by": sort_by,
-            "filters_data": filters_data,
-        })
-        return self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_search_products_list_v3", params=params)
-
     def fetch_products_category_list(
         self,
         *,
@@ -310,7 +264,7 @@ class TiktokShopWeb(SyncResource):
 
 
 class AsyncTiktokShopWeb(AsyncResource):
-    """Async ``TikTok-Shop-Web-API`` resource (15 endpoints)."""
+    """Async ``TikTok-Shop-Web-API`` resource (13 endpoints)."""
 
     async def fetch_product_detail(
         self,
@@ -363,28 +317,6 @@ class AsyncTiktokShopWeb(AsyncResource):
             "region": region,
         })
         return await self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_product_detail_v3", params=params)
-
-    async def fetch_product_reviews_v1(
-        self,
-        *,
-        product_id: str,
-        sort_type: int | None = None,
-        filter_id: str | None = None,
-        offset: int | None = None,
-    ) -> Any:
-        """获取商品评论V1/Get product reviews V1
-
-        ``GET /api/v1/tiktok/shop/web/fetch_product_reviews_v1``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "product_id": product_id,
-            "sort_type": sort_type,
-            "filter_id": filter_id,
-            "offset": offset,
-        })
-        return await self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_product_reviews_v1", params=params)
 
     async def fetch_product_reviews_v2(
         self,
@@ -521,30 +453,6 @@ class AsyncTiktokShopWeb(AsyncResource):
             "region": region,
         })
         return await self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_search_products_list_v2", params=params)
-
-    async def fetch_search_products_list_v3(
-        self,
-        *,
-        keyword: str,
-        offset: int | None = None,
-        region: str | None = None,
-        sort_by: str | None = None,
-        filters_data: str | None = None,
-    ) -> Any:
-        """搜索商品列表V3/Search products list V3
-
-        ``GET /api/v1/tiktok/shop/web/fetch_search_products_list_v3``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "keyword": keyword,
-            "offset": offset,
-            "region": region,
-            "sort_by": sort_by,
-            "filters_data": filters_data,
-        })
-        return await self._client._request("GET", "/api/v1/tiktok/shop/web/fetch_search_products_list_v3", params=params)
 
     async def fetch_products_category_list(
         self,

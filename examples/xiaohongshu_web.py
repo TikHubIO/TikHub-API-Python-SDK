@@ -1,7 +1,7 @@
 """Example: Xiaohongshu-Web-API
 
 SDK attribute: ``client.xiaohongshu_web``
-Endpoints: 17
+Endpoints: 15
 
 Usage::
 
@@ -24,11 +24,6 @@ async def main():
         # POST /api/v1/xiaohongshu/web/get_home_recommend
         # 获取首页推荐/Get home recommend
         result = await client.xiaohongshu_web.get_home_recommend(feed_type='0', need_filter_image=False, cursor_score='', cookie='', proxy='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web/get_note_info_v2
-        # 获取笔记信息 V2/Get note info V2
-        result = await client.xiaohongshu_web.get_note_info_v2(note_id='665f95200000000006005624', share_text='https://xhslink.com/a/EZ4M9TwMA6c3')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web/get_note_info_v4
@@ -59,11 +54,6 @@ async def main():
         # GET /api/v1/xiaohongshu/web/get_user_info
         # 获取用户信息 V1/Get user info V1
         result = await client.xiaohongshu_web.get_user_info(user_id='5f4a10070000000001006fc7')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/xiaohongshu/web/get_user_info_v2
-        # 获取用户信息 V2/Get user info V2
-        result = await client.xiaohongshu_web.get_user_info_v2(user_id='5f4a10070000000001006fc7', share_text='示例: @Noo 在小红书收获了15.3万次赞与收藏，查看Ta的主页>> https://xhslink.com/m/7XkrlCXbL38')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web/search_notes

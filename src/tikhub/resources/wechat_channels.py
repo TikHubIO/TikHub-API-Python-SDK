@@ -5,7 +5,7 @@
 OpenAPI tag: ``WeChat-Channels-API``
 SDK attribute: ``client.wechat_channels`` / ``async_client.wechat_channels``
 
-Endpoints: 10
+Endpoints: 12
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncWechatChannels", "WechatChannels"]
 
 
 class WechatChannels(SyncResource):
-    """Sync ``WeChat-Channels-API`` resource (10 endpoints)."""
+    """Sync ``WeChat-Channels-API`` resource (12 endpoints)."""
 
     def fetch_default_search(
         self,
@@ -118,6 +118,20 @@ class WechatChannels(SyncResource):
         })
         return self._client._request("GET", "/api/v1/wechat_channels/fetch_video_detail", params=params)
 
+    def fetch_video_by_share_url(
+        self,
+        *,
+        share_url: str,
+    ) -> Any:
+        """微信视频号分享详情/WeChat Channels Share Detail
+
+        ``GET /api/v1/wechat_channels/fetch_video_by_share_url``
+        """
+        params = _drop_none({
+            "share_url": share_url,
+        })
+        return self._client._request("GET", "/api/v1/wechat_channels/fetch_video_by_share_url", params=params)
+
     def fetch_home_page(
         self,
         *,
@@ -166,6 +180,24 @@ class WechatChannels(SyncResource):
         })
         return self._client._request("GET", "/api/v1/wechat_channels/fetch_live_history", params=params)
 
+    def fetch_search_channels(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """微信视频号搜索/Search WeChat Channels
+
+        ``GET /api/v1/wechat_channels/fetch_search_channels``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return self._client._request("GET", "/api/v1/wechat_channels/fetch_search_channels", params=params)
+
     def fetch_hot_words(
         self,
     ) -> Any:
@@ -177,7 +209,7 @@ class WechatChannels(SyncResource):
 
 
 class AsyncWechatChannels(AsyncResource):
-    """Async ``WeChat-Channels-API`` resource (10 endpoints)."""
+    """Async ``WeChat-Channels-API`` resource (12 endpoints)."""
 
     async def fetch_default_search(
         self,
@@ -271,6 +303,20 @@ class AsyncWechatChannels(AsyncResource):
         })
         return await self._client._request("GET", "/api/v1/wechat_channels/fetch_video_detail", params=params)
 
+    async def fetch_video_by_share_url(
+        self,
+        *,
+        share_url: str,
+    ) -> Any:
+        """微信视频号分享详情/WeChat Channels Share Detail
+
+        ``GET /api/v1/wechat_channels/fetch_video_by_share_url``
+        """
+        params = _drop_none({
+            "share_url": share_url,
+        })
+        return await self._client._request("GET", "/api/v1/wechat_channels/fetch_video_by_share_url", params=params)
+
     async def fetch_home_page(
         self,
         *,
@@ -318,6 +364,24 @@ class AsyncWechatChannels(AsyncResource):
             "username": username,
         })
         return await self._client._request("GET", "/api/v1/wechat_channels/fetch_live_history", params=params)
+
+    async def fetch_search_channels(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """微信视频号搜索/Search WeChat Channels
+
+        ``GET /api/v1/wechat_channels/fetch_search_channels``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return await self._client._request("GET", "/api/v1/wechat_channels/fetch_search_channels", params=params)
 
     async def fetch_hot_words(
         self,

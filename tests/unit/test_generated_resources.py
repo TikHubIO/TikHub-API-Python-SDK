@@ -108,8 +108,24 @@ def test_resource_attribute_present(attr: str):
         assert hasattr(client, attr), f"Missing resource: {attr}"
 
 
+def _spec_endpoint_count() -> int:
+    """Count unique ``(method, path)`` endpoints in the committed spec."""
+    import json
+    from pathlib import Path
+
+    spec_path = Path(__file__).resolve().parents[2] / "spec" / "openapi.json"
+    spec = json.loads(spec_path.read_text())
+    endpoints: set[tuple[str, str]] = set()
+    for path, methods in spec["paths"].items():
+        for m in methods:
+            if m.lower() in {"get", "post", "put", "delete", "patch"}:
+                endpoints.add((m.upper(), path))
+    return len(endpoints)
+
+
 def test_total_endpoint_count():
-    """We expose exactly 1010 callable methods across all resources."""
+    """We expose exactly one callable method per spec endpoint."""
+    expected = _spec_endpoint_count()
     with TikHub(api_key="sk-test") as client:
         total = 0
         for attr in dir(client):
@@ -123,7 +139,7 @@ def test_total_endpoint_count():
                     continue
                 if callable(getattr(obj, name, None)):
                     total += 1
-    assert total == 1010, f"expected 1010, got {total}"
+    assert total == expected, f"expected {expected}, got {total}"
 
 
 # ---------------------------------------------------------------------------

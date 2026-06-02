@@ -1,7 +1,7 @@
 """Example: WeChat-Media-Platform-Web-API
 
 SDK attribute: ``client.wechat_media_platform_web``
-Endpoints: 10
+Endpoints: 12
 
 Usage::
 
@@ -69,6 +69,16 @@ async def main():
         # GET /api/v1/wechat_mp/web/fetch_mp_related_articles
         # 获取微信公众号关联文章/Get Wechat MP Related Articles
         result = await client.wechat_media_platform_web.fetch_mp_related_articles(url='https://mp.weixin.qq.com/s/Ko5V9jw9kwL8TO6Q7J3UqQ')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/wechat_mp/web/fetch_search_official_account
+        # 搜索微信公众号/Search Wechat Official Account
+        result = await client.wechat_media_platform_web.fetch_search_official_account(keyword='人民日报', offset=0, sort_type='_0')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/wechat_mp/web/fetch_search_article
+        # 搜索微信公众号文章/Search Wechat MP Article
+        result = await client.wechat_media_platform_web.fetch_search_article(keyword='人工智能', offset=0, sort_type='_0')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
 

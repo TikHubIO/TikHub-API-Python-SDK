@@ -28,12 +28,12 @@ async def main():
 
         # GET /api/v1/xiaohongshu/web_v3/fetch_note_comments
         # 获取笔记评论/Fetch note comments
-        result = await client.xiaohongshu_web_v3.fetch_note_comments(note_id='651ccaa9000000001f03d7f7', cursor='')
+        result = await client.xiaohongshu_web_v3.fetch_note_comments(note_id='69f0817d000000002301ca13', cursor='', xsec_token='ABkUO3R6tKvwMzj0Y3pFBbab4YWPXwLhp7gfbNpfYY8Bg=')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v3/fetch_sub_comments
         # 获取子评论/Fetch sub comments
-        result = await client.xiaohongshu_web_v3.fetch_sub_comments(note_id='673c894c0000000007033f92', root_comment_id='673ecdfc000000001503bf8b', num=10, cursor='')
+        result = await client.xiaohongshu_web_v3.fetch_sub_comments(note_id='69f08d5f00000000350397ba', root_comment_id='69f09736000000002803832e', num=10, cursor='', xsec_token='ABkUO3R6tKvwMzj0Y3pFBbaUK6gBt3Yj1Br95ogIzuXyI=')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/web_v3/fetch_search_notes

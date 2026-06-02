@@ -1,7 +1,7 @@
 """Example: Douyin-Web-API
 
 SDK attribute: ``client.douyin_web``
-Endpoints: 76
+Endpoints: 68
 
 Usage::
 
@@ -38,12 +38,12 @@ async def main():
 
         # GET /api/v1/douyin/web/fetch_video_high_quality_play_url
         # 获取视频的最高画质播放链接/Get the highest quality play URL of the video
-        result = await client.douyin_web.fetch_video_high_quality_play_url(aweme_id='7512756548356492544', share_url='https://www.douyin.com/video/7512756548356492544')
+        result = await client.douyin_web.fetch_video_high_quality_play_url(aweme_id='7512756548356492544', share_url='https://www.douyin.com/video/7512756548356492544', region='CN')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # POST /api/v1/douyin/web/fetch_multi_video_high_quality_play_url
         # 批量获取视频的最高画质播放链接/Batch get the highest quality play URL of videos
-        result = await client.douyin_web.fetch_multi_video_high_quality_play_url(aweme_ids='7512756548356492544,7448118827402972455,7126745726494821640')
+        result = await client.douyin_web.fetch_multi_video_high_quality_play_url(aweme_ids='7512756548356492544,7448118827402972455,7126745726494821640', region='CN')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # POST /api/v1/douyin/web/fetch_multi_video
@@ -124,11 +124,6 @@ async def main():
         # GET /api/v1/douyin/web/fetch_live_room_product_result
         # 抖音直播间商品信息/Douyin live room product information
         result = await client.douyin_web.fetch_live_room_product_result(room_id='7360830184578091776', author_id='1714858898241277', offset=0, limit=20)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_product_detail
-        # 获取商品详情/Get product detail
-        result = await client.douyin_web.fetch_product_detail(product_id='3654018325143066950', aweme_id='7546956331878501673', sec_user_id='MS4wLjABAAAALoWx-cZWuQVWWvvlE-HiKgm9jel_nmwMcjAMIaEAwFq25sskN1Zgqy_T3x4D0Goy')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/douyin/web/fetch_product_sku_list
@@ -226,44 +221,9 @@ async def main():
         result = await client.douyin_web.fetch_video_comment_replies(item_id='7354666303006723354', comment_id='7354669356632638218', cursor=0, count=20)
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
-        # GET /api/v1/douyin/web/fetch_general_search_result
-        # [已弃用/Deprecated] 获取指定关键词的综合搜索结果/Get comprehensive search results of specified keywords
-        result = await client.douyin_web.fetch_general_search_result(keyword='中华娘', offset=0, count=20, sort_type='0', publish_time='0', filter_duration='0', search_range='0', content_type='0', search_id='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_video_search_result
-        # [已弃用/Deprecated] 获取指定关键词的视频搜索结果/Get video search results of specified keywords
-        result = await client.douyin_web.fetch_video_search_result(keyword='游戏', offset=0, count=20, sort_type='0', publish_time='0', filter_duration='0', search_id='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_video_search_result_v2
-        # 获取指定关键词的视频搜索结果 V2 （废弃，替代接口请参考下方文档）/Get video search results of specified keywords V2 (Deprecated, pl
-        result = await client.douyin_web.fetch_video_search_result_v2(keyword='中华娘', sort_type='_0', publish_time='_0', filter_duration='_0', page=1, search_id='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_user_search_result
-        # 获取指定关键词的用户搜索结果(废弃，替代接口请参考下方文档)/Get user search results of specified keywords (deprecated, please ref
-        result = await client.douyin_web.fetch_user_search_result(keyword='中华娘', offset=0, count=20, douyin_user_fans='', douyin_user_type='', search_id='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_user_search_result_v2
-        # 获取指定关键词的用户搜索结果 V2 (已弃用，替代接口请参考下方文档)/Get user search results of specified keywords V2 (deprecated, pl
-        result = await client.douyin_web.fetch_user_search_result_v2(keyword='中华娘', cursor=0)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
         # GET /api/v1/douyin/web/fetch_user_search_result_v3
         # 获取指定关键词的用户搜索结果 V3 (已弃用，替代接口请参考下方文档)/Get user search results of specified keywords V3 (deprecated, pl
         result = await client.douyin_web.fetch_user_search_result_v3(keyword='中华娘', cursor='0', douyin_user_type='', douyin_user_fans='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/douyin/web/fetch_live_search_result
-        # [已弃用/Deprecated] 获取指定关键词的直播搜索结果/Get live search results of specified keywords
-        result = await client.douyin_web.fetch_live_search_result(keyword='中华娘', offset=0, count=20, search_id='')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # POST /api/v1/douyin/web/fetch_search_challenge
-        # [已弃用/Deprecated] 搜索话题/Search Challenge
-        result = await client.douyin_web.fetch_search_challenge(keyword='游戏', cursor=0, count=30, cookie='')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # POST /api/v1/douyin/web/fetch_challenge_posts

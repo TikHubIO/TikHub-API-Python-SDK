@@ -18,6 +18,7 @@ from tikhub.resources.douyin_app_v3 import DouyinAppV3
 from tikhub.resources.douyin_billboard import DouyinBillboard
 from tikhub.resources.douyin_creator import DouyinCreator
 from tikhub.resources.douyin_creator_v2 import DouyinCreatorV2
+from tikhub.resources.douyin_index import DouyinIndex
 from tikhub.resources.douyin_search import DouyinSearch
 from tikhub.resources.douyin_web import DouyinWeb
 from tikhub.resources.douyin_xingtu import DouyinXingtu
@@ -32,6 +33,7 @@ from tikhub.resources.kuaishou_app import KuaishouApp
 from tikhub.resources.kuaishou_web import KuaishouWeb
 from tikhub.resources.lemon8_app import Lemon8App
 from tikhub.resources.linkedin_web import LinkedinWeb
+from tikhub.resources.linkedin_web_v2 import LinkedinWebV2
 from tikhub.resources.pipixia_app import PipixiaApp
 from tikhub.resources.reddit_app import RedditApp
 from tikhub.resources.sora2 import Sora2
@@ -114,6 +116,7 @@ class TikHub(BaseClient):
         self.douyin_billboard: DouyinBillboard = DouyinBillboard(self)
         self.douyin_creator: DouyinCreator = DouyinCreator(self)
         self.douyin_creator_v2: DouyinCreatorV2 = DouyinCreatorV2(self)
+        self.douyin_index: DouyinIndex = DouyinIndex(self)
         self.douyin_search: DouyinSearch = DouyinSearch(self)
         self.douyin_web: DouyinWeb = DouyinWeb(self)
         self.douyin_xingtu: DouyinXingtu = DouyinXingtu(self)
@@ -128,6 +131,7 @@ class TikHub(BaseClient):
         self.kuaishou_web: KuaishouWeb = KuaishouWeb(self)
         self.lemon8_app: Lemon8App = Lemon8App(self)
         self.linkedin_web: LinkedinWeb = LinkedinWeb(self)
+        self.linkedin_web_v2: LinkedinWebV2 = LinkedinWebV2(self)
         self.pipixia_app: PipixiaApp = PipixiaApp(self)
         self.reddit_app: RedditApp = RedditApp(self)
         self.sora2: Sora2 = Sora2(self)

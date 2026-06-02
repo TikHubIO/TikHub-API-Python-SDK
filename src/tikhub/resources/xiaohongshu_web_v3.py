@@ -30,7 +30,7 @@ class XiaohongshuWebV3(SyncResource):
         self,
         *,
         note_id: str,
-        xsec_token: str | None = None,
+        xsec_token: str,
     ) -> Any:
         """获取笔记详情/Fetch note detail
 
@@ -46,6 +46,7 @@ class XiaohongshuWebV3(SyncResource):
         self,
         *,
         note_id: str,
+        xsec_token: str,
         cursor: str | None = None,
     ) -> Any:
         """获取笔记评论/Fetch note comments
@@ -55,6 +56,7 @@ class XiaohongshuWebV3(SyncResource):
         params = _drop_none({
             "note_id": note_id,
             "cursor": cursor,
+            "xsec_token": xsec_token,
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v3/fetch_note_comments", params=params)
 
@@ -63,6 +65,7 @@ class XiaohongshuWebV3(SyncResource):
         *,
         note_id: str,
         root_comment_id: str,
+        xsec_token: str,
         num: int | None = None,
         cursor: str | None = None,
     ) -> Any:
@@ -75,6 +78,7 @@ class XiaohongshuWebV3(SyncResource):
             "root_comment_id": root_comment_id,
             "num": num,
             "cursor": cursor,
+            "xsec_token": xsec_token,
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v3/fetch_sub_comments", params=params)
 
@@ -206,7 +210,7 @@ class AsyncXiaohongshuWebV3(AsyncResource):
         self,
         *,
         note_id: str,
-        xsec_token: str | None = None,
+        xsec_token: str,
     ) -> Any:
         """获取笔记详情/Fetch note detail
 
@@ -222,6 +226,7 @@ class AsyncXiaohongshuWebV3(AsyncResource):
         self,
         *,
         note_id: str,
+        xsec_token: str,
         cursor: str | None = None,
     ) -> Any:
         """获取笔记评论/Fetch note comments
@@ -231,6 +236,7 @@ class AsyncXiaohongshuWebV3(AsyncResource):
         params = _drop_none({
             "note_id": note_id,
             "cursor": cursor,
+            "xsec_token": xsec_token,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v3/fetch_note_comments", params=params)
 
@@ -239,6 +245,7 @@ class AsyncXiaohongshuWebV3(AsyncResource):
         *,
         note_id: str,
         root_comment_id: str,
+        xsec_token: str,
         num: int | None = None,
         cursor: str | None = None,
     ) -> Any:
@@ -251,6 +258,7 @@ class AsyncXiaohongshuWebV3(AsyncResource):
             "root_comment_id": root_comment_id,
             "num": num,
             "cursor": cursor,
+            "xsec_token": xsec_token,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v3/fetch_sub_comments", params=params)
 

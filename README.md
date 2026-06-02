@@ -30,7 +30,7 @@ Built for developers, data scientists, and AI engineers who need structured soci
 
 ## Why This SDK?
 
-- **100% endpoint coverage** — 1010 / 1010 endpoints from OpenAPI spec V5.3.2, mechanically generated and verified
+- **100% endpoint coverage** — 1106 / 1106 endpoints from OpenAPI spec V5.3.2, mechanically generated and verified
 - **Sync + async** — `TikHub` and `AsyncTikHub` clients with identical APIs
 - **Production-ready** — automatic retries with exponential backoff, rate-limit handling, structured error hierarchy with full debugging context
 - **Type-safe** — `mypy --strict` clean, built on `httpx` + `pydantic v2`
@@ -43,7 +43,7 @@ Built for developers, data scientists, and AI engineers who need structured soci
 | Platform | Resource | Endpoints |
 |---|---|---|
 | TikTok | `tiktok_web`, `tiktok_app_v3`, `tiktok_creator`, `tiktok_analytics`, `tiktok_ads`, `tiktok_shop_web` | 200+ |
-| Douyin | `douyin_web`, `douyin_app_v3`, `douyin_search`, `douyin_billboard`, `douyin_creator`, `douyin_xingtu` | 400+ |
+| Douyin | `douyin_web`, `douyin_app_v3`, `douyin_search`, `douyin_billboard`, `douyin_creator`, `douyin_xingtu`, `douyin_index` | 400+ |
 | Instagram | `instagram_v1`, `instagram_v2`, `instagram_v3` | 80+ |
 | YouTube | `youtube_web`, `youtube_web_v2` | 50+ |
 | Twitter / X | `twitter_web` | 13+ |
@@ -51,7 +51,7 @@ Built for developers, data scientists, and AI engineers who need structured soci
 | Bilibili | `bilibili_web`, `bilibili_app` | 40+ |
 | Weibo | `weibo_web`, `weibo_web_v2`, `weibo_app` | 30+ |
 | Threads | `threads_web` | 10+ |
-| LinkedIn | `linkedin_web` | 10+ |
+| LinkedIn | `linkedin_web`, `linkedin_web_v2` | 10+ |
 | Reddit | `reddit_app` | 10+ |
 | Kuaishou | `kuaishou_web`, `kuaishou_app` | 20+ |
 | WeChat | `wechat_channels`, `wechat_media_platform_web` | 20+ |
@@ -160,8 +160,8 @@ Parameter names match the OpenAPI spec verbatim. If you can read the TikHub API 
 
 | | |
 |---|---|
-| Resources | **52** (one per OpenAPI tag) |
-| Endpoints | **1010 / 1010** |
+| Resources | **54** (one per OpenAPI tag) |
+| Endpoints | **1106 / 1106** |
 | Tests | 110 passing |
 | Type-check | mypy `--strict` clean across 71 source files |
 | Lint | ruff clean |
@@ -180,7 +180,7 @@ The resource layer is **mechanically generated** from `spec/openapi.json`. To re
 
 ```bash
 python scripts/refresh_spec.py        # pulls latest openapi.json, prints diff
-python scripts/generate_resources.py  # regenerates all 52 resource files + clients
+python scripts/generate_resources.py  # regenerates all 54 resource files + clients
 python scripts/generate_docs.py       # regenerates docs/reference.md
 python scripts/verify_coverage.py     # asserts 100% coverage
 pytest -q                             # 110 tests
@@ -204,7 +204,7 @@ Every command prints JSON to stdout — pipe to `jq` or any other formatter.
 
 ## Documentation
 
-Full docs (mkdocs-material): authentication, async, errors, pagination, retries, logging, CLI, migration guide, naming rules, and the auto-generated reference for all 1010 endpoints.
+Full docs (mkdocs-material): authentication, async, errors, pagination, retries, logging, CLI, migration guide, naming rules, and the auto-generated reference for all 1106 endpoints.
 
 ```bash
 pip install -e ".[docs]"

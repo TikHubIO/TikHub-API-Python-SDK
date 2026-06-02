@@ -5,7 +5,7 @@
 OpenAPI tag: ``YouTube-Web-V2-API``
 SDK attribute: ``client.youtube_web_v2`` / ``async_client.youtube_web_v2``
 
-Endpoints: 19
+Endpoints: 25
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncYoutubeWebV2", "YoutubeWebV2"]
 
 
 class YoutubeWebV2(SyncResource):
-    """Sync ``YouTube-Web-V2-API`` resource (19 endpoints)."""
+    """Sync ``YouTube-Web-V2-API`` resource (25 endpoints)."""
 
     def get_video_info(
         self,
@@ -43,6 +43,24 @@ class YoutubeWebV2(SyncResource):
             "need_format": need_format,
         })
         return self._client._request("GET", "/api/v1/youtube/web_v2/get_video_info", params=params)
+
+    def get_video_info_v2(
+        self,
+        *,
+        video_id: str | None = None,
+        video_url: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取视频详情 V2/Get video information V2
+
+        ``GET /api/v1/youtube/web_v2/get_video_info_v2``
+        """
+        params = _drop_none({
+            "video_id": video_id,
+            "video_url": video_url,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_video_info_v2", params=params)
 
     def get_video_comments(
         self,
@@ -336,6 +354,26 @@ class YoutubeWebV2(SyncResource):
         })
         return self._client._request("GET", "/api/v1/youtube/web_v2/get_video_captions", params=params)
 
+    def get_video_captions_v2(
+        self,
+        *,
+        video_id: str | None = None,
+        video_url: str | None = None,
+        language_code: str | None = None,
+        format: str | None = None,
+    ) -> Any:
+        """获取视频字幕 V2/Get video captions V2
+
+        ``GET /api/v1/youtube/web_v2/get_video_captions_v2``
+        """
+        params = _drop_none({
+            "video_id": video_id,
+            "video_url": video_url,
+            "language_code": language_code,
+            "format": format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_video_captions_v2", params=params)
+
     def get_related_videos(
         self,
         *,
@@ -410,9 +448,93 @@ class YoutubeWebV2(SyncResource):
         })
         return self._client._request("GET", "/api/v1/youtube/web_v2/search_channels", params=params)
 
+    def get_channel_community_posts(
+        self,
+        *,
+        channel_id: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        continuation_token: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取频道帖子列表/Get channel community posts
+
+        ``GET /api/v1/youtube/web_v2/get_channel_community_posts``
+        """
+        params = _drop_none({
+            "channel_id": channel_id,
+            "language_code": language_code,
+            "country_code": country_code,
+            "continuation_token": continuation_token,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_channel_community_posts", params=params)
+
+    def get_post_detail(
+        self,
+        *,
+        post_id: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子详情/Get post detail
+
+        ``GET /api/v1/youtube/web_v2/get_post_detail``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_post_detail", params=params)
+
+    def get_post_comments(
+        self,
+        *,
+        post_id: str | None = None,
+        continuation_token: str | None = None,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子评论/Get post comments
+
+        ``GET /api/v1/youtube/web_v2/get_post_comments``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "continuation_token": continuation_token,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_post_comments", params=params)
+
+    def get_post_comment_replies(
+        self,
+        *,
+        continuation_token: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子评论回复/Get post comment replies
+
+        ``GET /api/v1/youtube/web_v2/get_post_comment_replies``
+        """
+        params = _drop_none({
+            "continuation_token": continuation_token,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return self._client._request("GET", "/api/v1/youtube/web_v2/get_post_comment_replies", params=params)
+
 
 class AsyncYoutubeWebV2(AsyncResource):
-    """Async ``YouTube-Web-V2-API`` resource (19 endpoints)."""
+    """Async ``YouTube-Web-V2-API`` resource (25 endpoints)."""
 
     async def get_video_info(
         self,
@@ -431,6 +553,24 @@ class AsyncYoutubeWebV2(AsyncResource):
             "need_format": need_format,
         })
         return await self._client._request("GET", "/api/v1/youtube/web_v2/get_video_info", params=params)
+
+    async def get_video_info_v2(
+        self,
+        *,
+        video_id: str | None = None,
+        video_url: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取视频详情 V2/Get video information V2
+
+        ``GET /api/v1/youtube/web_v2/get_video_info_v2``
+        """
+        params = _drop_none({
+            "video_id": video_id,
+            "video_url": video_url,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_video_info_v2", params=params)
 
     async def get_video_comments(
         self,
@@ -724,6 +864,26 @@ class AsyncYoutubeWebV2(AsyncResource):
         })
         return await self._client._request("GET", "/api/v1/youtube/web_v2/get_video_captions", params=params)
 
+    async def get_video_captions_v2(
+        self,
+        *,
+        video_id: str | None = None,
+        video_url: str | None = None,
+        language_code: str | None = None,
+        format: str | None = None,
+    ) -> Any:
+        """获取视频字幕 V2/Get video captions V2
+
+        ``GET /api/v1/youtube/web_v2/get_video_captions_v2``
+        """
+        params = _drop_none({
+            "video_id": video_id,
+            "video_url": video_url,
+            "language_code": language_code,
+            "format": format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_video_captions_v2", params=params)
+
     async def get_related_videos(
         self,
         *,
@@ -797,3 +957,87 @@ class AsyncYoutubeWebV2(AsyncResource):
             "need_format": need_format,
         })
         return await self._client._request("GET", "/api/v1/youtube/web_v2/search_channels", params=params)
+
+    async def get_channel_community_posts(
+        self,
+        *,
+        channel_id: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        continuation_token: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取频道帖子列表/Get channel community posts
+
+        ``GET /api/v1/youtube/web_v2/get_channel_community_posts``
+        """
+        params = _drop_none({
+            "channel_id": channel_id,
+            "language_code": language_code,
+            "country_code": country_code,
+            "continuation_token": continuation_token,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_channel_community_posts", params=params)
+
+    async def get_post_detail(
+        self,
+        *,
+        post_id: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子详情/Get post detail
+
+        ``GET /api/v1/youtube/web_v2/get_post_detail``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_post_detail", params=params)
+
+    async def get_post_comments(
+        self,
+        *,
+        post_id: str | None = None,
+        continuation_token: str | None = None,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子评论/Get post comments
+
+        ``GET /api/v1/youtube/web_v2/get_post_comments``
+        """
+        params = _drop_none({
+            "post_id": post_id,
+            "continuation_token": continuation_token,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_post_comments", params=params)
+
+    async def get_post_comment_replies(
+        self,
+        *,
+        continuation_token: str,
+        language_code: str | None = None,
+        country_code: str | None = None,
+        need_format: bool | None = None,
+    ) -> Any:
+        """获取帖子评论回复/Get post comment replies
+
+        ``GET /api/v1/youtube/web_v2/get_post_comment_replies``
+        """
+        params = _drop_none({
+            "continuation_token": continuation_token,
+            "language_code": language_code,
+            "country_code": country_code,
+            "need_format": need_format,
+        })
+        return await self._client._request("GET", "/api/v1/youtube/web_v2/get_post_comment_replies", params=params)

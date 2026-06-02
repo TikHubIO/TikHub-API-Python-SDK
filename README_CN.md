@@ -30,7 +30,7 @@
 
 ## 为什么选择这个 SDK？
 
-- **100% 接口覆盖** — OpenAPI 规范 V5.3.2 的 1010 / 1010 个接口，机械化生成并验证
+- **100% 接口覆盖** — OpenAPI 规范 V5.3.2 的 1106 / 1106 个接口，机械化生成并验证
 - **同步 + 异步** — `TikHub` 和 `AsyncTikHub` 客户端，API 完全一致
 - **生产就绪** — 自动重试（指数退避）、速率限制处理、结构化异常体系（含完整调试上下文）
 - **类型安全** — `mypy --strict` 通过，基于 `httpx` + `pydantic v2` 构建
@@ -160,8 +160,8 @@ SDK 由 TikHub OpenAPI 规范机械化生成。两条规则：
 
 | | |
 |---|---|
-| 资源 | **52**（每个 OpenAPI 标签一个） |
-| 接口 | **1010 / 1010** |
+| 资源 | **54**（每个 OpenAPI 标签一个） |
+| 接口 | **1106 / 1106** |
 | 测试 | 110 个通过 |
 | 类型检查 | mypy `--strict` 71 个源文件全部通过 |
 | 代码检查 | ruff 通过 |
@@ -170,7 +170,7 @@ SDK 由 TikHub OpenAPI 规范机械化生成。两条规则：
 
 ```bash
 python scripts/refresh_spec.py        # 拉取最新 openapi.json，打印差异
-python scripts/generate_resources.py  # 重新生成所有 52 个资源文件 + 客户端
+python scripts/generate_resources.py  # 重新生成所有 54 个资源文件 + 客户端
 python scripts/generate_docs.py       # 重新生成 docs/reference.md
 python scripts/verify_coverage.py     # 验证 100% 覆盖
 pytest -q                             # 110 个测试
@@ -193,7 +193,7 @@ tikhub user usage                             # 今日请求量
 
 ## 文档
 
-完整文档（mkdocs-material）：身份认证、异步、异常处理、分页、重试、日志、CLI、迁移指南、命名规则，以及所有 1010 个接口的自动生成参考文档。
+完整文档（mkdocs-material）：身份认证、异步、异常处理、分页、重试、日志、CLI、迁移指南、命名规则，以及所有 1106 个接口的自动生成参考文档。
 
 ```bash
 pip install -e ".[docs]"

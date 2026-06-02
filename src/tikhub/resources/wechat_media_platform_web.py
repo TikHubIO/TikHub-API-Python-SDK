@@ -5,7 +5,7 @@
 OpenAPI tag: ``WeChat-Media-Platform-Web-API``
 SDK attribute: ``client.wechat_media_platform_web`` / ``async_client.wechat_media_platform_web``
 
-Endpoints: 10
+Endpoints: 12
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncWechatMediaPlatformWeb", "WechatMediaPlatformWeb"]
 
 
 class WechatMediaPlatformWeb(SyncResource):
-    """Sync ``WeChat-Media-Platform-Web-API`` resource (10 endpoints)."""
+    """Sync ``WeChat-Media-Platform-Web-API`` resource (12 endpoints)."""
 
     def fetch_mp_article_detail_json(
         self,
@@ -180,9 +180,45 @@ class WechatMediaPlatformWeb(SyncResource):
         })
         return self._client._request("GET", "/api/v1/wechat_mp/web/fetch_mp_related_articles", params=params)
 
+    def fetch_search_official_account(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """搜索微信公众号/Search Wechat Official Account
+
+        ``GET /api/v1/wechat_mp/web/fetch_search_official_account``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return self._client._request("GET", "/api/v1/wechat_mp/web/fetch_search_official_account", params=params)
+
+    def fetch_search_article(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """搜索微信公众号文章/Search Wechat MP Article
+
+        ``GET /api/v1/wechat_mp/web/fetch_search_article``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return self._client._request("GET", "/api/v1/wechat_mp/web/fetch_search_article", params=params)
+
 
 class AsyncWechatMediaPlatformWeb(AsyncResource):
-    """Async ``WeChat-Media-Platform-Web-API`` resource (10 endpoints)."""
+    """Async ``WeChat-Media-Platform-Web-API`` resource (12 endpoints)."""
 
     async def fetch_mp_article_detail_json(
         self,
@@ -337,3 +373,39 @@ class AsyncWechatMediaPlatformWeb(AsyncResource):
             "url": url,
         })
         return await self._client._request("GET", "/api/v1/wechat_mp/web/fetch_mp_related_articles", params=params)
+
+    async def fetch_search_official_account(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """搜索微信公众号/Search Wechat Official Account
+
+        ``GET /api/v1/wechat_mp/web/fetch_search_official_account``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return await self._client._request("GET", "/api/v1/wechat_mp/web/fetch_search_official_account", params=params)
+
+    async def fetch_search_article(
+        self,
+        *,
+        keyword: str,
+        offset: int | None = None,
+        sort_type: str | None = None,
+    ) -> Any:
+        """搜索微信公众号文章/Search Wechat MP Article
+
+        ``GET /api/v1/wechat_mp/web/fetch_search_article``
+        """
+        params = _drop_none({
+            "keyword": keyword,
+            "offset": offset,
+            "sort_type": sort_type,
+        })
+        return await self._client._request("GET", "/api/v1/wechat_mp/web/fetch_search_article", params=params)

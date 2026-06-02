@@ -5,7 +5,7 @@
 OpenAPI tag: ``Xiaohongshu-App-API``
 SDK attribute: ``client.xiaohongshu_app`` / ``async_client.xiaohongshu_app``
 
-Endpoints: 12
+Endpoints: 13
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncXiaohongshuApp", "XiaohongshuApp"]
 
 
 class XiaohongshuApp(SyncResource):
-    """Sync ``Xiaohongshu-App-API`` resource (12 endpoints)."""
+    """Sync ``Xiaohongshu-App-API`` resource (13 endpoints)."""
 
     def get_note_info(
         self,
@@ -93,6 +93,32 @@ class XiaohongshuApp(SyncResource):
             "start": start,
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/app/get_sub_comments", params=params)
+
+    def get_topic_notes(
+        self,
+        *,
+        page_id: str,
+        first_load_time: str,
+        sort: str | None = None,
+        last_note_ct: str | None = None,
+        last_note_id: str | None = None,
+        cursor_score: str | None = None,
+        session_id: str | None = None,
+    ) -> Any:
+        """根据话题标签获取作品/Get notes by topic
+
+        ``GET /api/v1/xiaohongshu/app/get_topic_notes``
+        """
+        params = _drop_none({
+            "page_id": page_id,
+            "first_load_time": first_load_time,
+            "sort": sort,
+            "last_note_ct": last_note_ct,
+            "last_note_id": last_note_id,
+            "cursor_score": cursor_score,
+            "session_id": session_id,
+        })
+        return self._client._request("GET", "/api/v1/xiaohongshu/app/get_topic_notes", params=params)
 
     def get_notes_by_topic(
         self,
@@ -254,7 +280,7 @@ class XiaohongshuApp(SyncResource):
 
 
 class AsyncXiaohongshuApp(AsyncResource):
-    """Async ``Xiaohongshu-App-API`` resource (12 endpoints)."""
+    """Async ``Xiaohongshu-App-API`` resource (13 endpoints)."""
 
     async def get_note_info(
         self,
@@ -323,6 +349,32 @@ class AsyncXiaohongshuApp(AsyncResource):
             "start": start,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/app/get_sub_comments", params=params)
+
+    async def get_topic_notes(
+        self,
+        *,
+        page_id: str,
+        first_load_time: str,
+        sort: str | None = None,
+        last_note_ct: str | None = None,
+        last_note_id: str | None = None,
+        cursor_score: str | None = None,
+        session_id: str | None = None,
+    ) -> Any:
+        """根据话题标签获取作品/Get notes by topic
+
+        ``GET /api/v1/xiaohongshu/app/get_topic_notes``
+        """
+        params = _drop_none({
+            "page_id": page_id,
+            "first_load_time": first_load_time,
+            "sort": sort,
+            "last_note_ct": last_note_ct,
+            "last_note_id": last_note_id,
+            "cursor_score": cursor_score,
+            "session_id": session_id,
+        })
+        return await self._client._request("GET", "/api/v1/xiaohongshu/app/get_topic_notes", params=params)
 
     async def get_notes_by_topic(
         self,

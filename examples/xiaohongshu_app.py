@@ -1,7 +1,7 @@
 """Example: Xiaohongshu-App-API
 
 SDK attribute: ``client.xiaohongshu_app``
-Endpoints: 12
+Endpoints: 13
 
 Usage::
 
@@ -39,6 +39,11 @@ async def main():
         # GET /api/v1/xiaohongshu/app/get_sub_comments
         # 获取子评论/Get sub comments
         result = await client.xiaohongshu_app.get_sub_comments(note_id='677d1909000000002002a892', comment_id='677f67e400000000220013f3', start='6806642d000000001f01991b')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/xiaohongshu/app/get_topic_notes
+        # 根据话题标签获取作品/Get notes by topic
+        result = await client.xiaohongshu_app.get_topic_notes(page_id='5c014b045b29cb0001ead530', first_load_time='1744978179304', sort='hot')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/xiaohongshu/app/get_notes_by_topic

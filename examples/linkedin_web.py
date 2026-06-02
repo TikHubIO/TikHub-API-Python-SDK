@@ -1,7 +1,7 @@
 """Example: LinkedIn-Web-API
 
 SDK attribute: ``client.linkedin_web``
-Endpoints: 25
+Endpoints: 42
 
 Usage::
 
@@ -144,6 +144,91 @@ async def main():
         # GET /api/v1/linkedin/web/search_people
         # 搜索用户/Search people
         result = await client.linkedin_web.search_people(name='john', first_name='john', last_name='oliver', title='manager', page=1, geocode_location='103644278')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_user_reactions
+        # 获取用户点赞反应/Get user reactions
+        result = await client.linkedin_web.get_user_reactions(urn='ACoAABCtiL8B26nfi3Nbpo_AM8ngg4LeClT1Wh8', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_user_volunteers
+        # 获取用户志愿者经历/Get user volunteers
+        result = await client.linkedin_web.get_user_volunteers(urn='ACoAABCtiL8B26nfi3Nbpo_AM8ngg4LeClT1Wh8', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_company_affiliated_pages
+        # 获取公司关联页面/Get company affiliated pages
+        result = await client.linkedin_web.get_company_affiliated_pages(company_id='1441')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_company_associated_member_insights
+        # 获取公司关联成员洞察/Get company associated member insights
+        result = await client.linkedin_web.get_company_associated_member_insights(company_id='1441')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_post_detail
+        # 获取帖子详情/Get post detail
+        result = await client.linkedin_web.get_post_detail(post_id='7244804629786419202')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_post_comments
+        # 获取帖子评论/Get post comments
+        result = await client.linkedin_web.get_post_comments(post_id='7244804629786419202', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_post_reactions
+        # 获取帖子点赞反应/Get post reactions
+        result = await client.linkedin_web.get_post_reactions(post_id='7244804629786419202', page=1, type='all')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_post_reposts
+        # 获取帖子转发/Get post reposts
+        result = await client.linkedin_web.get_post_reposts(post_id='7244804629786419202', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_comments_replies
+        # 获取评论回复/Get comment replies
+        result = await client.linkedin_web.get_comments_replies(post_id='7244804629786419202', comment_id='test', previous_replies_token='test')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/search_posts
+        # 搜索帖子/Search posts
+        result = await client.linkedin_web.search_posts(keyword='data', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/search_location
+        # 搜索地理位置/Search location
+        result = await client.linkedin_web.search_location(keyword='san francisco')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/search_schools
+        # 搜索学校/Search schools
+        result = await client.linkedin_web.search_schools(keyword='stanford', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/search_suggestion_industry
+        # 搜索行业建议/Search industry suggestions
+        result = await client.linkedin_web.search_suggestion_industry(keyword='software')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_group_info
+        # 获取群组信息/Get group info
+        result = await client.linkedin_web.get_group_info(group_id='test')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_group_posts
+        # 获取群组帖子/Get group posts
+        result = await client.linkedin_web.get_group_posts(group_id='test', page=1)
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/search_ads
+        # 搜索广告/Search ads (Ad Library)
+        result = await client.linkedin_web.search_ads(keyword='data', country='US')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/linkedin/web/get_ad_detail
+        # 获取广告详情/Get ad detail
+        result = await client.linkedin_web.get_ad_detail(ad_id='637671316')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
 

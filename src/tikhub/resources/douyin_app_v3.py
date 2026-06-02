@@ -5,7 +5,7 @@
 OpenAPI tag: ``Douyin-App-V3-API``
 SDK attribute: ``client.douyin_app_v3`` / ``async_client.douyin_app_v3``
 
-Endpoints: 47
+Endpoints: 46
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncDouyinAppV3", "DouyinAppV3"]
 
 
 class DouyinAppV3(SyncResource):
-    """Sync ``Douyin-App-V3-API`` resource (47 endpoints)."""
+    """Sync ``Douyin-App-V3-API`` resource (46 endpoints)."""
 
     def fetch_one_video(
         self,
@@ -125,6 +125,7 @@ class DouyinAppV3(SyncResource):
         *,
         aweme_id: str | None = None,
         share_url: str | None = None,
+        region: str | None = None,
     ) -> Any:
         """获取视频的最高画质播放链接/Get the highest quality play URL of the video
 
@@ -133,6 +134,7 @@ class DouyinAppV3(SyncResource):
         params = _drop_none({
             "aweme_id": aweme_id,
             "share_url": share_url,
+            "region": region,
         })
         return self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_high_quality_play_url", params=params)
 
@@ -140,6 +142,7 @@ class DouyinAppV3(SyncResource):
         self,
         *,
         aweme_ids: str | None = None,
+        region: Any | None = None,
     ) -> Any:
         """批量获取视频的最高画质播放链接/Batch get the highest quality play URL of videos
 
@@ -147,6 +150,7 @@ class DouyinAppV3(SyncResource):
         """
         json_body = _drop_none({
             "aweme_ids": aweme_ids,
+            "region": region,
         })
         return self._client._request("POST", "/api/v1/douyin/app/v3/fetch_multi_video_high_quality_play_url", json=json_body)
 
@@ -457,32 +461,6 @@ class DouyinAppV3(SyncResource):
             "filter_duration": filter_duration,
         })
         return self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_search_result", params=params)
-
-    def fetch_video_search_result_v2(
-        self,
-        *,
-        keyword: str,
-        sort_type: str | None = None,
-        publish_time: str | None = None,
-        filter_duration: str | None = None,
-        page: int | None = None,
-        search_id: str | None = None,
-    ) -> Any:
-        """获取指定关键词的视频搜索结果 V2 （弃用，替代接口见下方文档说明）/Get video search results of specified keywords V2 (deprecated, see the documentation below for alternative interfaces)
-
-        ``GET /api/v1/douyin/app/v3/fetch_video_search_result_v2``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "keyword": keyword,
-            "sort_type": sort_type,
-            "publish_time": publish_time,
-            "filter_duration": filter_duration,
-            "page": page,
-            "search_id": search_id,
-        })
-        return self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_search_result_v2", params=params)
 
     def fetch_user_search_result(
         self,
@@ -802,7 +780,7 @@ class DouyinAppV3(SyncResource):
 
 
 class AsyncDouyinAppV3(AsyncResource):
-    """Async ``Douyin-App-V3-API`` resource (47 endpoints)."""
+    """Async ``Douyin-App-V3-API`` resource (46 endpoints)."""
 
     async def fetch_one_video(
         self,
@@ -903,6 +881,7 @@ class AsyncDouyinAppV3(AsyncResource):
         *,
         aweme_id: str | None = None,
         share_url: str | None = None,
+        region: str | None = None,
     ) -> Any:
         """获取视频的最高画质播放链接/Get the highest quality play URL of the video
 
@@ -911,6 +890,7 @@ class AsyncDouyinAppV3(AsyncResource):
         params = _drop_none({
             "aweme_id": aweme_id,
             "share_url": share_url,
+            "region": region,
         })
         return await self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_high_quality_play_url", params=params)
 
@@ -918,6 +898,7 @@ class AsyncDouyinAppV3(AsyncResource):
         self,
         *,
         aweme_ids: str | None = None,
+        region: Any | None = None,
     ) -> Any:
         """批量获取视频的最高画质播放链接/Batch get the highest quality play URL of videos
 
@@ -925,6 +906,7 @@ class AsyncDouyinAppV3(AsyncResource):
         """
         json_body = _drop_none({
             "aweme_ids": aweme_ids,
+            "region": region,
         })
         return await self._client._request("POST", "/api/v1/douyin/app/v3/fetch_multi_video_high_quality_play_url", json=json_body)
 
@@ -1235,32 +1217,6 @@ class AsyncDouyinAppV3(AsyncResource):
             "filter_duration": filter_duration,
         })
         return await self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_search_result", params=params)
-
-    async def fetch_video_search_result_v2(
-        self,
-        *,
-        keyword: str,
-        sort_type: str | None = None,
-        publish_time: str | None = None,
-        filter_duration: str | None = None,
-        page: int | None = None,
-        search_id: str | None = None,
-    ) -> Any:
-        """获取指定关键词的视频搜索结果 V2 （弃用，替代接口见下方文档说明）/Get video search results of specified keywords V2 (deprecated, see the documentation below for alternative interfaces)
-
-        ``GET /api/v1/douyin/app/v3/fetch_video_search_result_v2``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
-        """
-        params = _drop_none({
-            "keyword": keyword,
-            "sort_type": sort_type,
-            "publish_time": publish_time,
-            "filter_duration": filter_duration,
-            "page": page,
-            "search_id": search_id,
-        })
-        return await self._client._request("GET", "/api/v1/douyin/app/v3/fetch_video_search_result_v2", params=params)
 
     async def fetch_user_search_result(
         self,

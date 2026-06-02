@@ -5,7 +5,7 @@
 OpenAPI tag: ``Xiaohongshu-Web-API``
 SDK attribute: ``client.xiaohongshu_web`` / ``async_client.xiaohongshu_web``
 
-Endpoints: 17
+Endpoints: 15
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ __all__ = ["AsyncXiaohongshuWeb", "XiaohongshuWeb"]
 
 
 class XiaohongshuWeb(SyncResource):
-    """Sync ``Xiaohongshu-Web-API`` resource (17 endpoints)."""
+    """Sync ``Xiaohongshu-Web-API`` resource (15 endpoints)."""
 
     def get_home_recommend(
         self,
@@ -47,22 +47,6 @@ class XiaohongshuWeb(SyncResource):
             "proxy": proxy,
         })
         return self._client._request("POST", "/api/v1/xiaohongshu/web/get_home_recommend", json=json_body)
-
-    def get_note_info_v2(
-        self,
-        *,
-        note_id: str | None = None,
-        share_text: str | None = None,
-    ) -> Any:
-        """获取笔记信息 V2/Get note info V2
-
-        ``GET /api/v1/xiaohongshu/web/get_note_info_v2``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-            "share_text": share_text,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web/get_note_info_v2", params=params)
 
     def get_note_info_v4(
         self,
@@ -125,6 +109,8 @@ class XiaohongshuWeb(SyncResource):
         """获取笔记评论 V1/Get note comments V1
 
         ``GET /api/v1/xiaohongshu/web/get_note_comments``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
@@ -142,6 +128,8 @@ class XiaohongshuWeb(SyncResource):
         """获取笔记评论回复 V1/Get note comment replies V1
 
         ``GET /api/v1/xiaohongshu/web/get_note_comment_replies``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
@@ -164,22 +152,6 @@ class XiaohongshuWeb(SyncResource):
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web/get_user_info", params=params)
 
-    def get_user_info_v2(
-        self,
-        *,
-        user_id: str | None = None,
-        share_text: str | None = None,
-    ) -> Any:
-        """获取用户信息 V2/Get user info V2
-
-        ``GET /api/v1/xiaohongshu/web/get_user_info_v2``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "share_text": share_text,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web/get_user_info_v2", params=params)
-
     def search_notes(
         self,
         *,
@@ -192,6 +164,8 @@ class XiaohongshuWeb(SyncResource):
         """搜索笔记/Search notes
 
         ``GET /api/v1/xiaohongshu/web/search_notes``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -214,6 +188,8 @@ class XiaohongshuWeb(SyncResource):
         """搜索笔记 V3/Search notes V3
 
         ``GET /api/v1/xiaohongshu/web/search_notes_v3``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -233,6 +209,8 @@ class XiaohongshuWeb(SyncResource):
         """搜索用户/Search users
 
         ``GET /api/v1/xiaohongshu/web/search_users``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -249,6 +227,8 @@ class XiaohongshuWeb(SyncResource):
         """获取用户的笔记 V2/Get user notes V2
 
         ``GET /api/v1/xiaohongshu/web/get_user_notes_v2``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "user_id": user_id,
@@ -322,7 +302,7 @@ class XiaohongshuWeb(SyncResource):
 
 
 class AsyncXiaohongshuWeb(AsyncResource):
-    """Async ``Xiaohongshu-Web-API`` resource (17 endpoints)."""
+    """Async ``Xiaohongshu-Web-API`` resource (15 endpoints)."""
 
     async def get_home_recommend(
         self,
@@ -345,22 +325,6 @@ class AsyncXiaohongshuWeb(AsyncResource):
             "proxy": proxy,
         })
         return await self._client._request("POST", "/api/v1/xiaohongshu/web/get_home_recommend", json=json_body)
-
-    async def get_note_info_v2(
-        self,
-        *,
-        note_id: str | None = None,
-        share_text: str | None = None,
-    ) -> Any:
-        """获取笔记信息 V2/Get note info V2
-
-        ``GET /api/v1/xiaohongshu/web/get_note_info_v2``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-            "share_text": share_text,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web/get_note_info_v2", params=params)
 
     async def get_note_info_v4(
         self,
@@ -423,6 +387,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """获取笔记评论 V1/Get note comments V1
 
         ``GET /api/v1/xiaohongshu/web/get_note_comments``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
@@ -440,6 +406,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """获取笔记评论回复 V1/Get note comment replies V1
 
         ``GET /api/v1/xiaohongshu/web/get_note_comment_replies``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
@@ -462,22 +430,6 @@ class AsyncXiaohongshuWeb(AsyncResource):
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web/get_user_info", params=params)
 
-    async def get_user_info_v2(
-        self,
-        *,
-        user_id: str | None = None,
-        share_text: str | None = None,
-    ) -> Any:
-        """获取用户信息 V2/Get user info V2
-
-        ``GET /api/v1/xiaohongshu/web/get_user_info_v2``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "share_text": share_text,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web/get_user_info_v2", params=params)
-
     async def search_notes(
         self,
         *,
@@ -490,6 +442,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """搜索笔记/Search notes
 
         ``GET /api/v1/xiaohongshu/web/search_notes``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -512,6 +466,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """搜索笔记 V3/Search notes V3
 
         ``GET /api/v1/xiaohongshu/web/search_notes_v3``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -531,6 +487,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """搜索用户/Search users
 
         ``GET /api/v1/xiaohongshu/web/search_users``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "keyword": keyword,
@@ -547,6 +505,8 @@ class AsyncXiaohongshuWeb(AsyncResource):
         """获取用户的笔记 V2/Get user notes V2
 
         ``GET /api/v1/xiaohongshu/web/get_user_notes_v2``
+
+        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "user_id": user_id,

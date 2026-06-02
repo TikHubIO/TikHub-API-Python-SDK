@@ -11,7 +11,7 @@ pip install tikhub_sdk_v2 tikhub      # both at once
 | | V1.x (`tikhub_sdk_v2`) | V2.1 (`tikhub`) |
 |---|---|---|
 | Package | `tikhub_sdk_v2` | `tikhub` |
-| Spec version targeted | V1.0.0 (~28 tags) | **V5.3.2 (52 tags, 1010 endpoints)** |
+| Spec version targeted | V1.0.0 (~28 tags) | **V5.3.2 (54 tags, 1106 endpoints)** |
 | Naming | `BodyFetchHotTotalHighFanListApiV1DouyinBillboardFetchHotTotalHighFanListPost` | `client.douyin_billboard.fetch_hot_total_high_fan_list(...)` |
 | Async | "library: asyncio" was set in the generator config but the emitted code is sync | Native `httpx.AsyncClient` |
 | Python | 2 / 3 (with `six`) | **3.9+** |

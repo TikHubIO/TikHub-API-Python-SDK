@@ -1,7 +1,7 @@
 """Example: TikTok-Shop-Web-API
 
 SDK attribute: ``client.tiktok_shop_web``
-Endpoints: 15
+Endpoints: 13
 
 Usage::
 
@@ -34,11 +34,6 @@ async def main():
         # GET /api/v1/tiktok/shop/web/fetch_product_detail_v3
         # 获取商品详情V3(移动端-数据完整)/Get product detail V3 (Full Data)
         result = await client.tiktok_shop_web.fetch_product_detail_v3(product_id='1732108663255959373', region='SG')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/tiktok/shop/web/fetch_product_reviews_v1
-        # 获取商品评论V1/Get product reviews V1
-        result = await client.tiktok_shop_web.fetch_product_reviews_v1(product_id='1731677627342753961', sort_type=2, offset=1)
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/tiktok/shop/web/fetch_product_reviews_v2
@@ -74,11 +69,6 @@ async def main():
         # GET /api/v1/tiktok/shop/web/fetch_search_products_list_v2
         # 搜索商品列表V2(移动端)/Search products list V2 (Mobile)
         result = await client.tiktok_shop_web.fetch_search_products_list_v2(search_word='labubu', offset=0, page_token='', region='US')
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-
-        # GET /api/v1/tiktok/shop/web/fetch_search_products_list_v3
-        # 搜索商品列表V3/Search products list V3
-        result = await client.tiktok_shop_web.fetch_search_products_list_v3(keyword='Labubu', offset=0, region='US', sort_by='RELEVANCE')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/tiktok/shop/web/fetch_products_category_list

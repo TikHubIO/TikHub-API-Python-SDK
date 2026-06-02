@@ -5,7 +5,7 @@
 OpenAPI tag: ``Xiaohongshu-Web-V2-API``
 SDK attribute: ``client.xiaohongshu_web_v2`` / ``async_client.xiaohongshu_web_v2``
 
-Endpoints: 18
+Endpoints: 7
 """
 
 from __future__ import annotations
@@ -24,21 +24,21 @@ __all__ = ["AsyncXiaohongshuWebV2", "XiaohongshuWebV2"]
 
 
 class XiaohongshuWebV2(SyncResource):
-    """Sync ``Xiaohongshu-Web-V2-API`` resource (18 endpoints)."""
+    """Sync ``Xiaohongshu-Web-V2-API`` resource (7 endpoints)."""
 
     def fetch_feed_notes(
         self,
         *,
         note_id: str,
+        share_text: str | None = None,
     ) -> Any:
-        """获取单一笔记和推荐笔记 V1 (已弃用)/Fetch one note and feed notes V1 (deprecated)
+        """获取图文笔记详情 V1/Get image note detail V1
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
+            "share_text": share_text,
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes", params=params)
 
@@ -46,123 +46,17 @@ class XiaohongshuWebV2(SyncResource):
         self,
         *,
         note_id: str,
+        share_text: str | None = None,
     ) -> Any:
-        """获取单一笔记和推荐笔记 V2/Fetch one note and feed notes V2(v2稳定, 推荐使用此接口)
+        """获取图文笔记详情 V2/Get image note detail V2
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v2``
         """
         params = _drop_none({
             "note_id": note_id,
+            "share_text": share_text,
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v2", params=params)
-
-    def fetch_feed_notes_v3(
-        self,
-        *,
-        short_url: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V3/Fetch one note and feed notes V3(通过短链获取笔记详情)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v3``
-        """
-        params = _drop_none({
-            "short_url": short_url,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v3", params=params)
-
-    def fetch_feed_notes_v4(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V4 (互动量有延迟)/Fetch one note and feed notes V4 (interaction volume has a delay)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v4``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v4", params=params)
-
-    def fetch_feed_notes_v5(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V5 (互动量有缺失)/Fetch one note and feed notes V5 (interaction volume has a missing)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v5``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v5", params=params)
-
-    def fetch_note_image(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取小红书笔记图片/Fetch Xiaohongshu note image
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_note_image``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_note_image", params=params)
-
-    def fetch_search_notes(
-        self,
-        *,
-        keywords: str,
-        page: int | None = None,
-        sort_type: str | None = None,
-        note_type: str | None = None,
-    ) -> Any:
-        """获取搜索笔记/Fetch search notes
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_search_notes``
-        """
-        params = _drop_none({
-            "keywords": keywords,
-            "page": page,
-            "sort_type": sort_type,
-            "note_type": note_type,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_search_notes", params=params)
-
-    def fetch_search_users(
-        self,
-        *,
-        keywords: str,
-        page: int | None = None,
-    ) -> Any:
-        """获取搜索用户/Fetch search users
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_search_users``
-        """
-        params = _drop_none({
-            "keywords": keywords,
-            "page": page,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_search_users", params=params)
-
-    def fetch_home_notes(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取Web用户主页笔记/Fetch web user profile notes
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_home_notes``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_home_notes", params=params)
 
     def fetch_home_notes_app(
         self,
@@ -170,7 +64,7 @@ class XiaohongshuWebV2(SyncResource):
         user_id: str,
         cursor: str | None = None,
     ) -> Any:
-        """获取App用户主页笔记/Fetch App user home notes
+        """获取用户笔记/Fetch user notes
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_home_notes_app``
         """
@@ -214,20 +108,6 @@ class XiaohongshuWebV2(SyncResource):
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_sub_comments", params=params)
 
-    def fetch_user_info(
-        self,
-        *,
-        user_id: str,
-    ) -> Any:
-        """获取用户信息/Fetch user info
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_user_info``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_user_info", params=params)
-
     def fetch_user_info_app(
         self,
         *,
@@ -242,54 +122,6 @@ class XiaohongshuWebV2(SyncResource):
         })
         return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_user_info_app", params=params)
 
-    def fetch_follower_list(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取用户粉丝列表/Fetch follower list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_follower_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_follower_list", params=params)
-
-    def fetch_following_list(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取用户关注列表/Fetch following list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_following_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_following_list", params=params)
-
-    def fetch_product_list(
-        self,
-        *,
-        user_id: str,
-        page: str | None = None,
-    ) -> Any:
-        """获取小红书商品列表/Fetch Xiaohongshu product list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_product_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "page": page,
-        })
-        return self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_product_list", params=params)
-
     def fetch_hot_list(
         self,
     ) -> Any:
@@ -301,21 +133,21 @@ class XiaohongshuWebV2(SyncResource):
 
 
 class AsyncXiaohongshuWebV2(AsyncResource):
-    """Async ``Xiaohongshu-Web-V2-API`` resource (18 endpoints)."""
+    """Async ``Xiaohongshu-Web-V2-API`` resource (7 endpoints)."""
 
     async def fetch_feed_notes(
         self,
         *,
         note_id: str,
+        share_text: str | None = None,
     ) -> Any:
-        """获取单一笔记和推荐笔记 V1 (已弃用)/Fetch one note and feed notes V1 (deprecated)
+        """获取图文笔记详情 V1/Get image note detail V1
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes``
-
-        .. deprecated:: this endpoint is marked deprecated upstream.
         """
         params = _drop_none({
             "note_id": note_id,
+            "share_text": share_text,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes", params=params)
 
@@ -323,123 +155,17 @@ class AsyncXiaohongshuWebV2(AsyncResource):
         self,
         *,
         note_id: str,
+        share_text: str | None = None,
     ) -> Any:
-        """获取单一笔记和推荐笔记 V2/Fetch one note and feed notes V2(v2稳定, 推荐使用此接口)
+        """获取图文笔记详情 V2/Get image note detail V2
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v2``
         """
         params = _drop_none({
             "note_id": note_id,
+            "share_text": share_text,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v2", params=params)
-
-    async def fetch_feed_notes_v3(
-        self,
-        *,
-        short_url: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V3/Fetch one note and feed notes V3(通过短链获取笔记详情)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v3``
-        """
-        params = _drop_none({
-            "short_url": short_url,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v3", params=params)
-
-    async def fetch_feed_notes_v4(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V4 (互动量有延迟)/Fetch one note and feed notes V4 (interaction volume has a delay)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v4``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v4", params=params)
-
-    async def fetch_feed_notes_v5(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取单一笔记和推荐笔记 V5 (互动量有缺失)/Fetch one note and feed notes V5 (interaction volume has a missing)
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_feed_notes_v5``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_feed_notes_v5", params=params)
-
-    async def fetch_note_image(
-        self,
-        *,
-        note_id: str,
-    ) -> Any:
-        """获取小红书笔记图片/Fetch Xiaohongshu note image
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_note_image``
-        """
-        params = _drop_none({
-            "note_id": note_id,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_note_image", params=params)
-
-    async def fetch_search_notes(
-        self,
-        *,
-        keywords: str,
-        page: int | None = None,
-        sort_type: str | None = None,
-        note_type: str | None = None,
-    ) -> Any:
-        """获取搜索笔记/Fetch search notes
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_search_notes``
-        """
-        params = _drop_none({
-            "keywords": keywords,
-            "page": page,
-            "sort_type": sort_type,
-            "note_type": note_type,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_search_notes", params=params)
-
-    async def fetch_search_users(
-        self,
-        *,
-        keywords: str,
-        page: int | None = None,
-    ) -> Any:
-        """获取搜索用户/Fetch search users
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_search_users``
-        """
-        params = _drop_none({
-            "keywords": keywords,
-            "page": page,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_search_users", params=params)
-
-    async def fetch_home_notes(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取Web用户主页笔记/Fetch web user profile notes
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_home_notes``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_home_notes", params=params)
 
     async def fetch_home_notes_app(
         self,
@@ -447,7 +173,7 @@ class AsyncXiaohongshuWebV2(AsyncResource):
         user_id: str,
         cursor: str | None = None,
     ) -> Any:
-        """获取App用户主页笔记/Fetch App user home notes
+        """获取用户笔记/Fetch user notes
 
         ``GET /api/v1/xiaohongshu/web_v2/fetch_home_notes_app``
         """
@@ -491,20 +217,6 @@ class AsyncXiaohongshuWebV2(AsyncResource):
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_sub_comments", params=params)
 
-    async def fetch_user_info(
-        self,
-        *,
-        user_id: str,
-    ) -> Any:
-        """获取用户信息/Fetch user info
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_user_info``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_user_info", params=params)
-
     async def fetch_user_info_app(
         self,
         *,
@@ -518,54 +230,6 @@ class AsyncXiaohongshuWebV2(AsyncResource):
             "user_id": user_id,
         })
         return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_user_info_app", params=params)
-
-    async def fetch_follower_list(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取用户粉丝列表/Fetch follower list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_follower_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_follower_list", params=params)
-
-    async def fetch_following_list(
-        self,
-        *,
-        user_id: str,
-        cursor: str | None = None,
-    ) -> Any:
-        """获取用户关注列表/Fetch following list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_following_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "cursor": cursor,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_following_list", params=params)
-
-    async def fetch_product_list(
-        self,
-        *,
-        user_id: str,
-        page: str | None = None,
-    ) -> Any:
-        """获取小红书商品列表/Fetch Xiaohongshu product list
-
-        ``GET /api/v1/xiaohongshu/web_v2/fetch_product_list``
-        """
-        params = _drop_none({
-            "user_id": user_id,
-            "page": page,
-        })
-        return await self._client._request("GET", "/api/v1/xiaohongshu/web_v2/fetch_product_list", params=params)
 
     async def fetch_hot_list(
         self,

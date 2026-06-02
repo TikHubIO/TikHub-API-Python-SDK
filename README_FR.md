@@ -30,7 +30,7 @@ Con&ccedil;u pour les d&eacute;veloppeurs, les data scientists et les ing&eacute
 
 ## Pourquoi ce SDK ?
 
-- **Couverture &agrave; 100%** — 1010 / 1010 endpoints de la sp&eacute;cification OpenAPI V5.3.2, g&eacute;n&eacute;r&eacute;s et v&eacute;rifi&eacute;s m&eacute;caniquement
+- **Couverture &agrave; 100%** — 1106 / 1106 endpoints de la sp&eacute;cification OpenAPI V5.3.2, g&eacute;n&eacute;r&eacute;s et v&eacute;rifi&eacute;s m&eacute;caniquement
 - **Sync + async** — clients `TikHub` et `AsyncTikHub` avec des APIs identiques
 - **Pr&ecirc;t pour la production** — nouvelles tentatives automatiques avec backoff exponentiel, gestion des limites de taux, hi&eacute;rarchie d'erreurs structur&eacute;e
 - **Type-safe** — compatible `mypy --strict`, construit sur `httpx` + `pydantic v2`

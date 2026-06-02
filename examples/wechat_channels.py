@@ -1,7 +1,7 @@
 """Example: WeChat-Channels-API
 
 SDK attribute: ``client.wechat_channels``
-Endpoints: 10
+Endpoints: 12
 
 Usage::
 
@@ -51,6 +51,11 @@ async def main():
         result = await client.wechat_channels.fetch_video_detail(id='14396973035218999573', exportId='')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
+        # GET /api/v1/wechat_channels/fetch_video_by_share_url
+        # 微信视频号分享详情/WeChat Channels Share Detail
+        result = await client.wechat_channels.fetch_video_by_share_url(share_url='https://weixin.qq.com/sph/AwAMhHizXD')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
         # POST /api/v1/wechat_channels/fetch_home_page
         # 微信视频号主页/WeChat Channels Home Page
         result = await client.wechat_channels.fetch_home_page(username='v2_060000231003b20faec8c4ea8a1ac7d5c80ce434b077535b622489f476b63209b6886fc4a16f@finder', last_buffer='')
@@ -64,6 +69,11 @@ async def main():
         # GET /api/v1/wechat_channels/fetch_live_history
         # 微信视频号直播回放/WeChat Channels Live History
         result = await client.wechat_channels.fetch_live_history(username='v2_060000231003b20faec8c5eb811dc1d2cc0cee34b0779397527ceff87326eefb309aac785aa8@finder')
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+
+        # GET /api/v1/wechat_channels/fetch_search_channels
+        # 微信视频号搜索/Search WeChat Channels
+        result = await client.wechat_channels.fetch_search_channels(keyword='美食', offset=0, sort_type='_0')
         print(json.dumps(result, indent=2, ensure_ascii=False))
 
         # GET /api/v1/wechat_channels/fetch_hot_words
