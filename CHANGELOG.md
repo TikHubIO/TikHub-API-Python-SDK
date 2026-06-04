@@ -4,6 +4,8 @@ All notable changes to `tikhub` will be documented in this file. The format is b
 
 ## [Unreleased]
 
+## [2.1.2] — 2026-06-03
+
 ### Added — Phase 6 (docs, CLI, release tooling)
 
 - **mkdocs-material site** at `mkdocs.yml` + `docs/`. Hand-written guides
